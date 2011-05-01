@@ -1,0 +1,646 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 44;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F0E36C212EBAD380008377F /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
+		1F0E36C312EBAD380008377F /* connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36AE12EBAD380008377F /* connection.h */; };
+		1F0E36C412EBAD380008377F /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
+		1F0E36C512EBAD380008377F /* connection_https.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B012EBAD380008377F /* connection_https.h */; };
+		1F0E36C612EBAD380008377F /* daemon.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B112EBAD380008377F /* daemon.c */; };
+		1F0E36C712EBAD380008377F /* digestauth.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B212EBAD380008377F /* digestauth.c */; };
+		1F0E36C812EBAD380008377F /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B312EBAD380008377F /* internal.c */; };
+		1F0E36C912EBAD380008377F /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B412EBAD380008377F /* internal.h */; };
+		1F0E36CA12EBAD380008377F /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B512EBAD380008377F /* md5.c */; };
+		1F0E36CB12EBAD380008377F /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B612EBAD380008377F /* md5.h */; };
+		1F0E36CC12EBAD380008377F /* memorypool.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B712EBAD380008377F /* memorypool.c */; };
+		1F0E36CD12EBAD380008377F /* memorypool.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B812EBAD380008377F /* memorypool.h */; };
+		1F0E36CE12EBAD380008377F /* MHD_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B912EBAD380008377F /* MHD_config.h */; };
+		1F0E36CF12EBAD380008377F /* microhttpd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BA12EBAD380008377F /* microhttpd.h */; };
+		1F0E36D012EBAD380008377F /* platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BB12EBAD380008377F /* platform.h */; };
+		1F0E36D112EBAD380008377F /* plibc.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BC12EBAD380008377F /* plibc.h */; };
+		1F0E36D212EBAD380008377F /* postprocessor.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BD12EBAD380008377F /* postprocessor.c */; };
+		1F0E36D312EBAD380008377F /* reason_phrase.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BE12EBAD380008377F /* reason_phrase.c */; };
+		1F0E36D412EBAD380008377F /* reason_phrase.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BF12EBAD380008377F /* reason_phrase.h */; };
+		1F0E36D512EBAD380008377F /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36C012EBAD380008377F /* response.c */; };
+		1F0E36D612EBAD380008377F /* response.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36C112EBAD380008377F /* response.h */; };
+		1F0E36D912EBAD470008377F /* MPWHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36D712EBAD470008377F /* MPWHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F0E36DA12EBAD470008377F /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
+		1F0E36EC12EBADD40008377F /* MPWSideweb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */; };
+		1F0E371912EBB0160008377F /* WebConnectDemoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371812EBB0160008377F /* WebConnectDemoServer.m */; };
+		1F0E371E12EBB1100008377F /* MPWPOSTProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E371C12EBB1100008377F /* MPWPOSTProcessor.h */; };
+		1F0E371F12EBB1100008377F /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
+		1F0E374312EBBFB20008377F /* MPWSiteMapHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E374112EBBFB20008377F /* MPWSiteMapHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F0E374412EBBFB20008377F /* MPWSiteMapHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */; };
+		1F3B20CA0C4354AE005DFF1E /* MPWTreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3B20C80C4354AE005DFF1E /* MPWTreeNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F3B20CB0C4354AE005DFF1E /* MPWTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B20C90C4354AE005DFF1E /* MPWTreeNode.m */; };
+		1F905A530C2E07F700E63F65 /* WAHtmlRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F905A540C2E07F700E63F65 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
+		1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */; };
+		1F905AB60C2E0AD400E63F65 /* MPWXmlKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905AB50C2E0AD400E63F65 /* MPWXmlKit.framework */; };
+		1FD8B6F10C3C935E00F4F8BB /* MPWSiteMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD8B6EF0C3C935E00F4F8BB /* MPWSiteMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FD8B6F20C3C935E00F4F8BB /* MPWSiteMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */; };
+		1FD8B7340C3CAB1B00F4F8BB /* MPWHtmlPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FD8B7350C3CAB1B00F4F8BB /* MPWHtmlPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */; };
+		1FDA9FD9136E00F900481CA3 /* microhttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA9FD8136E00F900481CA3 /* microhttp.m */; };
+		1FE2E6A00C862FBC00C94753 /* MPWPlainHtmlContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE2E69C0C862FBC00C94753 /* MPWPlainHtmlContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FE2E6A10C862FBC00C94753 /* MPWPlainHtmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */; };
+		1FE2E6A20C862FBC00C94753 /* MPWPlainCSSContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE2E69E0C862FBC00C94753 /* MPWPlainCSSContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FE2E6A30C862FBC00C94753 /* MPWPlainCSSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */; };
+		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
+		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1F0E36F612EBADD60008377F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = MPWSideweb;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
+		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		1F0E36AD12EBAD380008377F /* connection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = connection.c; sourceTree = "<group>"; };
+		1F0E36AE12EBAD380008377F /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
+		1F0E36AF12EBAD380008377F /* connection_https.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = connection_https.c; sourceTree = "<group>"; };
+		1F0E36B012EBAD380008377F /* connection_https.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection_https.h; sourceTree = "<group>"; };
+		1F0E36B112EBAD380008377F /* daemon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daemon.c; sourceTree = "<group>"; };
+		1F0E36B212EBAD380008377F /* digestauth.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = digestauth.c; sourceTree = "<group>"; };
+		1F0E36B312EBAD380008377F /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = internal.c; sourceTree = "<group>"; };
+		1F0E36B412EBAD380008377F /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
+		1F0E36B512EBAD380008377F /* md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5.c; sourceTree = "<group>"; };
+		1F0E36B612EBAD380008377F /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		1F0E36B712EBAD380008377F /* memorypool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memorypool.c; sourceTree = "<group>"; };
+		1F0E36B812EBAD380008377F /* memorypool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memorypool.h; sourceTree = "<group>"; };
+		1F0E36B912EBAD380008377F /* MHD_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHD_config.h; sourceTree = "<group>"; };
+		1F0E36BA12EBAD380008377F /* microhttpd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = microhttpd.h; sourceTree = "<group>"; };
+		1F0E36BB12EBAD380008377F /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
+		1F0E36BC12EBAD380008377F /* plibc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plibc.h; sourceTree = "<group>"; };
+		1F0E36BD12EBAD380008377F /* postprocessor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = postprocessor.c; sourceTree = "<group>"; };
+		1F0E36BE12EBAD380008377F /* reason_phrase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reason_phrase.c; sourceTree = "<group>"; };
+		1F0E36BF12EBAD380008377F /* reason_phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reason_phrase.h; sourceTree = "<group>"; };
+		1F0E36C012EBAD380008377F /* response.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = response.c; sourceTree = "<group>"; };
+		1F0E36C112EBAD380008377F /* response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = response.h; sourceTree = "<group>"; };
+		1F0E36D712EBAD470008377F /* MPWHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWHTTPServer.h; sourceTree = "<group>"; };
+		1F0E36D812EBAD470008377F /* MPWHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWHTTPServer.m; sourceTree = "<group>"; };
+		1F0E36E412EBADC10008377F /* webside */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = webside; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F0E371712EBB0160008377F /* WebConnectDemoServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebConnectDemoServer.h; sourceTree = "<group>"; };
+		1F0E371812EBB0160008377F /* WebConnectDemoServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebConnectDemoServer.m; sourceTree = "<group>"; };
+		1F0E371C12EBB1100008377F /* MPWPOSTProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWPOSTProcessor.h; sourceTree = "<group>"; };
+		1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWPOSTProcessor.m; sourceTree = "<group>"; };
+		1F0E374112EBBFB20008377F /* MPWSiteMapHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSiteMapHTTPServer.h; sourceTree = "<group>"; };
+		1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteMapHTTPServer.m; sourceTree = "<group>"; };
+		1F3B20C80C4354AE005DFF1E /* MPWTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWTreeNode.h; sourceTree = "<group>"; };
+		1F3B20C90C4354AE005DFF1E /* MPWTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWTreeNode.m; sourceTree = "<group>"; };
+		1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAHtmlRenderer.h; sourceTree = "<group>"; };
+		1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAHtmlRenderer.m; sourceTree = "<group>"; };
+		1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundation.framework; path = ../MPWFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F905AB50C2E0AD400E63F65 /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPWXmlKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FD8B6EF0C3C935E00F4F8BB /* MPWSiteMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSiteMap.h; sourceTree = "<group>"; };
+		1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteMap.m; sourceTree = "<group>"; };
+		1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWHtmlPage.h; sourceTree = "<group>"; };
+		1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWHtmlPage.m; sourceTree = "<group>"; };
+		1FDA9FD8136E00F900481CA3 /* microhttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = microhttp.m; sourceTree = "<group>"; };
+		1FE2E69C0C862FBC00C94753 /* MPWPlainHtmlContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWPlainHtmlContent.h; sourceTree = "<group>"; };
+		1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWPlainHtmlContent.m; sourceTree = "<group>"; };
+		1FE2E69E0C862FBC00C94753 /* MPWPlainCSSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWPlainCSSContent.h; sourceTree = "<group>"; };
+		1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWPlainCSSContent.m; sourceTree = "<group>"; };
+		32DBCF5E0370ADEE00C91783 /* MPWSideweb_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSideweb_Prefix.pch; sourceTree = "<group>"; };
+		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPWSideweb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1F0E36E212EBADC10008377F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F0E36EC12EBADD40008377F /* MPWSideweb.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF560486A6940098B216 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */,
+				1F905AB60C2E0AD400E63F65 /* MPWXmlKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */,
+				1F0E36E412EBADC10008377F /* webside */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* MPWSideweb */ = {
+			isa = PBXGroup;
+			children = (
+				1F0E36AC12EBAD380008377F /* microhttpd */,
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				089C1665FE841158C02AAC07 /* Resources */,
+				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				034768DFFF38A50411DB9C8B /* Products */,
+			);
+			name = MPWSideweb;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		089C1665FE841158C02AAC07 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8DC2EF5A0486A6940098B216 /* Info.plist */,
+				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1F0E36D712EBAD470008377F /* MPWHTTPServer.h */,
+				1F0E36D812EBAD470008377F /* MPWHTTPServer.m */,
+				1FE2E69C0C862FBC00C94753 /* MPWPlainHtmlContent.h */,
+				1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */,
+				1FE2E69E0C862FBC00C94753 /* MPWPlainCSSContent.h */,
+				1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */,
+				1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */,
+				1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */,
+				1FD8B6EF0C3C935E00F4F8BB /* MPWSiteMap.h */,
+				1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */,
+				1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */,
+				1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */,
+				1F3B20C80C4354AE005DFF1E /* MPWTreeNode.h */,
+				1F3B20C90C4354AE005DFF1E /* MPWTreeNode.m */,
+				1F0E371712EBB0160008377F /* WebConnectDemoServer.h */,
+				1F0E371812EBB0160008377F /* WebConnectDemoServer.m */,
+				1F0E371C12EBB1100008377F /* MPWPOSTProcessor.h */,
+				1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */,
+				1F0E374112EBBFB20008377F /* MPWSiteMapHTTPServer.h */,
+				1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F905AB50C2E0AD400E63F65 /* MPWXmlKit.framework */,
+				1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */,
+				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
+			);
+			name = "Linked Frameworks";
+			sourceTree = "<group>";
+		};
+		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
+				D2F7E79907B2D74100F64583 /* CoreData.framework */,
+				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1F0E36AC12EBAD380008377F /* microhttpd */ = {
+			isa = PBXGroup;
+			children = (
+				1F0E36AD12EBAD380008377F /* connection.c */,
+				1F0E36AE12EBAD380008377F /* connection.h */,
+				1F0E36AF12EBAD380008377F /* connection_https.c */,
+				1F0E36B012EBAD380008377F /* connection_https.h */,
+				1F0E36B112EBAD380008377F /* daemon.c */,
+				1F0E36B212EBAD380008377F /* digestauth.c */,
+				1F0E36B312EBAD380008377F /* internal.c */,
+				1F0E36B412EBAD380008377F /* internal.h */,
+				1F0E36B512EBAD380008377F /* md5.c */,
+				1F0E36B612EBAD380008377F /* md5.h */,
+				1F0E36B712EBAD380008377F /* memorypool.c */,
+				1F0E36B812EBAD380008377F /* memorypool.h */,
+				1F0E36B912EBAD380008377F /* MHD_config.h */,
+				1F0E36BA12EBAD380008377F /* microhttpd.h */,
+				1F0E36BB12EBAD380008377F /* platform.h */,
+				1F0E36BC12EBAD380008377F /* plibc.h */,
+				1F0E36BD12EBAD380008377F /* postprocessor.c */,
+				1F0E36BE12EBAD380008377F /* reason_phrase.c */,
+				1F0E36BF12EBAD380008377F /* reason_phrase.h */,
+				1F0E36C012EBAD380008377F /* response.c */,
+				1F0E36C112EBAD380008377F /* response.h */,
+			);
+			path = microhttpd;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				32DBCF5E0370ADEE00C91783 /* MPWSideweb_Prefix.pch */,
+				1FDA9FD8136E00F900481CA3 /* microhttp.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8DC2EF500486A6940098B216 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F905A530C2E07F700E63F65 /* WAHtmlRenderer.h in Headers */,
+				1FD8B6F10C3C935E00F4F8BB /* MPWSiteMap.h in Headers */,
+				1FD8B7340C3CAB1B00F4F8BB /* MPWHtmlPage.h in Headers */,
+				1F3B20CA0C4354AE005DFF1E /* MPWTreeNode.h in Headers */,
+				1FE2E6A00C862FBC00C94753 /* MPWPlainHtmlContent.h in Headers */,
+				1FE2E6A20C862FBC00C94753 /* MPWPlainCSSContent.h in Headers */,
+				1F0E36C312EBAD380008377F /* connection.h in Headers */,
+				1F0E36C512EBAD380008377F /* connection_https.h in Headers */,
+				1F0E36C912EBAD380008377F /* internal.h in Headers */,
+				1F0E36CB12EBAD380008377F /* md5.h in Headers */,
+				1F0E36CD12EBAD380008377F /* memorypool.h in Headers */,
+				1F0E36CE12EBAD380008377F /* MHD_config.h in Headers */,
+				1F0E36CF12EBAD380008377F /* microhttpd.h in Headers */,
+				1F0E36D012EBAD380008377F /* platform.h in Headers */,
+				1F0E36D112EBAD380008377F /* plibc.h in Headers */,
+				1F0E36D412EBAD380008377F /* reason_phrase.h in Headers */,
+				1F0E36D612EBAD380008377F /* response.h in Headers */,
+				1F0E36D912EBAD470008377F /* MPWHTTPServer.h in Headers */,
+				1F0E371E12EBB1100008377F /* MPWPOSTProcessor.h in Headers */,
+				1F0E374312EBBFB20008377F /* MPWSiteMapHTTPServer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		1F0E36E312EBADC10008377F /* webside */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F0E370912EBADE20008377F /* Build configuration list for PBXNativeTarget "webside" */;
+			buildPhases = (
+				1F0E36E112EBADC10008377F /* Sources */,
+				1F0E36E212EBADC10008377F /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1F0E36F712EBADD60008377F /* PBXTargetDependency */,
+			);
+			name = webside;
+			productName = webside;
+			productReference = 1F0E36E412EBADC10008377F /* webside */;
+			productType = "com.apple.product-type.tool";
+		};
+		8DC2EF4F0486A6940098B216 /* MPWSideweb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "MPWSideweb" */;
+			buildPhases = (
+				8DC2EF500486A6940098B216 /* Headers */,
+				8DC2EF520486A6940098B216 /* Resources */,
+				8DC2EF540486A6940098B216 /* Sources */,
+				8DC2EF560486A6940098B216 /* Frameworks */,
+				1F905ACF0C2E2E8E00E63F65 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MPWSideweb;
+			productInstallPath = "$(HOME)/Library/Frameworks";
+			productName = MPWSideweb;
+			productReference = 8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "MPWSideweb" */;
+			compatibilityVersion = "Xcode 3.0";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* MPWSideweb */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DC2EF4F0486A6940098B216 /* MPWSideweb */,
+				1F0E36E312EBADC10008377F /* webside */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8DC2EF520486A6940098B216 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1F905ACF0C2E2E8E00E63F65 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/testlogger MPWSideweb\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1F0E36E112EBADC10008377F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F0E371912EBB0160008377F /* WebConnectDemoServer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DC2EF540486A6940098B216 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F905A540C2E07F700E63F65 /* WAHtmlRenderer.m in Sources */,
+				1FD8B6F20C3C935E00F4F8BB /* MPWSiteMap.m in Sources */,
+				1FD8B7350C3CAB1B00F4F8BB /* MPWHtmlPage.m in Sources */,
+				1F3B20CB0C4354AE005DFF1E /* MPWTreeNode.m in Sources */,
+				1FE2E6A10C862FBC00C94753 /* MPWPlainHtmlContent.m in Sources */,
+				1FE2E6A30C862FBC00C94753 /* MPWPlainCSSContent.m in Sources */,
+				1F0E36C212EBAD380008377F /* connection.c in Sources */,
+				1F0E36C412EBAD380008377F /* connection_https.c in Sources */,
+				1F0E36C612EBAD380008377F /* daemon.c in Sources */,
+				1F0E36C712EBAD380008377F /* digestauth.c in Sources */,
+				1F0E36C812EBAD380008377F /* internal.c in Sources */,
+				1F0E36CA12EBAD380008377F /* md5.c in Sources */,
+				1F0E36CC12EBAD380008377F /* memorypool.c in Sources */,
+				1F0E36D212EBAD380008377F /* postprocessor.c in Sources */,
+				1F0E36D312EBAD380008377F /* reason_phrase.c in Sources */,
+				1F0E36D512EBAD380008377F /* response.c in Sources */,
+				1F0E36DA12EBAD470008377F /* MPWHTTPServer.m in Sources */,
+				1F0E371F12EBB1100008377F /* MPWPOSTProcessor.m in Sources */,
+				1F0E374412EBBFB20008377F /* MPWSiteMapHTTPServer.m in Sources */,
+				1FDA9FD9136E00F900481CA3 /* microhttp.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1F0E36F712EBADD60008377F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8DC2EF4F0486A6940098B216 /* MPWSideweb */;
+			targetProxy = 1F0E36F612EBADD60008377F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		089C1666FE841158C02AAC07 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				089C1667FE841158C02AAC07 /* English */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB91AE08733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MPWSideweb_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = MPWSideweb;
+				WRAPPER_EXTENSION = framework;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB91AF08733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MPWSideweb_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = MPWSideweb;
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		1DEB91B208733DA50010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Debug;
+		};
+		1DEB91B308733DA50010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INSTALL_PATH = "@executable_path/../Frameworks";
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Release;
+		};
+		1F0E36E612EBADC10008377F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = webside;
+			};
+			name = Debug;
+		};
+		1F0E36E712EBADC10008377F /* Relative */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = webside;
+			};
+			name = Relative;
+		};
+		1F0E36E812EBADC10008377F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INSTALL_PATH = /usr/local/bin;
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = webside;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		1F905AA10C2E09B000E63F65 /* Relative */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+			};
+			name = Relative;
+		};
+		1F905AA20C2E09B000E63F65 /* Relative */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = MPWSideweb_Prefix.pch;
+				INFOPLIST_FILE = Info.plist;
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				PRODUCT_NAME = MPWSideweb;
+				WRAPPER_EXTENSION = framework;
+				ZERO_LINK = YES;
+			};
+			name = Relative;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "MPWSideweb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91AE08733DA50010E9CD /* Debug */,
+				1F905AA20C2E09B000E63F65 /* Relative */,
+				1DEB91AF08733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "MPWSideweb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB91B208733DA50010E9CD /* Debug */,
+				1F905AA10C2E09B000E63F65 /* Relative */,
+				1DEB91B308733DA50010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F0E370912EBADE20008377F /* Build configuration list for PBXNativeTarget "webside" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F0E36E612EBADC10008377F /* Debug */,
+				1F0E36E712EBADC10008377F /* Relative */,
+				1F0E36E812EBADC10008377F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
