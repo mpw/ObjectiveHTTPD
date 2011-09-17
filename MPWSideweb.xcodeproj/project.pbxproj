@@ -141,9 +141,6 @@
 		1F3B20C90C4354AE005DFF1E /* MPWTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWTreeNode.m; sourceTree = "<group>"; };
 		1F6ECA7D1424D2AF002DD085 /* libMPWSideWeb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMPWSideWeb.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ECA7F1424D2AF002DD085 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		1F6ECA831424D2B0002DD085 /* MPWSideWeb-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MPWSideWeb-Prefix.pch"; sourceTree = "<group>"; };
-		1F6ECA841424D2B0002DD085 /* MPWSideWeb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPWSideWeb.h; sourceTree = "<group>"; };
-		1F6ECA851424D2B0002DD085 /* MPWSideWeb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPWSideWeb.m; sourceTree = "<group>"; };
 		1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Development/MPWXmlKit.framework"; sourceTree = "<group>"; };
 		1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundationLinux.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWFoundationLinux.framework"; sourceTree = "<group>"; };
 		1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWXmlKit.framework"; sourceTree = "<group>"; };
@@ -231,7 +228,6 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
-				1F6ECA811424D2B0002DD085 /* MPWSideWeb */,
 				1F6ECA7E1424D2AF002DD085 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
@@ -337,24 +333,6 @@
 				1F6ECA7F1424D2AF002DD085 /* Foundation.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		1F6ECA811424D2B0002DD085 /* MPWSideWeb */ = {
-			isa = PBXGroup;
-			children = (
-				1F6ECA841424D2B0002DD085 /* MPWSideWeb.h */,
-				1F6ECA851424D2B0002DD085 /* MPWSideWeb.m */,
-				1F6ECA821424D2B0002DD085 /* Supporting Files */,
-			);
-			path = MPWSideWeb;
-			sourceTree = "<group>";
-		};
-		1F6ECA821424D2B0002DD085 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F6ECA831424D2B0002DD085 /* MPWSideWeb-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
