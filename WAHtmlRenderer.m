@@ -29,11 +29,11 @@
 
 -(void)element:(char*)name attributes:attributes content:content selector:(SEL)selector
 {
-	NSLog(@"element with contents and selector");
+//	NSLog(@"element with contents and selector");
 	[self startTag:name attributes:attributes];
-	NSLog(@"did start, will do  content");
+//	NSLog(@"did start, will do  content");
 	[content performSelector:selector withObject:self];
-	NSLog(@"did  content");
+//	NSLog(@"did  content");
 //	objc_msgSend( content, selector, self );
 	[self closeTag:name];
 }

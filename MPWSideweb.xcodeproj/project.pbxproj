@@ -38,6 +38,23 @@
 		1F0E374412EBBFB20008377F /* MPWSiteMapHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */; };
 		1F3B20CA0C4354AE005DFF1E /* MPWTreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F3B20C80C4354AE005DFF1E /* MPWTreeNode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F3B20CB0C4354AE005DFF1E /* MPWTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B20C90C4354AE005DFF1E /* MPWTreeNode.m */; };
+		1F6ECA801424D2AF002DD085 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6ECA7F1424D2AF002DD085 /* Foundation.framework */; };
+		1F6ECA8B1424D2D1002DD085 /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
+		1F6ECA8C1424D2D1002DD085 /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
+		1F6ECA8D1424D2D1002DD085 /* daemon.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B112EBAD380008377F /* daemon.c */; };
+		1F6ECA8E1424D2D1002DD085 /* digestauth.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B212EBAD380008377F /* digestauth.c */; };
+		1F6ECA8F1424D2D1002DD085 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B312EBAD380008377F /* internal.c */; };
+		1F6ECA901424D2D1002DD085 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B512EBAD380008377F /* md5.c */; };
+		1F6ECA911424D2D1002DD085 /* memorypool.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B712EBAD380008377F /* memorypool.c */; };
+		1F6ECA921424D2D1002DD085 /* postprocessor.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BD12EBAD380008377F /* postprocessor.c */; };
+		1F6ECA931424D2D1002DD085 /* reason_phrase.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BE12EBAD380008377F /* reason_phrase.c */; };
+		1F6ECA941424D2D1002DD085 /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36C012EBAD380008377F /* response.c */; };
+		1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
+		1F6ECA961424D2FF002DD085 /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
+		1F7CFA5413E2117400FB926E /* MPWFoundationLinux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */; };
+		1F7CFA5613E2123200FB926E /* MPWXmlKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */; };
+		1F7CFA5A13E215F500FB926E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5913E215F500FB926E /* Foundation.framework */; };
+		1F7CFA5B13E21D9800FB926E /* microhttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA9FD8136E00F900481CA3 /* microhttp.m */; };
 		1F905A530C2E07F700E63F65 /* WAHtmlRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F905A540C2E07F700E63F65 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
 		1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */; };
@@ -47,6 +64,26 @@
 		1FD8B7340C3CAB1B00F4F8BB /* MPWHtmlPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FD8B7350C3CAB1B00F4F8BB /* MPWHtmlPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */; };
 		1FDA9FD9136E00F900481CA3 /* microhttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA9FD8136E00F900481CA3 /* microhttp.m */; };
+		1FDA9FFA136E076000481CA3 /* WebConnectDemoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371812EBB0160008377F /* WebConnectDemoServer.m */; };
+		1FDAA009136E079100481CA3 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
+		1FDAA00A136E079100481CA3 /* MPWSiteMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */; };
+		1FDAA00B136E079100481CA3 /* MPWHtmlPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */; };
+		1FDAA00C136E079100481CA3 /* MPWTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F3B20C90C4354AE005DFF1E /* MPWTreeNode.m */; };
+		1FDAA00D136E079100481CA3 /* MPWPlainHtmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */; };
+		1FDAA00E136E079100481CA3 /* MPWPlainCSSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */; };
+		1FDAA00F136E079100481CA3 /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
+		1FDAA010136E079100481CA3 /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
+		1FDAA011136E079100481CA3 /* daemon.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B112EBAD380008377F /* daemon.c */; };
+		1FDAA012136E079100481CA3 /* digestauth.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B212EBAD380008377F /* digestauth.c */; };
+		1FDAA013136E079100481CA3 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B312EBAD380008377F /* internal.c */; };
+		1FDAA014136E079100481CA3 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B512EBAD380008377F /* md5.c */; };
+		1FDAA015136E079100481CA3 /* memorypool.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B712EBAD380008377F /* memorypool.c */; };
+		1FDAA016136E079100481CA3 /* postprocessor.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BD12EBAD380008377F /* postprocessor.c */; };
+		1FDAA017136E079100481CA3 /* reason_phrase.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BE12EBAD380008377F /* reason_phrase.c */; };
+		1FDAA018136E079100481CA3 /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36C012EBAD380008377F /* response.c */; };
+		1FDAA019136E079100481CA3 /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
+		1FDAA01A136E079100481CA3 /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
+		1FDAA01B136E079100481CA3 /* MPWSiteMapHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */; };
 		1FE2E6A00C862FBC00C94753 /* MPWPlainHtmlContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE2E69C0C862FBC00C94753 /* MPWPlainHtmlContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FE2E6A10C862FBC00C94753 /* MPWPlainHtmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */; };
 		1FE2E6A20C862FBC00C94753 /* MPWPlainCSSContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE2E69E0C862FBC00C94753 /* MPWPlainCSSContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -102,6 +139,15 @@
 		1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteMapHTTPServer.m; sourceTree = "<group>"; };
 		1F3B20C80C4354AE005DFF1E /* MPWTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWTreeNode.h; sourceTree = "<group>"; };
 		1F3B20C90C4354AE005DFF1E /* MPWTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWTreeNode.m; sourceTree = "<group>"; };
+		1F6ECA7D1424D2AF002DD085 /* libMPWSideWeb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMPWSideWeb.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6ECA7F1424D2AF002DD085 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1F6ECA831424D2B0002DD085 /* MPWSideWeb-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MPWSideWeb-Prefix.pch"; sourceTree = "<group>"; };
+		1F6ECA841424D2B0002DD085 /* MPWSideWeb.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MPWSideWeb.h; sourceTree = "<group>"; };
+		1F6ECA851424D2B0002DD085 /* MPWSideWeb.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPWSideWeb.m; sourceTree = "<group>"; };
+		1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Development/MPWXmlKit.framework"; sourceTree = "<group>"; };
+		1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundationLinux.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWFoundationLinux.framework"; sourceTree = "<group>"; };
+		1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWXmlKit.framework"; sourceTree = "<group>"; };
+		1F7CFA5913E215F500FB926E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = ../../../../../System/Library/Frameworks/Foundation.framework; sourceTree = "<group>"; };
 		1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAHtmlRenderer.h; sourceTree = "<group>"; };
 		1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAHtmlRenderer.m; sourceTree = "<group>"; };
 		1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundation.framework; path = ../MPWFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +157,7 @@
 		1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWHtmlPage.h; sourceTree = "<group>"; };
 		1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWHtmlPage.m; sourceTree = "<group>"; };
 		1FDA9FD8136E00F900481CA3 /* microhttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = microhttp.m; sourceTree = "<group>"; };
+		1FDAA001136E076000481CA3 /* webside */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = webside; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE2E69C0C862FBC00C94753 /* MPWPlainHtmlContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWPlainHtmlContent.h; sourceTree = "<group>"; };
 		1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWPlainHtmlContent.m; sourceTree = "<group>"; };
 		1FE2E69E0C862FBC00C94753 /* MPWPlainCSSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWPlainCSSContent.h; sourceTree = "<group>"; };
@@ -127,6 +174,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F0E36EC12EBADD40008377F /* MPWSideweb.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F6ECA7A1424D2AF002DD085 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F6ECA801424D2AF002DD085 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDA9FFB136E076000481CA3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F7CFA5A13E215F500FB926E /* Foundation.framework in Frameworks */,
+				1F7CFA5613E2123200FB926E /* MPWXmlKit.framework in Frameworks */,
+				1F7CFA5413E2117400FB926E /* MPWFoundationLinux.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +213,8 @@
 			children = (
 				8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */,
 				1F0E36E412EBADC10008377F /* webside */,
+				1FDAA001136E076000481CA3 /* webside */,
+				1F6ECA7D1424D2AF002DD085 /* libMPWSideWeb.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -155,11 +222,17 @@
 		0867D691FE84028FC02AAC07 /* MPWSideweb */ = {
 			isa = PBXGroup;
 			children = (
+				1F7CFA5913E215F500FB926E /* Foundation.framework */,
+				1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */,
+				1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */,
+				1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */,
 				1F0E36AC12EBAD380008377F /* microhttpd */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				1F6ECA811424D2B0002DD085 /* MPWSideWeb */,
+				1F6ECA7E1424D2AF002DD085 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
 			name = MPWSideweb;
@@ -258,6 +331,32 @@
 			path = microhttpd;
 			sourceTree = "<group>";
 		};
+		1F6ECA7E1424D2AF002DD085 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1F6ECA7F1424D2AF002DD085 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1F6ECA811424D2B0002DD085 /* MPWSideWeb */ = {
+			isa = PBXGroup;
+			children = (
+				1F6ECA841424D2B0002DD085 /* MPWSideWeb.h */,
+				1F6ECA851424D2B0002DD085 /* MPWSideWeb.m */,
+				1F6ECA821424D2B0002DD085 /* Supporting Files */,
+			);
+			path = MPWSideWeb;
+			sourceTree = "<group>";
+		};
+		1F6ECA821424D2B0002DD085 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F6ECA831424D2B0002DD085 /* MPWSideWeb-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,6 +369,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1F6ECA7B1424D2AF002DD085 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF500486A6940098B216 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +423,39 @@
 			productReference = 1F0E36E412EBADC10008377F /* webside */;
 			productType = "com.apple.product-type.tool";
 		};
+		1F6ECA7C1424D2AF002DD085 /* MPWSideWeb */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1F6ECA8A1424D2B0002DD085 /* Build configuration list for PBXNativeTarget "MPWSideWeb" */;
+			buildPhases = (
+				1F6ECA791424D2AF002DD085 /* Sources */,
+				1F6ECA7A1424D2AF002DD085 /* Frameworks */,
+				1F6ECA7B1424D2AF002DD085 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MPWSideWeb;
+			productName = MPWSideWeb;
+			productReference = 1F6ECA7D1424D2AF002DD085 /* libMPWSideWeb.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		1FDA9FF6136E076000481CA3 /* webside Linux */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1FDA9FFD136E076000481CA3 /* Build configuration list for PBXNativeTarget "webside Linux" */;
+			buildPhases = (
+				1FDA9FF9136E076000481CA3 /* Sources */,
+				1FDA9FFB136E076000481CA3 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "webside Linux";
+			productName = webside;
+			productReference = 1FDAA001136E076000481CA3 /* webside */;
+			productType = "com.apple.product-type.tool";
+		};
 		8DC2EF4F0486A6940098B216 /* MPWSideweb */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "MPWSideweb" */;
@@ -359,6 +498,8 @@
 			targets = (
 				8DC2EF4F0486A6940098B216 /* MPWSideweb */,
 				1F0E36E312EBADC10008377F /* webside */,
+				1FDA9FF6136E076000481CA3 /* webside Linux */,
+				1F6ECA7C1424D2AF002DD085 /* MPWSideWeb */,
 			);
 		};
 /* End PBXProject section */
@@ -396,6 +537,53 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F0E371912EBB0160008377F /* WebConnectDemoServer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F6ECA791424D2AF002DD085 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F6ECA8B1424D2D1002DD085 /* connection.c in Sources */,
+				1F6ECA8C1424D2D1002DD085 /* connection_https.c in Sources */,
+				1F6ECA8D1424D2D1002DD085 /* daemon.c in Sources */,
+				1F6ECA8E1424D2D1002DD085 /* digestauth.c in Sources */,
+				1F6ECA8F1424D2D1002DD085 /* internal.c in Sources */,
+				1F6ECA901424D2D1002DD085 /* md5.c in Sources */,
+				1F6ECA911424D2D1002DD085 /* memorypool.c in Sources */,
+				1F6ECA921424D2D1002DD085 /* postprocessor.c in Sources */,
+				1F6ECA931424D2D1002DD085 /* reason_phrase.c in Sources */,
+				1F6ECA941424D2D1002DD085 /* response.c in Sources */,
+				1F6ECA961424D2FF002DD085 /* MPWPOSTProcessor.m in Sources */,
+				1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1FDA9FF9136E076000481CA3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1FDAA009136E079100481CA3 /* WAHtmlRenderer.m in Sources */,
+				1FDAA00A136E079100481CA3 /* MPWSiteMap.m in Sources */,
+				1FDAA00B136E079100481CA3 /* MPWHtmlPage.m in Sources */,
+				1FDAA00C136E079100481CA3 /* MPWTreeNode.m in Sources */,
+				1FDAA00D136E079100481CA3 /* MPWPlainHtmlContent.m in Sources */,
+				1FDAA00E136E079100481CA3 /* MPWPlainCSSContent.m in Sources */,
+				1FDAA00F136E079100481CA3 /* connection.c in Sources */,
+				1FDAA010136E079100481CA3 /* connection_https.c in Sources */,
+				1FDAA011136E079100481CA3 /* daemon.c in Sources */,
+				1FDAA012136E079100481CA3 /* digestauth.c in Sources */,
+				1FDAA013136E079100481CA3 /* internal.c in Sources */,
+				1FDAA014136E079100481CA3 /* md5.c in Sources */,
+				1FDAA015136E079100481CA3 /* memorypool.c in Sources */,
+				1FDAA016136E079100481CA3 /* postprocessor.c in Sources */,
+				1FDAA017136E079100481CA3 /* reason_phrase.c in Sources */,
+				1FDAA018136E079100481CA3 /* response.c in Sources */,
+				1FDAA019136E079100481CA3 /* MPWHTTPServer.m in Sources */,
+				1F7CFA5B13E21D9800FB926E /* microhttp.m in Sources */,
+				1FDAA01A136E079100481CA3 /* MPWPOSTProcessor.m in Sources */,
+				1FDAA01B136E079100481CA3 /* MPWSiteMapHTTPServer.m in Sources */,
+				1FDA9FFA136E076000481CA3 /* WebConnectDemoServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -576,6 +764,96 @@
 			};
 			name = Release;
 		};
+		1F6ECA871424D2B0002DD085 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/MPWSideWeb.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MPWSideWeb/MPWSideWeb-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		1F6ECA881424D2B0002DD085 /* Relative */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/MPWSideWeb.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MPWSideWeb/MPWSideWeb-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Relative;
+		};
+		1F6ECA891424D2B0002DD085 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_BIT_PRE_XCODE_3_1 = "ppc i386";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/MPWSideWeb.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MPWSideWeb/MPWSideWeb-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		1F905AA10C2E09B000E63F65 /* Relative */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -607,6 +885,102 @@
 			};
 			name = Relative;
 		};
+		1FDA9FFE136E076000481CA3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Developer/Cocotron/1.0/Linux/i386/Frameworks,
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = org.cocotron.1.0.linux.i386.gcc.4.3.1;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = "/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib/";
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ldl",
+					"-lc",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = webside;
+				SDKROOT = "";
+				SYMROOT = /Users/marcel/programming/Build/Linux;
+			};
+			name = Debug;
+		};
+		1FDA9FFF136E076000481CA3 /* Relative */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Developer/Cocotron/1.0/Linux/i386/Frameworks,
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = org.cocotron.1.0.linux.i386.gcc.4.3.1;
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = "/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib/";
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ldl",
+					"-lc",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = webside;
+				SDKROOT = "";
+				SYMROOT = /Users/marcel/programming/Build/Linux;
+			};
+			name = Relative;
+		};
+		1FDAA000136E076000481CA3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = i386;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					/Developer/Cocotron/1.0/Linux/i386/Frameworks,
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "";
+				GCC_VERSION = org.cocotron.1.0.linux.i386.gcc.4.3.1;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				INSTALL_PATH = /usr/local/bin;
+				LIBRARY_SEARCH_PATHS = "/Developer/Cocotron/1.0/PlatformInterfaces/i386-ubuntu-linux/lib/";
+				MACH_O_TYPE = mh_execute;
+				OTHER_LDFLAGS = (
+					"-all_load",
+					"-ldl",
+					"-lc",
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = webside;
+				SDKROOT = "";
+				SYMROOT = /Users/marcel/programming/Build/Linux;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -636,6 +1010,25 @@
 				1F0E36E612EBADC10008377F /* Debug */,
 				1F0E36E712EBADC10008377F /* Relative */,
 				1F0E36E812EBADC10008377F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1F6ECA8A1424D2B0002DD085 /* Build configuration list for PBXNativeTarget "MPWSideWeb" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1F6ECA871424D2B0002DD085 /* Debug */,
+				1F6ECA881424D2B0002DD085 /* Relative */,
+				1F6ECA891424D2B0002DD085 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1FDA9FFD136E076000481CA3 /* Build configuration list for PBXNativeTarget "webside Linux" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1FDA9FFE136E076000481CA3 /* Debug */,
+				1FDA9FFF136E076000481CA3 /* Relative */,
+				1FDAA000136E076000481CA3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -19,9 +19,9 @@
 scalarAccessor(   struct MHD_Daemon *, _httpd, setHttpd )
 intAccessor( port, setPort )
 idAccessor( _delegate, setDelegate )
-objectAccessor( NSString *,email, setEmail )
-objectAccessor( NSArray*, types, setTypes )
-objectAccessor( NSArray*, netServices, setNetServices )
+objectAccessor( NSString ,email, setEmail )
+objectAccessor( NSArray, types, setTypes )
+objectAccessor( NSArray, netServices, setNetServices )
 
 -(void)setType:(NSString *)newType
 {
@@ -132,7 +132,7 @@ int  AcceptPolicyCallback(void *cls,
 	return [NSData data];
 }
 
-objectAccessor( NSData * ,_defaultResponse, setDefaultResponse )
+objectAccessor( NSData,_defaultResponse, setDefaultResponse )
 
 -(NSData*)defaultResponse
 {
@@ -209,7 +209,7 @@ int AccessHandlerCallback(void *cls,
 		// first time
 		static int requests=0;
 		if ( ++requests % 100 ==0 ) {
-			NSLog(@"request: %d",requests);
+//			NSLog(@"request: %d",requests);
 		}
 		if ( !strcmp("GET", method) ) {
 //			fprintf(stderr, "GET url: '%s'\n",url);

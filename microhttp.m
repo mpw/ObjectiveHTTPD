@@ -9,7 +9,16 @@
 
 #import "MPWHTTPServer.h"
 
-main( int argc, char *argv[] ) {
+int main( int argc, char *argv[] ) {
+	id pool=[NSAutoreleasePool new];
+	
+	id server=[[[MPWHTTPServer alloc] init] autorelease];
+	[server setPort:51001];
+	[server startHttpd];
 	fprintf(stderr, "Hello World!\n"); 
+	getchar();
+	exit(0);
+	[pool release];
 	return 0;
+	
 }
