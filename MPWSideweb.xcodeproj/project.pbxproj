@@ -32,7 +32,7 @@
 		1F0E36DA12EBAD470008377F /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
 		1F0E36EC12EBADD40008377F /* MPWSideweb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */; };
 		1F0E371912EBB0160008377F /* WebConnectDemoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371812EBB0160008377F /* WebConnectDemoServer.m */; };
-		1F0E371E12EBB1100008377F /* MPWPOSTProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E371C12EBB1100008377F /* MPWPOSTProcessor.h */; };
+		1F0E371E12EBB1100008377F /* MPWPOSTProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E371C12EBB1100008377F /* MPWPOSTProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F0E371F12EBB1100008377F /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
 		1F0E374312EBBFB20008377F /* MPWSiteMapHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E374112EBBFB20008377F /* MPWSiteMapHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F0E374412EBBFB20008377F /* MPWSiteMapHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */; };
@@ -617,6 +617,8 @@
 		1DEB91AE08733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -630,6 +632,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = MPWSideweb;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
 			};
@@ -650,6 +653,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = MPWSideweb;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -667,7 +671,6 @@
 		1DEB91B308733DA50010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "@executable_path/../Frameworks";
@@ -759,8 +762,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPWSideWeb/MPWSideWeb-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -791,8 +793,7 @@
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPWSideWeb/MPWSideWeb-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
@@ -819,8 +820,7 @@
 					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "MPWSideWeb/MPWSideWeb-Prefix.pch";
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
@@ -845,6 +845,8 @@
 		1F905AA20C2E09B000E63F65 /* Relative */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1)";
+				ARCHS_STANDARD_32_64_BIT_PRE_XCODE_3_1 = "x86_64 i386 ppc";
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -858,6 +860,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
 				PRODUCT_NAME = MPWSideweb;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
 			};
@@ -1000,6 +1003,7 @@
 				1F6ECA891424D2B0002DD085 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1FDA9FFD136E076000481CA3 /* Build configuration list for PBXNativeTarget "webside Linux" */ = {
 			isa = XCConfigurationList;

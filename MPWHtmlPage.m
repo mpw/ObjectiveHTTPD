@@ -21,7 +21,6 @@ idAccessor( content , setContent )
 	return self;
 }
 
-
 -(void)renderHeaderOn:aRenderer
 {
 	[aRenderer element:"title" content:[self title]];

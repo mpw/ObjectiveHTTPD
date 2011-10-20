@@ -153,6 +153,12 @@ objectAccessor( NSData,_defaultResponse, setDefaultResponse )
 	return [NSData data];
 }
 
+-(NSData*)put:(NSString *)urlString data:putData parameters:(NSDictionary*)params
+{
+ 	NSLog(@	"PUT some data to: %@",urlString);
+	return [NSData data];
+}
+
 
  void RequestCompletedCallback(void *cls,
 								 struct MHD_Connection * connection,
@@ -212,8 +218,11 @@ int AccessHandlerCallback(void *cls,
 //			NSLog(@"request: %d",requests);
 		}
 		if ( !strcmp("GET", method) ) {
-//			fprintf(stderr, "GET url: '%s'\n",url);
+            //			fprintf(stderr, "GET url: '%s'\n",url);
 			*con_cls = self;
+		} else 	if ( !strcmp("PUT", method) ) {
+            NSMutableData* putData=[[NSMutableData alloc] init];
+			*con_cls = putData;
 		} else 	if ( !strcmp("POST", method) ) {
 			id pool=[NSAutoreleasePool new];
 			fprintf(stderr, "POST url: '%s'\n",url);
@@ -251,6 +260,35 @@ int AccessHandlerCallback(void *cls,
 			*con_cls = [responseData retain];
 			[pool drain];
 			return ret;
+		} else 	if ( !strcmp("PUT", method) ) {
+			id pool=[NSAutoreleasePool new];
+			NSMutableData *putData=(NSMutableData*)*con_cls;
+			if ( *upload_data_size != 0 ) {
+                [putData appendBytes:upload_data length:*upload_data_size];
+				*upload_data_size = 0;
+				
+				return MHD_YES;
+			} else {	
+				NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
+				//			fprintf(stderr, "did create urlstring\n");
+                //				MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
+                
+				NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
+				MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
+				NSData *responseData = [[self delegate] put:urlstring data:putData parameters:parameterDict];
+				//			fprintf(stderr, "did get responesData\n");
+                [putData release];
+				struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
+				
+				int ret = MHD_queue_response(connection,
+											 MHD_HTTP_OK,
+											 response);
+				MHD_destroy_response(response);
+				*con_cls = [responseData retain];
+				
+				[pool drain];
+				return ret;            
+			}	//			fprintf(stderr, "did get responesData\n");
 		} else 	if ( !strcmp("POST", method) ) {
 //			NSLog(@"POST continuation upload size: %d",*upload_data_size);
 			id pool=[NSAutoreleasePool new];

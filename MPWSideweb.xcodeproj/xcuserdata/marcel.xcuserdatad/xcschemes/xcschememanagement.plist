@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>MPWSideWeb iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>52</integer>
+		</dict>
+		<key>MPWSideweb.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>46</integer>
+		</dict>
+		<key>webside Linux.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>50</integer>
+		</dict>
+		<key>webside.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>49</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>1F0E36E312EBADC10008377F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1F6ECA7C1424D2AF002DD085</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>1FDA9FF6136E076000481CA3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8DC2EF4F0486A6940098B216</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>
