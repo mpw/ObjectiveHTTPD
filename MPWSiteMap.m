@@ -10,7 +10,7 @@
 #import "WAHtmlRenderer.h"
 #import "MPWHtmlPage.h"
 #import "MPWTreeNode.h"
-
+#import <MPWTalk/MPWGenericBinding.h>
 
 @implementation MPWSiteMap
 
@@ -44,13 +44,33 @@ idAccessor( root, setRoot )
 	return [root nodeForPath:uri];
 }
 
+-(MPWBinding*)bindingForName:uriString inContext:aContext
+{
+	return [[[MPWGenericBinding alloc] initWithName:uriString scheme:self] autorelease];
+}
+
+-valueForBinding:(MPWGenericBinding*)aBinding
+{
+    NSString *uri=[aBinding name];
+    return [self contentForURI:uri];
+}
+
+-(void)setValue:newValue forBinding:(MPWGenericBinding*)aBinding
+{
+    
+}
 
 -pageForContentNode:aNode
 {
 	return [[[MPWHtmlPage alloc] init] autorelease];
 }
 
--(NSData*)binaryDataForContentNode:aNode
+-(BOOL)isBoundBinding:aBinding
+{
+    return YES;
+}
+
+-(NSData*)serializeValue:aNode at:(MPWBinding*)aBinding
 {
 	id renderer = [self renderer];
 	id page=[self pageForContentNode:aNode];

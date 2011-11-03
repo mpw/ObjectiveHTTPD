@@ -6,11 +6,10 @@
 //  Copyright 2011 Marcel Weiher. All rights reserved.
 //
 
-#import "MPWHTTPServer.h"
+#import "MPWSchemeHttpServer.h"
 
 
-@interface MPWSiteMapHTTPServer : MPWHTTPServer {
-	id	sitemap;
+@interface MPWSiteMapHTTPServer : MPWSchemeHttpServer {
 }
 
 @end

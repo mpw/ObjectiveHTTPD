@@ -11,17 +11,10 @@
 
 @implementation MPWSiteMapHTTPServer
 
-idAccessor( sitemap, setSitemap )
-
--(NSData*)get:(NSString *)urlString parameters:(NSDictionary*)params
+-(void)setSitemap:newMap
 {
-	return [sitemap binaryDataForURI:urlString];
-}
-
--(void)dealloc
-{
-	[sitemap release];
-	[super dealloc];
+    [self setScheme:newMap];
+    [self setSerializer:newMap];
 }
 
 @end

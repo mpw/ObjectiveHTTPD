@@ -20,6 +20,7 @@ scalarAccessor(   struct MHD_Daemon *, _httpd, setHttpd )
 intAccessor( port, setPort )
 idAccessor( _delegate, setDelegate )
 objectAccessor( NSString ,email, setEmail )
+objectAccessor( NSString ,bonjourName, setBonjourName )
 objectAccessor( NSArray, types, setTypes )
 objectAccessor( NSArray, netServices, setNetServices )
 
@@ -55,7 +56,7 @@ objectAccessor( NSArray, netServices, setNetServices )
 	return @"local.";
 }
 
--(NSString*)bonjourName
+-(NSString*)defaultBonjourName
 {
 	return @"";
 }
@@ -101,6 +102,7 @@ objectAccessor( NSArray, netServices, setNetServices )
 {
 	self=[super init];
 	[self setPort:[self defaultPort]];
+    [self setBonjourName:[self defaultBonjourName]];
 	return self;
 }
 

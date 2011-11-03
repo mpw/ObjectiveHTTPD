@@ -14,11 +14,13 @@
 	int port;
 	id _delegate;
 	NSString *email;
+	NSString *bonjourName;
 	NSData *_defaultResponse;
 	NSArray *types;
 	NSArray *netServices;
 }
 
+-(int)port;
 -(void)setPort:(int)newVar;
 -(BOOL)startHttpd;
 @end

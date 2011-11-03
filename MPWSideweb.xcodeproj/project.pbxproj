@@ -51,6 +51,11 @@
 		1F6ECA941424D2D1002DD085 /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36C012EBAD380008377F /* response.c */; };
 		1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
 		1F6ECA961424D2FF002DD085 /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
+		1F7B75A1146057F1002F38D1 /* MPWTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7B75A0146057F1002F38D1 /* MPWTalk.framework */; };
+		1F7B75A414606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F7B75A514606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F7B75A614606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B75A314606C5D002F38D1 /* MPWSchemeHttpServer.m */; };
+		1F7B75A714606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B75A314606C5D002F38D1 /* MPWSchemeHttpServer.m */; };
 		1F7CFA5413E2117400FB926E /* MPWFoundationLinux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */; };
 		1F7CFA5613E2123200FB926E /* MPWXmlKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */; };
 		1F7CFA5A13E215F500FB926E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5913E215F500FB926E /* Foundation.framework */; };
@@ -141,6 +146,9 @@
 		1F3B20C90C4354AE005DFF1E /* MPWTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWTreeNode.m; sourceTree = "<group>"; };
 		1F6ECA7D1424D2AF002DD085 /* libMPWSideWeb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMPWSideWeb.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ECA7F1424D2AF002DD085 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1F7B75A0146057F1002F38D1 /* MPWTalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWTalk.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWTalk.framework"; sourceTree = "<group>"; };
+		1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSchemeHttpServer.h; sourceTree = "<group>"; };
+		1F7B75A314606C5D002F38D1 /* MPWSchemeHttpServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSchemeHttpServer.m; sourceTree = "<group>"; };
 		1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Development/MPWXmlKit.framework"; sourceTree = "<group>"; };
 		1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundationLinux.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWFoundationLinux.framework"; sourceTree = "<group>"; };
 		1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWXmlKit.framework"; sourceTree = "<group>"; };
@@ -196,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7B75A1146057F1002F38D1 /* MPWTalk.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */,
 				1F905AB60C2E0AD400E63F65 /* MPWXmlKit.framework in Frameworks */,
@@ -219,6 +228,7 @@
 		0867D691FE84028FC02AAC07 /* MPWSideweb */ = {
 			isa = PBXGroup;
 			children = (
+				1F7B75A0146057F1002F38D1 /* MPWTalk.framework */,
 				1F7CFA5913E215F500FB926E /* Foundation.framework */,
 				1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */,
 				1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */,
@@ -275,6 +285,8 @@
 				1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */,
 				1F0E374112EBBFB20008377F /* MPWSiteMapHTTPServer.h */,
 				1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */,
+				1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */,
+				1F7B75A314606C5D002F38D1 /* MPWSchemeHttpServer.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -351,6 +363,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F7B75A514606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +391,7 @@
 				1F0E36D912EBAD470008377F /* MPWHTTPServer.h in Headers */,
 				1F0E371E12EBB1100008377F /* MPWPOSTProcessor.h in Headers */,
 				1F0E374312EBBFB20008377F /* MPWSiteMapHTTPServer.h in Headers */,
+				1F7B75A414606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,6 +548,7 @@
 				1F6ECA941424D2D1002DD085 /* response.c in Sources */,
 				1F6ECA961424D2FF002DD085 /* MPWPOSTProcessor.m in Sources */,
 				1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */,
+				1F7B75A714606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -589,6 +604,7 @@
 				1F0E371F12EBB1100008377F /* MPWPOSTProcessor.m in Sources */,
 				1F0E374412EBBFB20008377F /* MPWSiteMapHTTPServer.m in Sources */,
 				1FDA9FD9136E00F900481CA3 /* microhttp.m in Sources */,
+				1F7B75A614606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,6 +638,10 @@
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
@@ -646,6 +666,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -850,6 +874,10 @@
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release\"",
+				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = YES;
