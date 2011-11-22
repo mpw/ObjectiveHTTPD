@@ -11,6 +11,8 @@
 #import "MPWHtmlPage.h"
 #import "MPWTreeNode.h"
 #import <MPWTalk/MPWGenericBinding.h>
+#import "MPWTemplater.h"
+#import "MPWHTMLRenderScheme.h"
 
 @implementation MPWSiteMap
 
@@ -34,60 +36,17 @@ idAccessor( root, setRoot )
 	return self;
 }
 
--renderer
+-contentForPath:(NSArray*)array
 {
-	return [WAHtmlRenderer stream];
+	return [root nodeForPathEnumerator:[array objectEnumerator]];
 }
 
--contentForURI:uri
-{
-	return [root nodeForPath:uri];
-}
-
--(MPWBinding*)bindingForName:uriString inContext:aContext
-{
-	return [[[MPWGenericBinding alloc] initWithName:uriString scheme:self] autorelease];
-}
-
--valueForBinding:(MPWGenericBinding*)aBinding
-{
-    NSString *uri=[aBinding name];
-    return [self contentForURI:uri];
-}
 
 -(void)setValue:newValue forBinding:(MPWGenericBinding*)aBinding
 {
     
 }
 
--pageForContentNode:aNode
-{
-	return [[[MPWHtmlPage alloc] init] autorelease];
-}
-
--(BOOL)isBoundBinding:aBinding
-{
-    return YES;
-}
-
--(NSData*)serializeValue:aNode at:(MPWBinding*)aBinding
-{
-	id renderer = [self renderer];
-	id page=[self pageForContentNode:aNode];
-	[page setContent:aNode];
-	[renderer writeObject:page];
-	return [renderer result];
-}
-
--(NSData*)binaryDataForURI:uri
-{
-	return [self binaryDataForContentNode:[self contentForURI:uri]];
-}
-
--(NSData*)htmlPageForURI:uri
-{
-	return [self binaryDataForURI:uri];
-}
 
 -(void)dealloc
 {
@@ -99,18 +58,30 @@ idAccessor( root, setRoot )
 
 @implementation MPWSiteMap(testing)
 
++_configuredSite
+{
+	id site=[[[self alloc] init] autorelease];
+    MPWTemplater* templater=[[[MPWTemplater alloc] init] autorelease];
+    id template = [[[MPWHtmlPage alloc] init] autorelease];
+    NSLog(@"templater: %@ template: %@",templater,template);
+    [templater setTemplate:template];
+    [templater setSourceScheme:site];
+    id renderer = [[[MPWHTMLRenderScheme alloc] init] autorelease];
+    [renderer setSourceScheme:templater];
+    return renderer;
+}
 
 +(void)testPlainPage
 {
-	id site=[[[self alloc] init] autorelease];
-	id result = [[site htmlPageForURI:@"index.html"] stringValue];
+    id templater=[self _configuredSite];
+	id result = [[templater get:@"index.html"] stringValue];
 	IDEXPECT( result, @"<html><head><title></title></head><body></body></html>", @"html for index.html");
 }
 
 +(void)testPlainPageWithTitle
 {
-	id site=[[[self alloc] init] autorelease];
-	id result = [[site htmlPageForURI:@"index.html"] stringValue];
+    id templater=[self _configuredSite];
+	id result = [[templater get:@"index.html"] stringValue];
 	IDEXPECT( result, @"<html><head><title></title>\n</head>\n<body></body>\n</html>\n", @"html for index.html");
 }
 

@@ -14,7 +14,7 @@
 
 objectAccessor( NSData, _contentData, setContentData )
 objectAccessor( NSString, resourceName, setResourceName )
-
+scalarAccessor(id, source, setSource )
 -contentType
 {
 	return @"html";
@@ -24,7 +24,7 @@ objectAccessor( NSString, resourceName, setResourceName )
 {
 	id data=nil;
 	NS_DURING
-	data = [[MPWSiteMap sharedSite] frameworkResource:resourceName category:[self contentType]];
+	data = [source frameworkResource:resourceName category:[self contentType]];
 	NS_HANDLER
 	NS_ENDHANDLER
 	if ( !data ) {
@@ -40,6 +40,7 @@ objectAccessor( NSString, resourceName, setResourceName )
 -contentData
 {
 	if ( !_contentData ) {
+        NSLog(@"%p/%@ has to reload contentData: %@",self,[self class],resourceName);
 		[self setContentData:[self loadContentData]];
 	}
 	return _contentData;

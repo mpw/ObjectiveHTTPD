@@ -6,10 +6,10 @@
 //  Copyright 2007 Marcel Weiher. All rights reserved.
 //
 
-#import <MPWTalk/MPWScheme.h>
+#import <MPWTalk/MPWGenericScheme.h>
 
 
-@interface MPWSiteMap : MPWScheme {
+@interface MPWSiteMap : MPWGenericScheme {
 	id root;
 }
 

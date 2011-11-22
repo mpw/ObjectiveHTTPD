@@ -12,6 +12,7 @@
 @interface MPWPlainHtmlContent : MPWObject {
 	NSData* _contentData;
 	NSString *resourceName;
+    id source;
 	
 }
 

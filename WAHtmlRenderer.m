@@ -46,7 +46,7 @@
 -(void)element:(char*)name attributes:attrs content:content 
 {
 //	SEL msg = [self streamWriterMessage];
-	NSLog(@"will forward");
+//	NSLog(@"will forward");
 	[self element:name attributes:attrs content:content selector:streamWriterMessage];
 }
 

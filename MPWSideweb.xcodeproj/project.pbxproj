@@ -93,6 +93,14 @@
 		1FE2E6A10C862FBC00C94753 /* MPWPlainHtmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */; };
 		1FE2E6A20C862FBC00C94753 /* MPWPlainCSSContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE2E69E0C862FBC00C94753 /* MPWPlainCSSContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FE2E6A30C862FBC00C94753 /* MPWPlainCSSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */; };
+		1FF4A34A147B0202001FCCCD /* MPWTemplater.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4A348147B0202001FCCCD /* MPWTemplater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FF4A34B147B0202001FCCCD /* MPWTemplater.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4A348147B0202001FCCCD /* MPWTemplater.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FF4A34C147B0202001FCCCD /* MPWTemplater.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A349147B0202001FCCCD /* MPWTemplater.m */; };
+		1FF4A34D147B0202001FCCCD /* MPWTemplater.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A349147B0202001FCCCD /* MPWTemplater.m */; };
+		1FF4A350147B0B85001FCCCD /* MPWHTMLRenderScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4A34E147B0B84001FCCCD /* MPWHTMLRenderScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FF4A351147B0B85001FCCCD /* MPWHTMLRenderScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4A34E147B0B84001FCCCD /* MPWHTMLRenderScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1FF4A352147B0B85001FCCCD /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
+		1FF4A353147B0B85001FCCCD /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -152,7 +160,7 @@
 		1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Development/MPWXmlKit.framework"; sourceTree = "<group>"; };
 		1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundationLinux.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWFoundationLinux.framework"; sourceTree = "<group>"; };
 		1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWXmlKit.framework"; sourceTree = "<group>"; };
-		1F7CFA5913E215F500FB926E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = ../../../../../System/Library/Frameworks/Foundation.framework; sourceTree = "<group>"; };
+		1F7CFA5913E215F500FB926E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAHtmlRenderer.h; sourceTree = "<group>"; };
 		1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAHtmlRenderer.m; sourceTree = "<group>"; };
 		1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundation.framework; path = ../MPWFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,6 +175,10 @@
 		1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWPlainHtmlContent.m; sourceTree = "<group>"; };
 		1FE2E69E0C862FBC00C94753 /* MPWPlainCSSContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWPlainCSSContent.h; sourceTree = "<group>"; };
 		1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWPlainCSSContent.m; sourceTree = "<group>"; };
+		1FF4A348147B0202001FCCCD /* MPWTemplater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWTemplater.h; sourceTree = "<group>"; };
+		1FF4A349147B0202001FCCCD /* MPWTemplater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWTemplater.m; sourceTree = "<group>"; };
+		1FF4A34E147B0B84001FCCCD /* MPWHTMLRenderScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWHTMLRenderScheme.h; sourceTree = "<group>"; };
+		1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWHTMLRenderScheme.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* MPWSideweb_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSideweb_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPWSideweb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -228,9 +240,6 @@
 		0867D691FE84028FC02AAC07 /* MPWSideweb */ = {
 			isa = PBXGroup;
 			children = (
-				1F7B75A0146057F1002F38D1 /* MPWTalk.framework */,
-				1F7CFA5913E215F500FB926E /* Foundation.framework */,
-				1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */,
 				1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */,
 				1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */,
 				1F0E36AC12EBAD380008377F /* microhttpd */,
@@ -287,6 +296,10 @@
 				1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */,
 				1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */,
 				1F7B75A314606C5D002F38D1 /* MPWSchemeHttpServer.m */,
+				1FF4A348147B0202001FCCCD /* MPWTemplater.h */,
+				1FF4A349147B0202001FCCCD /* MPWTemplater.m */,
+				1FF4A34E147B0B84001FCCCD /* MPWHTMLRenderScheme.h */,
+				1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -342,6 +355,9 @@
 		1F6ECA7E1424D2AF002DD085 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F7B75A0146057F1002F38D1 /* MPWTalk.framework */,
+				1F7CFA5913E215F500FB926E /* Foundation.framework */,
+				1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */,
 				1F6ECA7F1424D2AF002DD085 /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -364,6 +380,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F7B75A514606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */,
+				1FF4A34B147B0202001FCCCD /* MPWTemplater.h in Headers */,
+				1FF4A351147B0B85001FCCCD /* MPWHTMLRenderScheme.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +410,8 @@
 				1F0E371E12EBB1100008377F /* MPWPOSTProcessor.h in Headers */,
 				1F0E374312EBBFB20008377F /* MPWSiteMapHTTPServer.h in Headers */,
 				1F7B75A414606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */,
+				1FF4A34A147B0202001FCCCD /* MPWTemplater.h in Headers */,
+				1FF4A350147B0B85001FCCCD /* MPWHTMLRenderScheme.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -549,6 +569,8 @@
 				1F6ECA961424D2FF002DD085 /* MPWPOSTProcessor.m in Sources */,
 				1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */,
 				1F7B75A714606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */,
+				1FF4A34D147B0202001FCCCD /* MPWTemplater.m in Sources */,
+				1FF4A353147B0B85001FCCCD /* MPWHTMLRenderScheme.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -605,6 +627,8 @@
 				1F0E374412EBBFB20008377F /* MPWSiteMapHTTPServer.m in Sources */,
 				1FDA9FD9136E00F900481CA3 /* microhttp.m in Sources */,
 				1F7B75A614606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */,
+				1FF4A34C147B0202001FCCCD /* MPWTemplater.m in Sources */,
+				1FF4A352147B0B85001FCCCD /* MPWHTMLRenderScheme.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -15,8 +15,8 @@
 @implementation MPWSchemeHttpServer
 
 objectAccessor(MPWHTTPServer, server, setServer )
-objectAccessor(MPWScheme, scheme, setScheme)
-idAccessor( _serializer, setSerializer)
+objectAccessor(MPWScheme, scheme, _setScheme)
+idAccessor( _serializer, _setSerializer)
 
 
 -serializer
@@ -26,6 +26,20 @@ idAccessor( _serializer, setSerializer)
     }
     return self;
 }
+
+-(void)setSerializer:(id)newVar
+{
+    [self _setSerializer:newVar];
+    [newVar setSource:[self scheme]];
+}
+
+
+-(void)setScheme:(id)newVar
+{
+    [self _setScheme:newVar];
+    [[self schme] setSource:newVar];
+}
+
 
 -(MPWBinding*)identifierForString:(NSString*)uriString
 {
@@ -39,9 +53,7 @@ idAccessor( _serializer, setSerializer)
 
 -(NSData*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
-    MPWBinding *identifier=[self identifierForString:uri];
-    id value=[identifier value];
-    return [[self serializer]  serializeValue:value at:identifier];
+    return [[self serializer] get:uri];
 }
 
 -(id)deserializeData:(NSData*)inputData at:(MPWBinding*)aBinding
