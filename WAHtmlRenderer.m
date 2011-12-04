@@ -57,7 +57,12 @@
 
 -(void)anchor:textContent href:hrefUrl
 {
-	[self element:"a" attributes:[NSString stringWithFormat:@"href='%@'",hrefUrl] content:textContent];
+    [target beginStartTag:"a"];
+    [target writeAttribute:@"href" value:hrefUrl];
+    [target endStartTag:"a" single:NO];
+    [target writeString:textContent];
+    [target writeCloseTag:"a"];
+//	[self element:"a" attributes:[NSString stringWithFormat:@"href='%@'",hrefUrl] content:textContent];
 }
 
 -(void)startTag:(char*)name attributes:attrs 
@@ -107,7 +112,7 @@
 	id stream=[self stream];
 	[stream anchor:@"Products" href:@"Products.html"];
 	id result=[stream resultString];
-	IDEXPECT( result, @"<a href='Products.html'>Products</a>", @"Result of doing anchor:'Products' :'Products.html'");
+	IDEXPECT( result, @"<a href=\"Products.html\">Products</a>", @"Result of doing anchor:'Products' :'Products.html'");
 }
 
 +(void)testTagConstruction

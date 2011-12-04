@@ -13,6 +13,7 @@
 
 idAccessor( title, setTitle )
 idAccessor( content , setContent )
+idAccessor( path , setPath )
 
 -init
 {
@@ -49,6 +50,7 @@ idAccessor( content , setContent )
 {
 	[content release];
 	[title release];
+    [path release];
 	[super dealloc];
 }
 

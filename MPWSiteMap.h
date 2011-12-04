@@ -6,16 +6,12 @@
 //  Copyright 2007 Marcel Weiher. All rights reserved.
 //
 
-#import <MPWTalk/MPWGenericScheme.h>
+#import <MPWTalk/MPWTreeNodeScheme.h>
 
 
-@interface MPWSiteMap : MPWGenericScheme {
-	id root;
+@interface MPWSiteMap : MPWTreeNodeScheme {
 }
 
--(NSData*)htmlPageForURI:uri;
 
 +sharedSite;
--root;
-
 @end

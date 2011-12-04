@@ -12,8 +12,10 @@
 @interface MPWHtmlPage : MPWObject {
 	id title;
 	id content;
+    id path;
+
 }
 
 idAccessor_h( content , setContent )
-
+idAccessor_h( path , setPath )
 @end

@@ -18,18 +18,12 @@ objectAccessor( MPWScheme, sourceScheme, setSourceScheme )
 idAccessor( template, setTemplate )
 
 
--titleForContentNode:aNode
-{
-	id nodeName = [aNode isRoot] ? @"Home" : [aNode name];
-	return nodeName ? [NSString stringWithFormat:@"metaobject: %@",nodeName] : @"";
-}
-
 
 -valueForBinding:(MPWBinding*)aBinding
 {
     id rawValue=[sourceScheme valueForBinding:aBinding];
     id page=[self template];
-    [page setTitle:[self titleForContentNode:rawValue]];
+    [page setPath:aBinding];
     [page setContent:rawValue];
     return page;
 }

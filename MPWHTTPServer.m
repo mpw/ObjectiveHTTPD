@@ -146,7 +146,8 @@ objectAccessor( NSData,_defaultResponse, setDefaultResponse )
 
 -(NSData*)get:(NSString *)urlString parameters:(NSDictionary*)params
 {
-	return [@"MPWHTTPServer" dataUsingEncoding:NSISOLatin1StringEncoding];
+    return [[NSString stringWithFormat:@"<html><head></head><body>%@ serving: %@</body></html>\n",
+            [self className],urlString]  dataUsingEncoding:NSISOLatin1StringEncoding];
 }
 
 -(NSData*)post:(NSString *)urlString parameters:(MPWPOSTProcessor*)params

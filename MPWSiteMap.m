@@ -9,14 +9,12 @@
 #import "MPWSiteMap.h"
 #import "WAHtmlRenderer.h"
 #import "MPWHtmlPage.h"
-#import "MPWTreeNode.h"
-#import <MPWTalk/MPWGenericBinding.h>
 #import "MPWTemplater.h"
 #import "MPWHTMLRenderScheme.h"
 
 @implementation MPWSiteMap
 
-idAccessor( root, setRoot )
+
 
 +sharedSite
 {
@@ -27,33 +25,6 @@ idAccessor( root, setRoot )
 	}
 	return site;
 }
-
--init
-{
-	self = [super init];
-	[self setRoot:[MPWTreeNode root]];
-	NSLog(@"init %@ root: %@",self,root);
-	return self;
-}
-
--contentForPath:(NSArray*)array
-{
-	return [root nodeForPathEnumerator:[array objectEnumerator]];
-}
-
-
--(void)setValue:newValue forBinding:(MPWGenericBinding*)aBinding
-{
-    
-}
-
-
--(void)dealloc
-{
-	[root release];
-	[super dealloc];
-}
-
 @end
 
 @implementation MPWSiteMap(testing)
