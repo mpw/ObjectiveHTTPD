@@ -253,7 +253,13 @@ int AccessHandlerCallback(void *cls,
 			MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
 
 			NSData *responseData = [[self delegate] get:urlstring parameters:parameterDict];
-			//			fprintf(stderr, "did get responesData\n");
+            if ( ![responseData respondsToSelector:@selector(bytes)] ) {
+                if ( ![responseData respondsToSelector:@selector(length)] ) {
+                    responseData=[responseData description];
+                }
+                responseData=[responseData asData];
+                
+            }
 			struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
 			
 			int ret = MHD_queue_response(connection,

@@ -97,7 +97,6 @@
 		1FF4A350147B0B85001FCCCD /* MPWHTMLRenderScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4A34E147B0B84001FCCCD /* MPWHTMLRenderScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FF4A351147B0B85001FCCCD /* MPWHTMLRenderScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4A34E147B0B84001FCCCD /* MPWHTMLRenderScheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FF4A352147B0B85001FCCCD /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
-		1FF4A353147B0B85001FCCCD /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -562,7 +561,6 @@
 				1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */,
 				1F7B75A714606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */,
 				1FF4A34D147B0202001FCCCD /* MPWTemplater.m in Sources */,
-				1FF4A353147B0B85001FCCCD /* MPWHTMLRenderScheme.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

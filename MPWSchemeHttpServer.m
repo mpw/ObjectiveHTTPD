@@ -37,7 +37,7 @@ idAccessor( _serializer, _setSerializer)
 -(void)setScheme:(id)newVar
 {
     [self _setScheme:newVar];
-    [[self schme] setSource:newVar];
+//    [[self scheme] setSource:newVar];
 }
 
 
