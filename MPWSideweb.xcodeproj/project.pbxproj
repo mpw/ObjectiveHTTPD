@@ -36,6 +36,11 @@
 		1F0E371F12EBB1100008377F /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
 		1F0E374312EBBFB20008377F /* MPWSiteMapHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E374112EBBFB20008377F /* MPWSiteMapHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F0E374412EBBFB20008377F /* MPWSiteMapHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */; };
+		1F201B6A14E6B7F9007BEFDA /* MPWSiteServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F201B6814E6B7F9007BEFDA /* MPWSiteServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F201B6B14E6B7F9007BEFDA /* MPWSiteServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F201B6814E6B7F9007BEFDA /* MPWSiteServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1F201B6C14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
+		1F201B6D14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
+		1F201B6E14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
 		1F6ECA801424D2AF002DD085 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6ECA7F1424D2AF002DD085 /* Foundation.framework */; };
 		1F6ECA8B1424D2D1002DD085 /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
 		1F6ECA8C1424D2D1002DD085 /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
@@ -62,6 +67,13 @@
 		1F905A540C2E07F700E63F65 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
 		1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */; };
 		1F905AB60C2E0AD400E63F65 /* MPWXmlKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905AB50C2E0AD400E63F65 /* MPWXmlKit.framework */; };
+		1FCE394E14C5D9BC003C2BA9 /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
+		1FCE394F14C5D9C4003C2BA9 /* MPWPlainHtmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */; };
+		1FCE395014C5D9C8003C2BA9 /* MPWPlainCSSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */; };
+		1FCE395114C5D9CE003C2BA9 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
+		1FCE395214C5D9D1003C2BA9 /* MPWHtmlPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */; };
+		1FCE395514C5DC89003C2BA9 /* MPWSiteMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */; };
+		1FCE395714C5DCA7003C2BA9 /* MPWSiteMapHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */; };
 		1FD8B6F10C3C935E00F4F8BB /* MPWSiteMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD8B6EF0C3C935E00F4F8BB /* MPWSiteMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FD8B6F20C3C935E00F4F8BB /* MPWSiteMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */; };
 		1FD8B7340C3CAB1B00F4F8BB /* MPWHtmlPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -146,6 +158,8 @@
 		1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWPOSTProcessor.m; sourceTree = "<group>"; };
 		1F0E374112EBBFB20008377F /* MPWSiteMapHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSiteMapHTTPServer.h; sourceTree = "<group>"; };
 		1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteMapHTTPServer.m; sourceTree = "<group>"; };
+		1F201B6814E6B7F9007BEFDA /* MPWSiteServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSiteServer.h; sourceTree = "<group>"; };
+		1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteServer.m; sourceTree = "<group>"; };
 		1F6ECA7D1424D2AF002DD085 /* libMPWSideWeb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMPWSideWeb.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ECA7F1424D2AF002DD085 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1F7B75A0146057F1002F38D1 /* MPWTalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWTalk.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWTalk.framework"; sourceTree = "<group>"; };
@@ -292,6 +306,8 @@
 				1FF4A349147B0202001FCCCD /* MPWTemplater.m */,
 				1FF4A34E147B0B84001FCCCD /* MPWHTMLRenderScheme.h */,
 				1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */,
+				1F201B6814E6B7F9007BEFDA /* MPWSiteServer.h */,
+				1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -374,6 +390,7 @@
 				1F7B75A514606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */,
 				1FF4A34B147B0202001FCCCD /* MPWTemplater.h in Headers */,
 				1FF4A351147B0B85001FCCCD /* MPWHTMLRenderScheme.h in Headers */,
+				1F201B6B14E6B7F9007BEFDA /* MPWSiteServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +420,7 @@
 				1F7B75A414606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */,
 				1FF4A34A147B0202001FCCCD /* MPWTemplater.h in Headers */,
 				1FF4A350147B0B85001FCCCD /* MPWHTMLRenderScheme.h in Headers */,
+				1F201B6A14E6B7F9007BEFDA /* MPWSiteServer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +579,14 @@
 				1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */,
 				1F7B75A714606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */,
 				1FF4A34D147B0202001FCCCD /* MPWTemplater.m in Sources */,
+				1FCE394E14C5D9BC003C2BA9 /* MPWHTMLRenderScheme.m in Sources */,
+				1FCE394F14C5D9C4003C2BA9 /* MPWPlainHtmlContent.m in Sources */,
+				1FCE395014C5D9C8003C2BA9 /* MPWPlainCSSContent.m in Sources */,
+				1FCE395114C5D9CE003C2BA9 /* WAHtmlRenderer.m in Sources */,
+				1FCE395214C5D9D1003C2BA9 /* MPWHtmlPage.m in Sources */,
+				1FCE395514C5DC89003C2BA9 /* MPWSiteMap.m in Sources */,
+				1FCE395714C5DCA7003C2BA9 /* MPWSiteMapHTTPServer.m in Sources */,
+				1F201B6E14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -588,6 +614,7 @@
 				1FDAA01A136E079100481CA3 /* MPWPOSTProcessor.m in Sources */,
 				1FDAA01B136E079100481CA3 /* MPWSiteMapHTTPServer.m in Sources */,
 				1FDA9FFA136E076000481CA3 /* WebConnectDemoServer.m in Sources */,
+				1F201B6D14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -617,6 +644,7 @@
 				1F7B75A614606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */,
 				1FF4A34C147B0202001FCCCD /* MPWTemplater.m in Sources */,
 				1FF4A352147B0B85001FCCCD /* MPWHTMLRenderScheme.m in Sources */,
+				1F201B6C14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

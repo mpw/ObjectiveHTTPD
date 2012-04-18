@@ -24,6 +24,7 @@ idAccessor( path , setPath )
 
 -(void)renderHeaderOn:aRenderer
 {
+    [aRenderer element:"meta" attributes:@"http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"" content:@""];
 	[aRenderer element:"title" content:[self title]];
 }
 
@@ -66,7 +67,7 @@ idAccessor( path , setPath )
 {
 	id page=[[[self alloc] init] autorelease];
 	id result=[[WAHtmlRenderer process:page] stringValue];
-	IDEXPECT( result, @"<html><head><title></title></head><body></body></html>", @"html for index.html");
+	IDEXPECT( result, @"<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></meta><title></title></head><body></body></html>", @"html for index.html");
 }
 
 +(void)testPlainPageWithTitle
@@ -75,7 +76,7 @@ idAccessor( path , setPath )
 	id result;
 	[page setTitle:@"Test Title"];
 	result=[[WAHtmlRenderer process:page] stringValue];
-	IDEXPECT( result, @"<html><head><title>Test Title</title></head><body></body></html>", @"html for index.html");
+	IDEXPECT( result, @"<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></meta><title>Test Title</title></head><body></body></html>", @"html for index.html");
 }
 
 +testSelectors {

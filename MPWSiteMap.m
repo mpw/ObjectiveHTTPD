@@ -46,9 +46,9 @@
 {
     id templater=[self _configuredSite];
 	id result = [[templater get:@"index.html"] stringValue];
-	IDEXPECT( result, @"<html><head><title></title></head><body></body></html>", @"html for index.html");
+	IDEXPECT( result, @"<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></meta><title></title></head><body></body></html>", @"html for index.html");
 	result = [[templater get:@"index.html"] stringValue];
-	IDEXPECT( result, @"<html><head><title></title></head><body></body></html>", @"html for index.html second time");
+	IDEXPECT( result, @"<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></meta><title></title></head><body></body></html>", @"html for index.html second time");
 }
 
 +(void)testPlainPageWithTitle

@@ -58,6 +58,13 @@ scalarAccessor(id, source, setSource )
 	return self;
 }
 
++pageWithStaticContentNamed:name source:someSource
+{
+    id page=[[[self alloc] initWithResourceNamed:name] autorelease];
+    [page setSource:someSource];
+    return page;
+}
+
 -fileSystemPathForBasePath:(NSString*)basePath
 {
 	return [basePath stringByAppendingPathComponent:@"index.html"];

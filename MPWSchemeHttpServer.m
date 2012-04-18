@@ -3,7 +3,7 @@
 //  
 //
 //  Created by Marcel Weiher on 10/24/11.
-//  Copyright (c) 2011 metaobject ltd. All rights reserved.
+//  Copyright (c) 2012 metaobject ltd. All rights reserved.
 //
 
 #import "MPWSchemeHttpServer.h"
@@ -97,6 +97,11 @@ idAccessor( _serializer, _setSerializer)
 -(void)start:(NSError**)error
 {
     [[self server] start:error];
+}
+
+-(void)stop
+{
+    [[self server] stop];
 }
 
 @end

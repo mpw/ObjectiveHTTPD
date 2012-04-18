@@ -1927,7 +1927,7 @@ MHD_stop_daemon (struct MHD_Daemon *daemon)
       daemon->worker_pool[i].socket_fd = -1;
     }
 
-#if OSX
+#if OSX 
   /* without this, either (thread pool = 0) threads would get stuck or
    * CLOSE would get stuck if attempted before (thread pool > 0)
    * threads have ended */

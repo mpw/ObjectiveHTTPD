@@ -131,7 +131,7 @@ int  AcceptPolicyCallback(void *cls,
 
 -(NSData*)get:(NSString*)urlString
 {
-	return [NSData data];
+	return [self get:urlString parameters:nil];
 }
 
 objectAccessor( NSData,_defaultResponse, setDefaultResponse )
@@ -203,6 +203,49 @@ static int iterate_post (void *cls,
 	return MHD_YES;
 }
 
+-(NSData*)errorPage:exception
+{
+    return [@"Not Found 404\n" asData]; 
+}
+
+-(int)handleGet:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
+{
+    //			fprintf(stderr, "in GET\n");
+    //			fprintf(stderr, "will get NSPlatformCurrentThread\n");
+    //			NSPlatformSetCurrentThread([[NSThread alloc] init]);
+    //			NSPlatformCurrentThread();
+    //			[NSObject new];
+    //			fprintf(stderr, "will create pool\n");
+    id pool=[NSAutoreleasePool new];
+    //			fprintf(stderr, "GET url: '%s'\n",url);
+    NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
+    //			fprintf(stderr, "did create urlstring\n");
+    NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
+    MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
+    NSData *responseData = nil;
+    int responseCode=0;
+    @try {
+        responseData=[[self delegate] get:urlstring parameters:parameterDict];
+        responseCode=MHD_HTTP_OK;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"exception: %@",exception);
+        responseData=[self errorPage:exception];
+        responseCode=404;
+    }
+    responseData=[responseData asData];
+    
+    struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
+    
+    int ret = MHD_queue_response(connection,
+                                 responseCode,
+                                 response);
+    MHD_destroy_response(response);
+    *con_cls = [responseData retain];
+    [pool drain];
+    return ret;
+}
+
 int AccessHandlerCallback(void *cls,
 							  struct MHD_Connection * connection,
 							  const char *url,
@@ -239,37 +282,8 @@ int AccessHandlerCallback(void *cls,
 		return MHD_YES;
 	} else {
 		if ( !strcmp("GET", method) ) {
-			//			fprintf(stderr, "in GET\n");
-			//			fprintf(stderr, "will get NSPlatformCurrentThread\n");
-			//			NSPlatformSetCurrentThread([[NSThread alloc] init]);
-			//			NSPlatformCurrentThread();
-			//			[NSObject new];
-			//			fprintf(stderr, "will create pool\n");
-			id pool=[NSAutoreleasePool new];
-//			fprintf(stderr, "GET url: '%s'\n",url);
-			NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
-			//			fprintf(stderr, "did create urlstring\n");
-			NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
-			MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
-
-			NSData *responseData = [[self delegate] get:urlstring parameters:parameterDict];
-            if ( ![responseData respondsToSelector:@selector(bytes)] ) {
-                if ( ![responseData respondsToSelector:@selector(length)] ) {
-                    responseData=[responseData description];
-                }
-                responseData=[responseData asData];
-                
-            }
-			struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
-			
-			int ret = MHD_queue_response(connection,
-										 MHD_HTTP_OK,
-										 response);
-			MHD_destroy_response(response);
-			*con_cls = [responseData retain];
-			[pool drain];
-			return ret;
-		} else 	if ( !strcmp("PUT", method) ) {
+            return [self handleGet:url onConnection:connection context:con_cls];
+        }else 	if ( !strcmp("PUT", method) ) {
 			id pool=[NSAutoreleasePool new];
 			NSMutableData *putData=(NSMutableData*)*con_cls;
 			if ( *upload_data_size != 0 ) {
@@ -354,6 +368,7 @@ int AccessHandlerCallback(void *cls,
 									 20,
 									 MHD_OPTION_END
 									 )];
+    NSLog(@"=== did start %p",[self httpd]);
 	return [self httpd] != NULL;
 }
 
@@ -361,14 +376,22 @@ int AccessHandlerCallback(void *cls,
 -(void)stopHttpd
 {
 	if ( [self httpd] )  {
+        NSLog(@"stopping httpd: %p",[self httpd]);
 		MHD_stop_daemon ([self httpd]);
+        NSLog(@"=== did stop %p",[self httpd]);
 		[self setHttpd:NULL];
 	}
 }
 
+-(void)stop
+{
+    [self stopBonjour];
+    [self stopHttpd];
+}
+
 -(void)dealloc
 {
-	[self stopHttpd];
+	[self stop];
 	[super dealloc];
 }
 

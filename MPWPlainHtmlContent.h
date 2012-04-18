@@ -17,5 +17,6 @@
 }
 
 -initWithResourceNamed:(NSString*)resourceName;
++pageWithStaticContentNamed:name source:someSource;
 
 @end
