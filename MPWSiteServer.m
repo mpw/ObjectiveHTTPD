@@ -7,7 +7,7 @@
 //
 
 #import "MPWSiteServer.h"
-#import <MethodServer/MethodServer.h>
+//#import <MethodServer/MethodServer.h>
 #import <MPWTalk/MPWCopyOnWriteScheme.h>
 #import "MPWHTMLRenderScheme.h"
 #import "MPWHTTPServer.h"
