@@ -34,7 +34,7 @@ objectAccessor( NSArray, netServices, setNetServices )
 {
 	// Override me to do something here...
 	
-	NSLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@)", [ns domain], [ns type], [ns name]);
+	NSLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@) port: %d", [ns domain], [ns type], [ns name],[ns port]);
 }
 
 /**
@@ -63,6 +63,7 @@ objectAccessor( NSArray, netServices, setNetServices )
 
 -(void)startBonjour
 {
+    NSLog(@"starting bonjour");
 	NSMutableArray *services=[NSMutableArray array];
 	for ( NSString *type in [self types] ) {
 		NSNetService *service;
@@ -73,6 +74,7 @@ objectAccessor( NSArray, netServices, setNetServices )
 	
 	[[[self netServices] do] setDelegate:self];
 	[[[self netServices] do] publish];
+    NSLog(@"did start bonjour:  %@",[self netServices]);
 	
 }
 
@@ -354,8 +356,10 @@ int AccessHandlerCallback(void *cls,
 
 -(BOOL)startHttpd
 {
-		
-	[self setHttpd:MHD_start_daemon ( MHD_USE_SELECT_INTERNALLY ,
+	int attempts=0;
+    int initialPort=[self port];
+    while ( ![self httpd] && attempts < 50 ) {
+        [self setHttpd:MHD_start_daemon ( MHD_USE_SELECT_INTERNALLY ,
                                      [self port],
                                      AcceptPolicyCallback ,
                                      self,
@@ -368,7 +372,12 @@ int AccessHandlerCallback(void *cls,
 									 20,
 									 MHD_OPTION_END
 									 )];
-    NSLog(@"=== did start %p",[self httpd]);
+        if (![self httpd]) {
+            [self setPort:[self port]+1];
+            attempts++;
+        }
+    }
+    NSLog(@"=== did start %p on port %d",[self httpd],[self port]);
 	return [self httpd] != NULL;
 }
 

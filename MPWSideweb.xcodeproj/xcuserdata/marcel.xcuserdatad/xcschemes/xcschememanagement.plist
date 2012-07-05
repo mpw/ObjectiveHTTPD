@@ -7,22 +7,22 @@
 		<key>MPWSideWeb iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>51</integer>
+			<integer>49</integer>
 		</dict>
 		<key>MPWSideweb.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>56</integer>
+			<integer>54</integer>
 		</dict>
 		<key>webside Linux.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>49</integer>
+			<integer>47</integer>
 		</dict>
 		<key>webside.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>48</integer>
+			<integer>46</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
