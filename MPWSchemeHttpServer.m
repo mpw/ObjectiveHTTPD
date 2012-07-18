@@ -18,6 +18,12 @@ objectAccessor(MPWHTTPServer, server, setServer )
 objectAccessor(MPWScheme, scheme, _setScheme)
 idAccessor( _serializer, _setSerializer)
 
+-init {
+    self=[super init];
+    [self setServer:[[[MPWHTTPServer alloc] init] autorelease]];
+    [[self server] setDelegate:self];
+    return self;
+}
 
 -serializer
 {
@@ -41,19 +47,58 @@ idAccessor( _serializer, _setSerializer)
 }
 
 
--(MPWBinding*)identifierForString:(NSString*)uriString
+-(MPWBinding*)bindingForString:(NSString*)uriString
 {
     return [[self scheme] bindingForName:uriString inContext:nil]; 
 }
 
 -(NSData*)serializeValue:outputValue at:(MPWBinding*)aBinding
 {
-    return [outputValue asData];
+    NSMutableData *serialized=nil;
+    if ( [outputValue isKindOfClass:[NSArray class]] && [[outputValue lastObject] respondsToSelector:@selector(path)]) {
+        NSMutableString *html=[NSMutableString stringWithString:@"<html><head><title>listing</title></head><body><ul>\n"];
+        for ( MPWBinding *child  in outputValue) {
+            NSString *dirEntry=[[child path] lastPathComponent];
+            NSString *encodedString = (NSString *)CFURLCreateStringByAddingPercentEscapes(
+                                                                                          NULL,
+                                                                                          (CFStringRef)dirEntry,
+                                                                                          NULL,
+                                                                                          (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                                                                          kCFStringEncodingUTF8 );
+            [html appendFormat:@"<li><a href='%@%s'>%@</a></li>\n",encodedString,[child hasChildren] ? "/" :"",dirEntry];
+        }
+        [html appendFormat:@"</ul></body></html>"];
+        outputValue=html;
+    }
+    if ( !serialized) {
+        serialized=[outputValue asData];
+    }
+    return serialized;
 }
+
+
+-(NSData*)get:(NSString*)uri
+{
+    return [uri asData];
+}
+
 
 -(NSData*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
-    return [[self serializer] get:uri];
+//    NSLog(@"get: %@",uri);
+    id binding=[self bindingForString:uri];
+    id val1=nil;
+    if ( [binding hasChildren]) {
+//        NSLog(@"%@ should be a directory",binding);
+        val1=[binding children];
+    } else {
+//        NSLog(@"%@ not a directory",binding);
+        val1=[binding value];
+    }
+//    NSLog(@"got: %@/%@",[val1 class],val1);
+    NSData* serialized=[[self serializer] serializeValue:val1 at:binding];
+//    NSLog(@"serialized: %@",serialized);
+    return serialized;
 }
 
 -(id)deserializeData:(NSData*)inputData at:(MPWBinding*)aBinding
@@ -62,9 +107,9 @@ idAccessor( _serializer, _setSerializer)
 }
 
 -(NSData*)put:(NSString *)uri data:putData parameters:(NSDictionary*)params
-{    id identifier=[self identifierForString:uri];
+{    id binding=[self bindingForString:uri];
 
-    [identifier bindValue:[self deserializeData:putData at:identifier]];
+    [binding bindValue:[self deserializeData:putData at:binding]];
     return [uri asData];
 }
 
@@ -86,11 +131,8 @@ idAccessor( _serializer, _setSerializer)
 
 -(void)setupWebServer
 {
-    [self setServer:[[[MPWHTTPServer alloc] init] autorelease]];
-    [[self server] setDelegate:self];
     [[self server] setPort:51000];
-    [[self server] setBonjourName:@"Methods"];
-    [[self server] setTypes:[NSArray arrayWithObjects:@"_http._tcp.",@"_methods._tcp.",nil]];
+    [[self server] setTypes:[NSArray arrayWithObjects:@"_http._tcp.",nil]];
     
 }
 
