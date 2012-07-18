@@ -9,12 +9,12 @@
 #import "MPWPlainHtmlContent.h"
 #import "MPWSiteMap.h"
 
-
 @implementation MPWPlainHtmlContent
 
 objectAccessor( NSData, _contentData, setContentData )
 objectAccessor( NSString, resourceName, setResourceName )
 scalarAccessor(id, source, setSource )
+
 -contentType
 {
 	return @"html";
@@ -56,6 +56,16 @@ scalarAccessor(id, source, setSource )
 	self = [super init];
 	[self setResourceName:newResourceName];
 	return self;
+}
+
+//****  FIXME:  this almost completely negates what this class is here for
+//              so look at ways of removing the class instead
+
+-initWithContentData:(NSData*)newContentData
+{
+    self=[super init];
+    [self setContentData:newContentData];
+    return self;
 }
 
 +pageWithStaticContentNamed:name source:someSource

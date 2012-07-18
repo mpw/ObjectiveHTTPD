@@ -9,7 +9,7 @@
 #import <MPWFoundation/MPWFoundation.h>
 
 
-@interface MPWPlainHtmlContent : MPWObject {
+@interface MPWPlainHtmlContent : NSObject {
 	NSData* _contentData;
 	NSString *resourceName;
     id source;
