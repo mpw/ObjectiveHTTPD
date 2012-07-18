@@ -74,12 +74,12 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [self setSitemap:aSite];
     [self setInterpreter:[[[MPWStCompiler alloc] init] autorelease]];
 #if TARGET_OS_IPHONE    
-    NSDictionary* dict=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"website" ofType:@"plist"]];
+    NSDictionary* dict=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"website" ofType:@"classdict"]];
 #else
-    NSString* methodString = [[aSite frameworkResource:@"website" category:@"plist"] stringValue];
+    NSString* methodString = [[aSite frameworkResource:@"website" category:@"classdict"] stringValue];
     NSDictionary *dict=[methodString propertyList];
 #endif
-    [[self interpreter] defineMethodsInExternalDict:dict];
+    [[self interpreter] defineMethodsInExternalDict:[dict objectForKey:@"methodDict"]];
     [[self interpreter] bindValue:aSite toVariableNamed:@"site"];
     [[self interpreter] bindValue:[MPWByteStream Stdout] toVariableNamed:@"stdout"];
     
@@ -94,8 +94,10 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [[self interpreter] bindValue:self toVariableNamed:@"siteServer"];
     [[self interpreter] bindValue:[self server] toVariableNamed:@"server"];
 
-    [self setupInterpreter];
     [self createMethodServer];
+    NSLog(@"will setup interpreter");
+    [self setupInterpreter];
+    NSLog(@"did setup interpreter");
     
     [self setupSite];
 	return self;
