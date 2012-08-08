@@ -46,7 +46,7 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [[self renderer] setSourceScheme:aTemplater];
     [[self sitemap] setRenderer:[self renderer]];
     [self setCache:[MPWCopyOnWriteScheme scheme]];
-    [cache setReadOnly:[self renderer]];
+    [cache setSource:[self renderer]];
     [self initializeAndClearCache];
     [cache setCacheReads:YES];
     [self enableCaching];

@@ -11,6 +11,7 @@
 #import <MPWSideWeb/MPWPOSTProcessor.h>
 #import <MPWTalk/MPWScheme.h>
 #import <MPWTalk/MPWBinding.h>
+#import <MPWTalk/MPWMessagePortDescriptor.h>
 
 @implementation MPWSchemeHttpServer
 
@@ -23,6 +24,14 @@ idAccessor( _serializer, _setSerializer)
     [self setServer:[[[MPWHTTPServer alloc] init] autorelease]];
     [[self server] setDelegate:self];
     return self;
+}
+
+
++serverOnPort:(int)aPort
+{
+    MPWSchemeHttpServer *server=[[[self alloc] init] autorelease];
+    [[server server] setPort:aPort];
+    return server;
 }
 
 -serializer
@@ -55,6 +64,7 @@ idAccessor( _serializer, _setSerializer)
 -(NSData*)serializeValue:outputValue at:(MPWBinding*)aBinding
 {
     NSMutableData *serialized=nil;
+//    NSLog(@"web-serialize a %@ for %@: %@",[outputValue class],[aBinding path],outputValue);
     if ( [outputValue isKindOfClass:[NSArray class]] && [[outputValue lastObject] respondsToSelector:@selector(path)]) {
         NSMutableString *html=[NSMutableString stringWithString:@"<html><head><title>listing</title></head><body><ul>\n"];
         for ( MPWBinding *child  in outputValue) {
@@ -145,5 +155,12 @@ idAccessor( _serializer, _setSerializer)
 {
     [[self server] stop];
 }
+
+-defaultInputPort
+{
+    return [[[MPWMessagePortDescriptor alloc] initWithTarget:self key:@"scheme" protocol:nil sends:YES] autorelease];
+}
+
+
 
 @end
