@@ -54,7 +54,6 @@
 		1F6ECA941424D2D1002DD085 /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36C012EBAD380008377F /* response.c */; };
 		1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
 		1F6ECA961424D2FF002DD085 /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
-		1F7B75A1146057F1002F38D1 /* MPWTalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7B75A0146057F1002F38D1 /* MPWTalk.framework */; };
 		1F7B75A414606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F7B75A514606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */; settings = {ATTRIBUTES = (); }; };
 		1F7B75A614606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B75A314606C5D002F38D1 /* MPWSchemeHttpServer.m */; };
@@ -63,6 +62,7 @@
 		1F7CFA5613E2123200FB926E /* MPWXmlKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */; };
 		1F7CFA5A13E215F500FB926E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5913E215F500FB926E /* Foundation.framework */; };
 		1F7CFA5B13E21D9800FB926E /* microhttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA9FD8136E00F900481CA3 /* microhttp.m */; };
+		1F83B76615DCF22400D61261 /* ObjectiveSmalltalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F83B76515DCF22400D61261 /* ObjectiveSmalltalk.framework */; };
 		1F905A530C2E07F700E63F65 /* WAHtmlRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F905A540C2E07F700E63F65 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
 		1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */; };
@@ -169,6 +169,7 @@
 		1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundationLinux.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWFoundationLinux.framework"; sourceTree = "<group>"; };
 		1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWXmlKit.framework"; sourceTree = "<group>"; };
 		1F7CFA5913E215F500FB926E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
+		1F83B76515DCF22400D61261 /* ObjectiveSmalltalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectiveSmalltalk.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/ObjectiveSmalltalk.framework"; sourceTree = "<group>"; };
 		1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAHtmlRenderer.h; sourceTree = "<group>"; };
 		1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAHtmlRenderer.m; sourceTree = "<group>"; };
 		1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundation.framework; path = ../MPWFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,7 +225,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F7B75A1146057F1002F38D1 /* MPWTalk.framework in Frameworks */,
+				1F83B76615DCF22400D61261 /* ObjectiveSmalltalk.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */,
 				1F905AB60C2E0AD400E63F65 /* MPWXmlKit.framework in Frameworks */,
@@ -248,8 +249,7 @@
 		0867D691FE84028FC02AAC07 /* MPWSideweb */ = {
 			isa = PBXGroup;
 			children = (
-				1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */,
-				1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */,
+				1F83B76515DCF22400D61261 /* ObjectiveSmalltalk.framework */,
 				1F0E36AC12EBAD380008377F /* microhttpd */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
@@ -264,6 +264,8 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */,
+				1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */,
 				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
 				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);

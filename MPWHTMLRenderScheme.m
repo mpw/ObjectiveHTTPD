@@ -22,7 +22,7 @@
 {
     @synchronized(self) {
         id renderer = [self renderer];
-        [renderer writeObject:[sourceScheme valueForBinding:aBinding]];
+        [renderer writeObject:[[self source] valueForBinding:aBinding]];
         return [renderer result];
     }
 }

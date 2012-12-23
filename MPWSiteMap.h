@@ -6,7 +6,7 @@
 //  Copyright 2007 Marcel Weiher. All rights reserved.
 //
 
-#import <MPWTalk/MPWTreeNodeScheme.h>
+#import <ObjectiveSmalltalk/MPWTreeNodeScheme.h>
 
 
 @interface MPWSiteMap : MPWTreeNodeScheme {

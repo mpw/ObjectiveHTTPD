@@ -238,7 +238,11 @@ static int iterate_post (void *cls,
     responseData=[responseData asData];
     
     struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
-    
+
+    MHD_add_response_header (response, "Connection", "Keep-Alive");
+    MHD_add_response_header (response, "Keep-Alive", "timeout=3, max=100");
+//    MHD_add_response_header (response, "Expires", "Tue, 1 Jan 2013 08:12:31 GMT");
+
     int ret = MHD_queue_response(connection,
                                  responseCode,
                                  response);

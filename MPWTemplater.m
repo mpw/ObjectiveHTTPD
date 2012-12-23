@@ -7,21 +7,24 @@
 //
 
 #import "MPWTemplater.h"
-#import <MPWTalk/MPWScheme.h>
-#import <MPWTalk/MPWBinding.h>
+#import <ObjectiveSmalltalk/MPWScheme.h>
+#import <ObjectiveSmalltalk/MPWBinding.h>
 #import <MPWFoundation/MPWFoundation.h>
 #import <MPWSideweb/WAHtmlRenderer.h>
 
 @implementation MPWTemplater
 
-objectAccessor( MPWScheme, sourceScheme, setSourceScheme )
 idAccessor( template, setTemplate )
 
+-(void)setSourceScheme:(id)newSource
+{
+    [self setSource:newSource];
+}
 
 
 -valueForBinding:(MPWBinding*)aBinding
 {
-    id rawValue=[sourceScheme valueForBinding:aBinding];
+    id rawValue=[[self source] valueForBinding:aBinding];
     id page=[self template];
     [page setPath:aBinding];
     [page setContent:rawValue];
@@ -30,7 +33,6 @@ idAccessor( template, setTemplate )
 
 -(void)dealloc
 {
-    [sourceScheme release];
     [template release];
     [super dealloc];
 }

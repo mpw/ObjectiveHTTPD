@@ -6,11 +6,10 @@
 //  Copyright (c) 2012 metaobject ltd. All rights reserved.
 //
 
-#import <MPWTalk/MPWGenericScheme.h>
+#import <ObjectiveSmalltalk/MPWFilterScheme.h>
 
-@interface MPWTemplater : MPWGenericScheme
+@interface MPWTemplater : MPWFilterScheme
 {
-    MPWScheme *sourceScheme;
     id  template;
 }
 

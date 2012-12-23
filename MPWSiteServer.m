@@ -8,7 +8,7 @@
 
 #import "MPWSiteServer.h"
 //#import <MethodServer/MethodServer.h>
-#import <MPWTalk/MPWCopyOnWriteScheme.h>
+#import <ObjectiveSmalltalk/MPWCopyOnWriteScheme.h>
 #import "MPWHTMLRenderScheme.h"
 #import "MPWHTTPServer.h"
 
@@ -56,7 +56,7 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
 
 -(void)createMethodServer
 {
-    [self setMethodServer:[[[NSClassFromString(@"MethodServer") alloc] init] autorelease]]; 
+    [self setMethodServer:[[[NSClassFromString(@"MethodServer") alloc] initWithMethodDictName:@"website"] autorelease]];
     [[self methodServer] setupWithInterpreter:[self interpreter]];
     [[self methodServer] setDelegate:self];
 }
@@ -80,6 +80,8 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     NSDictionary *dict=[methodString propertyList];
 #endif
     [[self interpreter] defineMethodsInExternalDict:[dict objectForKey:@"methodDict"]];
+    
+    
     [[self interpreter] bindValue:aSite toVariableNamed:@"site"];
     [[self interpreter] bindValue:[MPWByteStream Stdout] toVariableNamed:@"stdout"];
     
@@ -95,7 +97,12 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [[self interpreter] bindValue:[self server] toVariableNamed:@"server"];
 
     [self createMethodServer];
-    NSLog(@"will setup interpreter");
+    
+    NSString *uid=[dict objectForKey:@"uniqueID"];
+    if ( uid ) {
+        [[self methodServer] setUniqueID:uid];
+    }
+   NSLog(@"will setup interpreter");
     [self setupInterpreter];
     NSLog(@"did setup interpreter");
     

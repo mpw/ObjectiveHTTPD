@@ -9,9 +9,9 @@
 #import "MPWSchemeHttpServer.h"
 #import <MPWSideWeb/MPWHTTPServer.h>
 #import <MPWSideWeb/MPWPOSTProcessor.h>
-#import <MPWTalk/MPWScheme.h>
-#import <MPWTalk/MPWBinding.h>
-#import <MPWTalk/MPWMessagePortDescriptor.h>
+#import <ObjectiveSmalltalk/MPWScheme.h>
+#import <ObjectiveSmalltalk/MPWBinding.h>
+#import <ObjectiveSmalltalk/MPWMessagePortDescriptor.h>
 
 @implementation MPWSchemeHttpServer
 
@@ -95,19 +95,14 @@ idAccessor( _serializer, _setSerializer)
 
 -(NSData*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
-//    NSLog(@"get: %@",uri);
     id binding=[self bindingForString:uri];
     id val1=nil;
     if ( [binding hasChildren]) {
-//        NSLog(@"%@ should be a directory",binding);
         val1=[binding children];
     } else {
-//        NSLog(@"%@ not a directory",binding);
         val1=[binding value];
     }
-//    NSLog(@"got: %@/%@",[val1 class],val1);
     NSData* serialized=[[self serializer] serializeValue:val1 at:binding];
-//    NSLog(@"serialized: %@",serialized);
     return serialized;
 }
 
@@ -158,7 +153,7 @@ idAccessor( _serializer, _setSerializer)
 
 -defaultInputPort
 {
-    return [[[MPWMessagePortDescriptor alloc] initWithTarget:self key:@"scheme" protocol:nil sends:YES] autorelease];
+    return [[[MPWMessagePortDescriptor alloc] initWithTarget:self key:@"scheme" protocol:@protocol(Scheme) sends:YES] autorelease];
 }
 
 
