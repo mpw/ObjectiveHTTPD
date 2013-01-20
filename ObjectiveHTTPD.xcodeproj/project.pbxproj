@@ -30,7 +30,7 @@
 		1F0E36D612EBAD380008377F /* response.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36C112EBAD380008377F /* response.h */; };
 		1F0E36D912EBAD470008377F /* MPWHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36D712EBAD470008377F /* MPWHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F0E36DA12EBAD470008377F /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
-		1F0E36EC12EBADD40008377F /* MPWSideweb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */; };
+		1F0E36EC12EBADD40008377F /* ObjectiveHTTPD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjectiveHTTPD.framework */; };
 		1F0E371912EBB0160008377F /* WebConnectDemoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371812EBB0160008377F /* WebConnectDemoServer.m */; };
 		1F0E371E12EBB1100008377F /* MPWPOSTProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E371C12EBB1100008377F /* MPWPOSTProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F0E371F12EBB1100008377F /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
@@ -161,7 +161,7 @@
 		1F201B6814E6B7F9007BEFDA /* MPWSiteServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSiteServer.h; sourceTree = "<group>"; };
 		1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteServer.m; sourceTree = "<group>"; };
 		1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectiveXML.framework; path = ../../Build/Release/ObjectiveXML.framework; sourceTree = "<group>"; };
-		1F6ECA7D1424D2AF002DD085 /* libObjectiveHTTPD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveHTTPD.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F6ECA7D1424D2AF002DD085 /* liblibObjectiveHTTPD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibObjectiveHTTPD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ECA7F1424D2AF002DD085 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1F7B75A0146057F1002F38D1 /* MPWTalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWTalk.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWTalk.framework"; sourceTree = "<group>"; };
 		1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSchemeHttpServer.h; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 		1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWHTMLRenderScheme.m; sourceTree = "<group>"; };
 		32DBCF5E0370ADEE00C91783 /* MPWSideweb_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSideweb_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MPWSideweb.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DC2EF5B0486A6940098B216 /* ObjectiveHTTPD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjectiveHTTPD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
@@ -200,7 +200,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F0E36EC12EBADD40008377F /* MPWSideweb.framework in Frameworks */,
+				1F0E36EC12EBADD40008377F /* ObjectiveHTTPD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,10 +239,10 @@
 		034768DFFF38A50411DB9C8B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */,
+				8DC2EF5B0486A6940098B216 /* ObjectiveHTTPD.framework */,
 				1F0E36E412EBADC10008377F /* webside */,
 				1FDAA001136E076000481CA3 /* webside */,
-				1F6ECA7D1424D2AF002DD085 /* libObjectiveHTTPD.a */,
+				1F6ECA7D1424D2AF002DD085 /* liblibObjectiveHTTPD.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -462,7 +462,7 @@
 			);
 			name = libObjectiveHTTPD;
 			productName = ObjectiveHTTPD;
-			productReference = 1F6ECA7D1424D2AF002DD085 /* libObjectiveHTTPD.a */;
+			productReference = 1F6ECA7D1424D2AF002DD085 /* liblibObjectiveHTTPD.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		1FDA9FF6136E076000481CA3 /* webside Linux */ = {
@@ -498,7 +498,7 @@
 			name = ObjectiveHTTPD;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = MPWSideweb;
-			productReference = 8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */;
+			productReference = 8DC2EF5B0486A6940098B216 /* ObjectiveHTTPD.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -506,7 +506,7 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
-			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "MPWSideweb" */;
+			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "ObjectiveHTTPD" */;
 			compatibilityVersion = "Xcode 3.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
@@ -693,10 +693,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MPWSideweb_Prefix.pch;
+				GCC_PREFIX_HEADER = ObjectiveHTTPD_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = MPWSideweb;
+				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
@@ -719,10 +719,10 @@
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MPWSideweb_Prefix.pch;
+				GCC_PREFIX_HEADER = ObjectiveHTTPD_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = MPWSideweb;
+				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -734,7 +734,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -745,7 +745,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INSTALL_PATH = "@executable_path/../Frameworks";
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -914,7 +914,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = "$(DEVELOPER_SDK_DIR)/MacOSX10.5.sdk";
+				SDKROOT = macosx;
 			};
 			name = Relative;
 		};
@@ -937,10 +937,10 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = MPWSideweb_Prefix.pch;
+				GCC_PREFIX_HEADER = ObjectiveHTTPD_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
-				PRODUCT_NAME = MPWSideweb;
+				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
@@ -1056,7 +1056,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "MPWSideweb" */ = {
+		1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "ObjectiveHTTPD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91B208733DA50010E9CD /* Debug */,
