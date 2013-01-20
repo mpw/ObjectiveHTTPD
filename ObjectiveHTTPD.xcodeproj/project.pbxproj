@@ -41,6 +41,7 @@
 		1F201B6C14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
 		1F201B6D14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
 		1F201B6E14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
+		1F2A8DD01695A5AF003B12ED /* ObjectiveXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */; };
 		1F6ECA801424D2AF002DD085 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6ECA7F1424D2AF002DD085 /* Foundation.framework */; };
 		1F6ECA8B1424D2D1002DD085 /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
 		1F6ECA8C1424D2D1002DD085 /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
@@ -66,7 +67,6 @@
 		1F905A530C2E07F700E63F65 /* WAHtmlRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F905A540C2E07F700E63F65 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
 		1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */; };
-		1F905AB60C2E0AD400E63F65 /* MPWXmlKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905AB50C2E0AD400E63F65 /* MPWXmlKit.framework */; };
 		1FCE394E14C5D9BC003C2BA9 /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
 		1FCE394F14C5D9C4003C2BA9 /* MPWPlainHtmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */; };
 		1FCE395014C5D9C8003C2BA9 /* MPWPlainCSSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */; };
@@ -160,7 +160,8 @@
 		1F0E374212EBBFB20008377F /* MPWSiteMapHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteMapHTTPServer.m; sourceTree = "<group>"; };
 		1F201B6814E6B7F9007BEFDA /* MPWSiteServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSiteServer.h; sourceTree = "<group>"; };
 		1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteServer.m; sourceTree = "<group>"; };
-		1F6ECA7D1424D2AF002DD085 /* libMPWSideWeb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMPWSideWeb.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectiveXML.framework; path = ../../Build/Release/ObjectiveXML.framework; sourceTree = "<group>"; };
+		1F6ECA7D1424D2AF002DD085 /* libObjectiveHTTPD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libObjectiveHTTPD.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F6ECA7F1424D2AF002DD085 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1F7B75A0146057F1002F38D1 /* MPWTalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWTalk.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWTalk.framework"; sourceTree = "<group>"; };
 		1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSchemeHttpServer.h; sourceTree = "<group>"; };
@@ -225,10 +226,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F2A8DD01695A5AF003B12ED /* ObjectiveXML.framework in Frameworks */,
 				1F83B76615DCF22400D61261 /* ObjectiveSmalltalk.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */,
-				1F905AB60C2E0AD400E63F65 /* MPWXmlKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +242,7 @@
 				8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */,
 				1F0E36E412EBADC10008377F /* webside */,
 				1FDAA001136E076000481CA3 /* webside */,
-				1F6ECA7D1424D2AF002DD085 /* libMPWSideWeb.a */,
+				1F6ECA7D1424D2AF002DD085 /* libObjectiveHTTPD.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +250,7 @@
 		0867D691FE84028FC02AAC07 /* MPWSideweb */ = {
 			isa = PBXGroup;
 			children = (
+				1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */,
 				1F83B76515DCF22400D61261 /* ObjectiveSmalltalk.framework */,
 				1F0E36AC12EBAD380008377F /* microhttpd */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
@@ -446,9 +448,9 @@
 			productReference = 1F0E36E412EBADC10008377F /* webside */;
 			productType = "com.apple.product-type.tool";
 		};
-		1F6ECA7C1424D2AF002DD085 /* MPWSideWeb */ = {
+		1F6ECA7C1424D2AF002DD085 /* libObjectiveHTTPD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1F6ECA8A1424D2B0002DD085 /* Build configuration list for PBXNativeTarget "MPWSideWeb" */;
+			buildConfigurationList = 1F6ECA8A1424D2B0002DD085 /* Build configuration list for PBXNativeTarget "libObjectiveHTTPD" */;
 			buildPhases = (
 				1F6ECA791424D2AF002DD085 /* Sources */,
 				1F6ECA7A1424D2AF002DD085 /* Frameworks */,
@@ -458,9 +460,9 @@
 			);
 			dependencies = (
 			);
-			name = MPWSideWeb;
-			productName = MPWSideWeb;
-			productReference = 1F6ECA7D1424D2AF002DD085 /* libMPWSideWeb.a */;
+			name = libObjectiveHTTPD;
+			productName = ObjectiveHTTPD;
+			productReference = 1F6ECA7D1424D2AF002DD085 /* libObjectiveHTTPD.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		1FDA9FF6136E076000481CA3 /* webside Linux */ = {
@@ -479,9 +481,9 @@
 			productReference = 1FDAA001136E076000481CA3 /* webside */;
 			productType = "com.apple.product-type.tool";
 		};
-		8DC2EF4F0486A6940098B216 /* MPWSideweb */ = {
+		8DC2EF4F0486A6940098B216 /* ObjectiveHTTPD */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "MPWSideweb" */;
+			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "ObjectiveHTTPD" */;
 			buildPhases = (
 				8DC2EF500486A6940098B216 /* Headers */,
 				8DC2EF520486A6940098B216 /* Resources */,
@@ -493,7 +495,7 @@
 			);
 			dependencies = (
 			);
-			name = MPWSideweb;
+			name = ObjectiveHTTPD;
 			productInstallPath = "$(HOME)/Library/Frameworks";
 			productName = MPWSideweb;
 			productReference = 8DC2EF5B0486A6940098B216 /* MPWSideweb.framework */;
@@ -519,10 +521,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8DC2EF4F0486A6940098B216 /* MPWSideweb */,
+				8DC2EF4F0486A6940098B216 /* ObjectiveHTTPD */,
 				1F0E36E312EBADC10008377F /* webside */,
 				1FDA9FF6136E076000481CA3 /* webside Linux */,
-				1F6ECA7C1424D2AF002DD085 /* MPWSideWeb */,
+				1F6ECA7C1424D2AF002DD085 /* libObjectiveHTTPD */,
 			);
 		};
 /* End PBXProject section */
@@ -655,7 +657,7 @@
 /* Begin PBXTargetDependency section */
 		1F0E36F712EBADD60008377F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216 /* MPWSideweb */;
+			target = 8DC2EF4F0486A6940098B216 /* ObjectiveHTTPD */;
 			targetProxy = 1F0E36F612EBADD60008377F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -683,6 +685,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release\"",
+					"\"$(SRCROOT)/../../Build/Release\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -711,6 +714,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release\"",
+					"\"$(SRCROOT)/../../Build/Release\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_MODEL_TUNING = G5;
@@ -821,7 +825,7 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = NO;
-				DSTROOT = /tmp/MPWSideWeb.dst;
+				DSTROOT = /tmp/ObjectiveHTTPD.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks,
 					"$(inherited)",
@@ -856,7 +860,7 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/MPWSideWeb.dst;
+				DSTROOT = /tmp/ObjectiveHTTPD.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks,
 					"$(inherited)",
@@ -885,7 +889,7 @@
 				);
 				CLANG_ENABLE_OBJC_ARC = NO;
 				COPY_PHASE_STRIP = YES;
-				DSTROOT = /tmp/MPWSideWeb.dst;
+				DSTROOT = /tmp/ObjectiveHTTPD.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					/Library/Frameworks,
 					"$(inherited)",
@@ -925,6 +929,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release\"",
+					"\"$(SRCROOT)/../../Build/Release\"",
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1041,7 +1046,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "MPWSideweb" */ = {
+		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "ObjectiveHTTPD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1DEB91AE08733DA50010E9CD /* Debug */,
@@ -1071,7 +1076,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		1F6ECA8A1424D2B0002DD085 /* Build configuration list for PBXNativeTarget "MPWSideWeb" */ = {
+		1F6ECA8A1424D2B0002DD085 /* Build configuration list for PBXNativeTarget "libObjectiveHTTPD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1F6ECA871424D2B0002DD085 /* Debug */,

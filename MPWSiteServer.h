@@ -1,6 +1,6 @@
 //
 //  MPWSiteServer.h
-//  MPWSideweb
+//  ObjectiveHTTPD
 //
 //  Created by Marcel Weiher on 2/11/12.
 //  Copyright (c) 2012 metaobject ltd. All rights reserved.

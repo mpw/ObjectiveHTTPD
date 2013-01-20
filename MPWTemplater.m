@@ -10,7 +10,7 @@
 #import <ObjectiveSmalltalk/MPWScheme.h>
 #import <ObjectiveSmalltalk/MPWBinding.h>
 #import <MPWFoundation/MPWFoundation.h>
-#import <MPWSideweb/WAHtmlRenderer.h>
+#import <ObjectiveHTTPD/WAHtmlRenderer.h>
 
 @implementation MPWTemplater
 

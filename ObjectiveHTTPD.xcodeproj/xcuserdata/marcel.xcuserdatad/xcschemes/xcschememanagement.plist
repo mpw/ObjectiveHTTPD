@@ -4,25 +4,25 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>MPWSideWeb iOS.xcscheme</key>
+		<key>ObjectiveHTTPD iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>48</integer>
+		</dict>
+		<key>ObjectiveHTTPD.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>53</integer>
 		</dict>
-		<key>MPWSideweb.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>58</integer>
-		</dict>
 		<key>webside Linux.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>51</integer>
+			<integer>46</integer>
 		</dict>
 		<key>webside.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>50</integer>
+			<integer>45</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

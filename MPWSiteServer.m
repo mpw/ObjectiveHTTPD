@@ -1,6 +1,6 @@
 //
 //  MPWSiteServer.m
-//  MPWSideweb
+//  ObjectiveHTTPD
 //
 //  Created by Marcel Weiher on 2/11/12.
 //  Copyright (c) 2012 metaobject ltd. All rights reserved.
@@ -58,6 +58,8 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
 {
     [self setMethodServer:[[[NSClassFromString(@"MethodServer") alloc] initWithMethodDictName:@"website"] autorelease]];
     [[self methodServer] setupWithInterpreter:[self interpreter]];
+    [[self methodServer] setupWebServerInBackground];
+
     [[self methodServer] setDelegate:self];
 }
 

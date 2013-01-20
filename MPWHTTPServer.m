@@ -79,7 +79,8 @@ objectAccessor( NSArray, netServices, setNetServices )
 }
 
 -(void)stopBonjour
-{       
+{
+    NSLog(@"stopping net services");
 	[[[self netServices] do] stop];
 	[self setNetServices:nil];
 	

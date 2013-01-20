@@ -7,8 +7,8 @@
 //
 
 #import "MPWSchemeHttpServer.h"
-#import <MPWSideWeb/MPWHTTPServer.h>
-#import <MPWSideWeb/MPWPOSTProcessor.h>
+#import <ObjectiveHTTPD/MPWHTTPServer.h>
+#import <ObjectiveHTTPD/MPWPOSTProcessor.h>
 #import <ObjectiveSmalltalk/MPWScheme.h>
 #import <ObjectiveSmalltalk/MPWBinding.h>
 #import <ObjectiveSmalltalk/MPWMessagePortDescriptor.h>
