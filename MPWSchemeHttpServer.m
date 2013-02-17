@@ -106,6 +106,152 @@ idAccessor( _serializer, _setSerializer)
     return serialized;
 }
 
+-(NSData*)options:(NSString *)urlString parameters:(NSDictionary*)params
+{
+    return [NSData data];
+}
+
+
+-(NSData*)propfind:(NSString *)urlString data:(NSData*)propFindData parameters:(NSDictionary*)params
+{
+    
+    NSString *responseDepth0=@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n\
+    <D:multistatus xmlns:D=\"DAV:\">\n\
+    <D:response xmlns:lp1=\"DAV:\" xmlns:lp2=\"http://apache.org/dav/props/\">\n\
+    <D:href>/webdav/</D:href>\n\
+    <D:propstat>\n\
+    <D:prop>\n\
+    <lp1:resourcetype><D:collection/></lp1:resourcetype>\n\
+    <lp1:creationdate>2013-02-15T13:28:33Z</lp1:creationdate>\n\
+    <lp1:getlastmodified>Fri, 15 Feb 2013 13:28:33 GMT</lp1:getlastmodified>\n\
+    <lp1:getetag>\"ccfbc3-aa-4d5c35a0d4240\"</lp1:getetag>\n\
+    <D:supportedlock>\n\
+    <D:lockentry>\n\
+    <D:lockscope><D:exclusive/></D:lockscope>\n\
+    <D:locktype><D:write/></D:locktype>\n\
+    </D:lockentry>\n\
+    <D:lockentry>\n\
+    <D:lockscope><D:shared/></D:lockscope>\n\
+    <D:locktype><D:write/></D:locktype>\n\
+    </D:lockentry>\n\
+    </D:supportedlock>\n\
+    <D:lockdiscovery/>\n\
+    <D:getcontenttype>httpd/unix-directory</D:getcontenttype>\n\
+    </D:prop>\n\
+    <D:status>HTTP/1.1 200 OK</D:status>\n\
+    </D:propstat>\n\
+    </D:response>\n\
+    </D:multistatus>\n";
+
+    
+    NSString *responseDepth1=@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\
+    <D:multistatus xmlns:D=\"DAV:\">\
+    <D:response xmlns:lp1=\"DAV:\" xmlns:lp2=\"http://apache.org/dav/props/\">\
+    <D:href>/webdav/</D:href>\
+    <D:propstat>\
+    <D:prop>\
+    <lp1:resourcetype><D:collection/></lp1:resourcetype>\
+    <lp1:creationdate>2013-02-15T13:28:33Z</lp1:creationdate>\
+    <lp1:getlastmodified>Fri, 15 Feb 2013 13:28:33 GMT</lp1:getlastmodified>\
+    <lp1:getetag>\"ccfbc3-aa-4d5c35a0d4240\"</lp1:getetag>\
+    <D:supportedlock>\
+    <D:lockentry>\
+    <D:lockscope><D:exclusive/></D:lockscope>\
+    <D:locktype><D:write/></D:locktype>\
+    </D:lockentry>\
+    <D:lockentry>\
+    <D:lockscope><D:shared/></D:lockscope>\
+    <D:locktype><D:write/></D:locktype>\
+    </D:lockentry>\
+    </D:supportedlock>\
+    <D:lockdiscovery/>\
+    <D:getcontenttype>httpd/unix-directory</D:getcontenttype>\
+    </D:prop>\
+    <D:status>HTTP/1.1 200 OK</D:status>\
+    </D:propstat>\
+    </D:response>\
+    <D:response xmlns:lp1=\"DAV:\" xmlns:lp2=\"http://apache.org/dav/props/\">\
+    <D:href>/webdav/hi.txt</D:href>\
+    <D:propstat>\
+    <D:prop>\
+    <lp1:resourcetype/>\
+    <lp1:creationdate>2013-02-15T13:28:33Z</lp1:creationdate>\
+    <lp1:getcontentlength>3</lp1:getcontentlength>\
+    <lp1:getlastmodified>Fri, 15 Feb 2013 13:28:33 GMT</lp1:getlastmodified>\
+    <lp1:getetag>\"cd2931-3-4d5c35a0d4240\"</lp1:getetag>\
+    <lp2:executable>F</lp2:executable>\
+    <D:supportedlock>\
+    <D:lockentry>\
+    <D:lockscope><D:exclusive/></D:lockscope>\
+    <D:locktype><D:write/></D:locktype>\
+    </D:lockentry>\
+    <D:lockentry>\
+    <D:lockscope><D:shared/></D:lockscope>\
+    <D:locktype><D:write/></D:locktype>\
+    </D:lockentry>\
+    </D:supportedlock>\
+    <D:lockdiscovery/>\
+    <D:getcontenttype>text/plain</D:getcontenttype>\
+    </D:prop>\
+    <D:status>HTTP/1.1 200 OK</D:status>\
+    </D:propstat>\
+    </D:response>\
+    <D:response xmlns:lp1=\"DAV:\" xmlns:lp2=\"http://apache.org/dav/props/\">\
+    <D:href>/webdav/letter.pages</D:href>\
+    <D:propstat>\
+    <D:prop>\
+    <lp1:resourcetype/>\
+    <lp1:creationdate>2013-02-15T12:40:36Z</lp1:creationdate>\
+    <lp1:getcontentlength>700140</lp1:getcontentlength>\
+    <lp1:getlastmodified>Fri, 15 Feb 2013 12:40:36 GMT</lp1:getlastmodified>\
+    <lp1:getetag>\"cd1fb8-aaeec-4d5c2ae91b900\"</lp1:getetag>\
+    <lp2:executable>F</lp2:executable>\
+    <D:supportedlock>\
+    <D:lockentry>\
+    <D:lockscope><D:exclusive/></D:lockscope>\
+    <D:locktype><D:write/></D:locktype>\
+    </D:lockentry>\
+    <D:lockentry>\
+    <D:lockscope><D:shared/></D:lockscope>\
+    <D:locktype><D:write/></D:locktype>\
+    </D:lockentry>\
+    </D:supportedlock>\
+    <D:lockdiscovery/>\
+    </D:prop>\
+    <D:status>HTTP/1.1 200 OK</D:status>\
+    </D:propstat>\
+    </D:response>\
+    <D:response xmlns:lp1=\"DAV:\" xmlns:lp2=\"http://apache.org/dav/props/\">\
+    <D:href>/webdav/uploads/</D:href>\
+    <D:propstat>\
+    <D:prop>\
+    <lp1:resourcetype><D:collection/></lp1:resourcetype>\
+    <lp1:creationdate>2013-02-15T09:56:08Z</lp1:creationdate>\
+    <lp1:getlastmodified>Fri, 15 Feb 2013 09:52:46 GMT</lp1:getlastmodified>\
+    <lp1:getetag>\"ccfbca-44-4d5c05659b780\"</lp1:getetag>\
+    <D:supportedlock>\
+    <D:lockentry>\
+    <D:lockscope><D:exclusive/></D:lockscope>\
+    <D:locktype><D:write/></D:locktype>\
+    </D:lockentry>\
+    <D:lockentry>\
+    <D:lockscope><D:shared/></D:lockscope>\
+    <D:locktype><D:write/></D:locktype>\
+    </D:lockentry>\
+    </D:supportedlock>\
+    <D:lockdiscovery/>\
+    <D:getcontenttype>httpd/unix-directory</D:getcontenttype>\
+    </D:prop>\
+    <D:status>HTTP/1.1 200 OK</D:status>\
+    </D:propstat>\
+    </D:response>\
+    </D:multistatus>\n";
+    NSLog(@"propfind data: '%@'",[propFindData stringValue]);
+
+    return [responseDepth0 asData];
+}
+
+
 -(id)deserializeData:(NSData*)inputData at:(MPWBinding*)aBinding
 {
     return inputData;

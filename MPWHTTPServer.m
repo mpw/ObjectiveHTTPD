@@ -150,7 +150,18 @@ objectAccessor( NSData,_defaultResponse, setDefaultResponse )
 -(NSData*)get:(NSString *)urlString parameters:(NSDictionary*)params
 {
     return [[NSString stringWithFormat:@"<html><head></head><body>%@ serving: %@</body></html>\n",
-            [self className],urlString]  dataUsingEncoding:NSISOLatin1StringEncoding];
+             [self className],urlString]  dataUsingEncoding:NSISOLatin1StringEncoding];
+}
+
+-(NSData*)options:(NSString *)urlString parameters:(NSDictionary*)params
+{
+    return [NSData data];
+}
+
+
+-(NSData*)propfind:(NSString *)urlString data:(NSData*)propFindData parameters:(NSDictionary*)params
+{
+    return [NSData data];
 }
 
 -(NSData*)post:(NSString *)urlString parameters:(MPWPOSTProcessor*)params
@@ -211,7 +222,7 @@ static int iterate_post (void *cls,
     return [@"Not Found 404\n" asData]; 
 }
 
--(int)handleGet:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
+-(int)handleGetLikeSelector:(SEL)httpVerbSelector withURL:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
 {
     //			fprintf(stderr, "in GET\n");
     //			fprintf(stderr, "will get NSPlatformCurrentThread\n");
@@ -224,11 +235,16 @@ static int iterate_post (void *cls,
     NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
     //			fprintf(stderr, "did create urlstring\n");
     NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
+    NSMutableDictionary *headerDict=[NSMutableDictionary dictionary];
     MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
+    MHD_get_connection_values (connection, MHD_HEADER_KIND,  addKeyValuesToDictionary,( void *)headerDict);
+    NSLog(@"parameter dict: %@",parameterDict);
+    NSLog(@"header dict: %@",headerDict);
     NSData *responseData = nil;
     int responseCode=0;
     @try {
-        responseData=[[self delegate] get:urlstring parameters:parameterDict];
+        responseData=[[self delegate]  performSelector:httpVerbSelector withObject:urlstring withObject:parameterDict];
+ //       responseData=[[self delegate] get:urlstring parameters:parameterDict];
         responseCode=MHD_HTTP_OK;
     }
     @catch (NSException *exception) {
@@ -243,6 +259,9 @@ static int iterate_post (void *cls,
     MHD_add_response_header (response, "Connection", "Keep-Alive");
     MHD_add_response_header (response, "Keep-Alive", "timeout=3, max=100");
 //    MHD_add_response_header (response, "Expires", "Tue, 1 Jan 2013 08:12:31 GMT");
+//    MHD_add_response_header (response, "Content-Type", "text/xml");
+    MHD_add_response_header (response, "DAV", "1,2");
+    MHD_add_response_header (response, "Allow", "OPTIONS,GET,HEAD,POST,DELETE,TRACE,PROPFIND,PROPPATCH,COPY,MOVE,LOCK,UNLOCK");
 
     int ret = MHD_queue_response(connection,
                                  responseCode,
@@ -252,6 +271,70 @@ static int iterate_post (void *cls,
     [pool drain];
     return ret;
 }
+
+-(int)handleGet:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
+{
+    return [self handleGetLikeSelector:@selector(get:parameters:) withURL:url onConnection:connection context:con_cls];
+}
+
+-(int)handleOptions:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
+{
+    int retval= [self handleGetLikeSelector:@selector(options:parameters:) withURL:url onConnection:connection context:con_cls];
+    
+    
+    return retval;
+}
+
+-(int)handlePropfind:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
+{
+    //			fprintf(stderr, "in GET\n");
+    //			fprintf(stderr, "will get NSPlatformCurrentThread\n");
+    //			NSPlatformSetCurrentThread([[NSThread alloc] init]);
+    //			NSPlatformCurrentThread();
+    //			[NSObject new];
+    //			fprintf(stderr, "will create pool\n");
+    id pool=[NSAutoreleasePool new];
+    //			fprintf(stderr, "GET url: '%s'\n",url);
+    NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
+    //			fprintf(stderr, "did create urlstring\n");
+    NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
+    NSMutableDictionary *headerDict=[NSMutableDictionary dictionary];
+    MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
+    MHD_get_connection_values (connection, MHD_HEADER_KIND,  addKeyValuesToDictionary,( void *)headerDict);
+    NSLog(@"parameter dict: %@",parameterDict);
+    NSLog(@"header dict: %@",headerDict);
+    NSData *responseData = nil;
+    int responseCode=0;
+    @try {
+        responseData=[[self delegate]  propfind:urlstring parameters:headerDict ];
+        //       responseData=[[self delegate] get:urlstring parameters:parameterDict];
+        responseCode=MHD_HTTP_OK;
+    }
+    @catch (NSException *exception) {
+        NSLog(@"exception: %@",exception);
+        responseData=[self errorPage:exception];
+        responseCode=404;
+    }
+    responseData=[responseData asData];
+    
+    struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
+    
+    MHD_add_response_header (response, "Connection", "Keep-Alive");
+    MHD_add_response_header (response, "Keep-Alive", "timeout=3, max=100");
+    //    MHD_add_response_header (response, "Expires", "Tue, 1 Jan 2013 08:12:31 GMT");
+    MHD_add_response_header (response, "Content-Type", "text/xml");
+    MHD_add_response_header (response, "DAV", "1,2");
+    MHD_add_response_header (response, "Allow", "OPTIONS,GET,HEAD,POST,DELETE,TRACE,PROPFIND,PROPPATCH,COPY,MOVE,LOCK,UNLOCK");
+    
+    int ret = MHD_queue_response(connection,
+                                 responseCode,
+                                 response);
+    MHD_destroy_response(response);
+    *con_cls = [responseData retain];
+    [pool drain];
+    return ret;
+}
+
 
 int AccessHandlerCallback(void *cls,
 							  struct MHD_Connection * connection,
@@ -263,17 +346,17 @@ int AccessHandlerCallback(void *cls,
 							  void **con_cls)
 {
 	id self=(id)cls;
-//	fprintf(stderr, "access handler callback: %s: %s\n",method,url);
 	if ( *con_cls == NULL ) {
+        fprintf(stderr, "initial access handler callback: %s: url: '%s'\n",method,url);
 		// first time
 		static int requests=0;
 		if ( ++requests % 100 ==0 ) {
-//			NSLog(@"request: %d",requests);
+			NSLog(@"request: %d",requests);
 		}
-		if ( !strcmp("GET", method) ) {
+		if ( !strcmp("GET", method) ||  !strcmp("OPTIONS", method)  ) {
             //			fprintf(stderr, "GET url: '%s'\n",url);
 			*con_cls = self;
-		} else 	if ( !strcmp("PUT", method) ) {
+		} else 	if ( !strcmp("PUT", method)  ||  !strcmp("PROPFIND", method) ) {
             NSMutableData* putData=[[NSMutableData alloc] init];
 			*con_cls = putData;
 		} else 	if ( !strcmp("POST", method) ) {
@@ -285,12 +368,16 @@ int AccessHandlerCallback(void *cls,
                                          iterate_post, (void*) processor)];   
 			[processor retain];
 			[pool release];
+            
 		}
 		return MHD_YES;
 	} else {
+        fprintf(stderr, "continuing access handler callback: %s: url: '%s'\n",method,url);
 		if ( !strcmp("GET", method) ) {
             return [self handleGet:url onConnection:connection context:con_cls];
-        }else 	if ( !strcmp("PUT", method) ) {
+        }else 	if ( !strcmp("OPTIONS", method) ) {
+            return [self handleOptions:url onConnection:connection context:con_cls];
+        }else 	if ( !strcmp("PUT", method) || !strcmp("PROPFIND", method)) {
 			id pool=[NSAutoreleasePool new];
 			NSMutableData *putData=(NSMutableData*)*con_cls;
 			if ( *upload_data_size != 0 ) {
@@ -305,7 +392,16 @@ int AccessHandlerCallback(void *cls,
                 
 				NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
 				MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
-				NSData *responseData = [[self delegate] put:urlstring data:putData parameters:parameterDict];
+                NSMutableDictionary *headerDict=[NSMutableDictionary dictionary];
+				MHD_get_connection_values (connection, MHD_HEADER_KIND,  addKeyValuesToDictionary,( void *)headerDict);
+                NSData *responseData=nil;
+                if  (! strcmp("PUT", method)) {
+                    responseData = [[self delegate] put:urlstring data:putData parameters:parameterDict];
+                } else {
+                    
+                    responseData = [[self delegate] propfind:urlstring data:putData parameters:headerDict];
+                }
+                
 				//			fprintf(stderr, "did get responesData\n");
                 [putData release];
 				struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);

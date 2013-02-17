@@ -4,15 +4,15 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>ObjectiveHTTPD iOS.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>48</integer>
-		</dict>
 		<key>ObjectiveHTTPD.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>66</integer>
+			<integer>64</integer>
+		</dict>
+		<key>libObjectiveHTTPD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>65</integer>
 		</dict>
 		<key>webside Linux.xcscheme</key>
 		<dict>
