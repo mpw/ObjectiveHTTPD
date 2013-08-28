@@ -238,15 +238,18 @@ static int iterate_post (void *cls,
     NSMutableDictionary *headerDict=[NSMutableDictionary dictionary];
     MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
     MHD_get_connection_values (connection, MHD_HEADER_KIND,  addKeyValuesToDictionary,( void *)headerDict);
-    NSLog(@"parameter dict: %@",parameterDict);
-    NSLog(@"header dict: %@",headerDict);
+//    NSLog(@"parameter dict: %@",parameterDict);
+//    NSLog(@"header dict: %@",headerDict);
     NSData *responseData = nil;
     int responseCode=0;
     @try {
-        responseData=[[self delegate]  performSelector:httpVerbSelector withObject:urlstring withObject:parameterDict];
- //       responseData=[[self delegate] get:urlstring parameters:parameterDict];
-        responseCode=MHD_HTTP_OK;
-    }
+        @autoreleasepool {
+            responseData=[[[self delegate]  performSelector:httpVerbSelector withObject:urlstring withObject:parameterDict] retain];
+            //       responseData=[[self delegate] get:urlstring parameters:parameterDict];
+            responseCode=MHD_HTTP_OK;
+        }
+        [responseData autorelease];
+   }
     @catch (NSException *exception) {
         NSLog(@"exception: %@",exception);
         responseData=[self errorPage:exception];
@@ -257,11 +260,11 @@ static int iterate_post (void *cls,
     struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
 
     MHD_add_response_header (response, "Connection", "Keep-Alive");
-    MHD_add_response_header (response, "Keep-Alive", "timeout=3, max=100");
+//    MHD_add_response_header (response, "Keep-Alive", "timeout=3, max=100");
 //    MHD_add_response_header (response, "Expires", "Tue, 1 Jan 2013 08:12:31 GMT");
 //    MHD_add_response_header (response, "Content-Type", "text/xml");
-    MHD_add_response_header (response, "DAV", "1,2");
-    MHD_add_response_header (response, "Allow", "OPTIONS,GET,HEAD,POST,DELETE,TRACE,PROPFIND,PROPPATCH,COPY,MOVE,LOCK,UNLOCK");
+//    MHD_add_response_header (response, "DAV", "1,2");
+//    MHD_add_response_header (response, "Allow", "OPTIONS,GET,HEAD,POST,DELETE,TRACE,PROPFIND,PROPPATCH,COPY,MOVE,LOCK,UNLOCK");
 
     int ret = MHD_queue_response(connection,
                                  responseCode,
@@ -347,10 +350,10 @@ int AccessHandlerCallback(void *cls,
 {
 	id self=(id)cls;
 	if ( *con_cls == NULL ) {
-        fprintf(stderr, "initial access handler callback: %s: url: '%s'\n",method,url);
+//        fprintf(stderr, "initial access handler callback: %s: url: '%s'\n",method,url);
 		// first time
 		static int requests=0;
-		if ( ++requests % 100 ==0 ) {
+		if ( ++requests % 5000 ==0 ) {
 			NSLog(@"request: %d",requests);
 		}
 		if ( !strcmp("GET", method) ||  !strcmp("OPTIONS", method)  ) {
@@ -372,7 +375,7 @@ int AccessHandlerCallback(void *cls,
 		}
 		return MHD_YES;
 	} else {
-        fprintf(stderr, "continuing access handler callback: %s: url: '%s'\n",method,url);
+//        fprintf(stderr, "continuing access handler callback: %s: url: '%s'\n",method,url);
 		if ( !strcmp("GET", method) ) {
             return [self handleGet:url onConnection:connection context:con_cls];
         }else 	if ( !strcmp("OPTIONS", method) ) {

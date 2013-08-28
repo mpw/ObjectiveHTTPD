@@ -7,7 +7,7 @@
 //
 
 #import "MPWPlainCSSContent.h"
-
+#import "WAHtmlRenderer.h"
 
 @implementation MPWPlainCSSContent
 
