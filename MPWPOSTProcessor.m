@@ -33,6 +33,7 @@ scalarAccessor( id, lastKey, setLastKey )
 -(void)appendBytes:(const void*)bytes length:(int)len toKey:(NSString*)key filename:(NSString*)filename contentType:(NSString*)contentType
 {	
 	NSMutableData *data=[[self values] objectForKey:key];
+//    NSLog(@"appendBytes: %*s length: %d toKey: %@ filename: %@ contentType: %@",len,bytes,len,key,filename,contentType);
 	if ( !data  ) {
 #if 0
 		if ( [self lastKey] != key ) {
@@ -67,6 +68,12 @@ scalarAccessor( id, lastKey, setLastKey )
 	[filenames release];
 	[contentTypes release];
 	[super dealloc];
+}
+
+-(NSString*)description
+{
+    return [NSString stringWithFormat:@"<%@:%p:  value: %@ filenames: %@ contentTypes: %@",
+            [self class],self,values,filenames,contentTypes ];
 }
 
 @end

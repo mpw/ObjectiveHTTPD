@@ -67,6 +67,8 @@
 		1F905A530C2E07F700E63F65 /* WAHtmlRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F905A540C2E07F700E63F65 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
 		1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */; };
+		1FA2EBD71861A8530091E840 /* MPWFibServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA2EBD51861A8530091E840 /* MPWFibServer.h */; };
+		1FA2EBD81861A8530091E840 /* MPWFibServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2EBD61861A8530091E840 /* MPWFibServer.m */; };
 		1FCE394E14C5D9BC003C2BA9 /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
 		1FCE394F14C5D9C4003C2BA9 /* MPWPlainHtmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */; };
 		1FCE395014C5D9C8003C2BA9 /* MPWPlainCSSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */; };
@@ -175,6 +177,8 @@
 		1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAHtmlRenderer.m; sourceTree = "<group>"; };
 		1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundation.framework; path = ../MPWFoundation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F905AB50C2E0AD400E63F65 /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPWXmlKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FA2EBD51861A8530091E840 /* MPWFibServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWFibServer.h; sourceTree = "<group>"; };
+		1FA2EBD61861A8530091E840 /* MPWFibServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWFibServer.m; sourceTree = "<group>"; };
 		1FD8B6EF0C3C935E00F4F8BB /* MPWSiteMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSiteMap.h; sourceTree = "<group>"; };
 		1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteMap.m; sourceTree = "<group>"; };
 		1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWHtmlPage.h; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				1FA2EBD51861A8530091E840 /* MPWFibServer.h */,
+				1FA2EBD61861A8530091E840 /* MPWFibServer.m */,
 				1F0E36D712EBAD470008377F /* MPWHTTPServer.h */,
 				1F0E36D812EBAD470008377F /* MPWHTTPServer.m */,
 				1FE2E69C0C862FBC00C94753 /* MPWPlainHtmlContent.h */,
@@ -402,6 +408,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FA2EBD71861A8530091E840 /* MPWFibServer.h in Headers */,
 				1F905A530C2E07F700E63F65 /* WAHtmlRenderer.h in Headers */,
 				1FD8B6F10C3C935E00F4F8BB /* MPWSiteMap.h in Headers */,
 				1FD8B7340C3CAB1B00F4F8BB /* MPWHtmlPage.h in Headers */,
@@ -642,6 +649,7 @@
 				1F0E36CA12EBAD380008377F /* md5.c in Sources */,
 				1F0E36CC12EBAD380008377F /* memorypool.c in Sources */,
 				1F0E36D212EBAD380008377F /* postprocessor.c in Sources */,
+				1FA2EBD81861A8530091E840 /* MPWFibServer.m in Sources */,
 				1F0E36D312EBAD380008377F /* reason_phrase.c in Sources */,
 				1F0E36D512EBAD380008377F /* response.c in Sources */,
 				1F0E36DA12EBAD470008377F /* MPWHTTPServer.m in Sources */,
@@ -680,7 +688,7 @@
 		1DEB91AE08733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -709,7 +717,7 @@
 		1DEB91AF08733DA50010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -910,7 +918,7 @@
 		1F905AA20C2E09B000E63F65 /* Relative */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD)";
 				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;

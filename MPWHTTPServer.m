@@ -34,7 +34,7 @@ objectAccessor( NSArray, netServices, setNetServices )
 {
 	// Override me to do something here...
 	
-	NSLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@) port: %d", [ns domain], [ns type], [ns name],[ns port]);
+	NSLog(@"Bonjour Service Published: domain(%@) type(%@) name(%@) port: %ld", [ns domain], [ns type], [ns name],(long)[ns port]);
 }
 
 /**
@@ -63,7 +63,7 @@ objectAccessor( NSArray, netServices, setNetServices )
 
 -(void)startBonjour
 {
-    NSLog(@"starting bonjour");
+//    NSLog(@"starting bonjour");
 	NSMutableArray *services=[NSMutableArray array];
 	for ( NSString *type in [self types] ) {
 		NSNetService *service;
@@ -74,13 +74,12 @@ objectAccessor( NSArray, netServices, setNetServices )
 	
 	[[[self netServices] do] setDelegate:self];
 	[[[self netServices] do] publish];
-    NSLog(@"did start bonjour:  %@",[self netServices]);
+//    NSLog(@"did start bonjour:  %@",[self netServices]);
 	
 }
 
 -(void)stopBonjour
 {
-    NSLog(@"stopping net services");
 	[[[self netServices] do] stop];
 	[self setNetServices:nil];
 	
@@ -150,7 +149,17 @@ objectAccessor( NSData,_defaultResponse, setDefaultResponse )
 -(NSData*)get:(NSString *)urlString parameters:(NSDictionary*)params
 {
     return [[NSString stringWithFormat:@"<html><head></head><body>%@ serving: %@</body></html>\n",
-             [self className],urlString]  dataUsingEncoding:NSISOLatin1StringEncoding];
+             [self class],urlString]  dataUsingEncoding:NSISOLatin1StringEncoding];
+}
+
+
+-(NSData*)get_fast_disabled:(NSString *)urlString parameters:(NSDictionary*)params
+{
+    static NSData *a=nil;
+    if ( !a ) {
+        a=[[NSData alloc] initWithBytes:"hello" length:5];
+    }
+    return a;
 }
 
 -(NSData*)options:(NSString *)urlString parameters:(NSDictionary*)params
@@ -203,6 +212,8 @@ static int iterate_post (void *cls,
 						 const char *transfer_encoding,
 						 const char *bytes, uint64_t off, size_t size) {
 
+    NSLog(@"iterate_post: key %s filename: %s content_type: %s transfer_encoding: %s len: %d content: %.*s",
+          key,filename,content_type,transfer_encoding,(int)size,(int)size,bytes);
 	MPWPOSTProcessor *processor=(MPWPOSTProcessor*)cls ;
 	NSString *fileNameString = filename ? [NSString stringWithCString:filename encoding:NSISOLatin1StringEncoding] : nil;
 	NSString *keyString = key ? [NSString stringWithCString:key encoding:NSISOLatin1StringEncoding] : nil;
@@ -222,6 +233,14 @@ static int iterate_post (void *cls,
     return [@"Not Found 404\n" asData]; 
 }
 
+-(NSString *)defaultMimetype
+{
+    if ( [[self delegate] respondsToSelector:@selector(defaultMimetype)]) {
+        return [[self delegate] defaultMimetype];
+    }
+    return @"text/plain";
+}
+
 -(int)handleGetLikeSelector:(SEL)httpVerbSelector withURL:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
 {
     //			fprintf(stderr, "in GET\n");
@@ -234,10 +253,14 @@ static int iterate_post (void *cls,
     //			fprintf(stderr, "GET url: '%s'\n",url);
     NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
     //			fprintf(stderr, "did create urlstring\n");
-    NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
-    NSMutableDictionary *headerDict=[NSMutableDictionary dictionary];
+    NSMutableDictionary *parameterDict=nil;;
+#if 1
+    NSMutableDictionary *headerDict=nil;
+    parameterDict=[NSMutableDictionary dictionary];
+    headerDict=[NSMutableDictionary dictionary];
     MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
     MHD_get_connection_values (connection, MHD_HEADER_KIND,  addKeyValuesToDictionary,( void *)headerDict);
+#endif
 //    NSLog(@"parameter dict: %@",parameterDict);
 //    NSLog(@"header dict: %@",headerDict);
     NSData *responseData = nil;
@@ -256,13 +279,25 @@ static int iterate_post (void *cls,
         responseCode=404;
     }
     responseData=[responseData asData];
-    
+    NSString *mimetype=[self defaultMimetype];
+    if ( [responseData respondsToSelector:@selector(MIMEType)]) {
+        NSString *responseMime=[responseData MIMEType];
+        NSLog(@"%@ has a mime type: %@",[responseData class],responseMime);
+        if ( responseMime ) {
+            mimetype=responseMime;
+        }
+    } else {
+        NSLog(@"response %@ does not have a mime type",[responseData class]);
+    }
+    char mimebuf[200];
+    bzero(mimebuf, 200);
+    [mimetype getBytes:mimebuf maxLength:190 usedLength:NULL encoding:NSASCIIStringEncoding options:0 range:NSMakeRange(0, [mimetype length]) remainingRange:NULL];
     struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
 
     MHD_add_response_header (response, "Connection", "Keep-Alive");
 //    MHD_add_response_header (response, "Keep-Alive", "timeout=3, max=100");
 //    MHD_add_response_header (response, "Expires", "Tue, 1 Jan 2013 08:12:31 GMT");
-//    MHD_add_response_header (response, "Content-Type", "text/xml");
+    MHD_add_response_header (response, "Content-Type", mimebuf);
 //    MHD_add_response_header (response, "DAV", "1,2");
 //    MHD_add_response_header (response, "Allow", "OPTIONS,GET,HEAD,POST,DELETE,TRACE,PROPFIND,PROPPATCH,COPY,MOVE,LOCK,UNLOCK");
 
@@ -349,30 +384,37 @@ int AccessHandlerCallback(void *cls,
 							  void **con_cls)
 {
 	id self=(id)cls;
+    
 	if ( *con_cls == NULL ) {
 //        fprintf(stderr, "initial access handler callback: %s: url: '%s'\n",method,url);
 		// first time
+#if 0
 		static int requests=0;
 		if ( ++requests % 5000 ==0 ) {
 			NSLog(@"request: %d",requests);
 		}
+#endif
 		if ( !strcmp("GET", method) ||  !strcmp("OPTIONS", method)  ) {
             //			fprintf(stderr, "GET url: '%s'\n",url);
 			*con_cls = self;
-		} else 	if ( !strcmp("PUT", method)  ||  !strcmp("PROPFIND", method) ) {
+		} else 	if ( !strcmp("PUT", method)  ||  !strcmp("PROPFIND", method) ||  !strcmp("PATCH", method) ) {
             NSMutableData* putData=[[NSMutableData alloc] init];
 			*con_cls = putData;
 		} else 	if ( !strcmp("POST", method) ) {
 			id pool=[NSAutoreleasePool new];
-			fprintf(stderr, "POST url: '%s'\n",url);
+//			fprintf(stderr, "POST url: '%s'\n",url);
 			MPWPOSTProcessor* processor=[MPWPOSTProcessor processor];
 			*con_cls = processor;
-			[processor setProcessor:(void*) MHD_create_post_processor (connection, 8192 , 
-                                         iterate_post, (void*) processor)];   
+            void *post_processor =(void*) MHD_create_post_processor (connection, 8192 ,
+                                                                     iterate_post, (void*) processor);
+//            fprintf(stderr, "create post_processor %p\n",post_processor);
+			[processor setProcessor:post_processor];
 			[processor retain];
 			[pool release];
             
-		}
+		} else {
+            NSLog(@"unhandled HTTP Verb: %s",method);
+        }
 		return MHD_YES;
 	} else {
 //        fprintf(stderr, "continuing access handler callback: %s: url: '%s'\n",method,url);
@@ -380,7 +422,7 @@ int AccessHandlerCallback(void *cls,
             return [self handleGet:url onConnection:connection context:con_cls];
         }else 	if ( !strcmp("OPTIONS", method) ) {
             return [self handleOptions:url onConnection:connection context:con_cls];
-        }else 	if ( !strcmp("PUT", method) || !strcmp("PROPFIND", method)) {
+        }else 	if ( !strcmp("PUT", method) || !strcmp("PATCH", method)|| !strcmp("PROPFIND", method)) {
 			id pool=[NSAutoreleasePool new];
 			NSMutableData *putData=(NSMutableData*)*con_cls;
 			if ( *upload_data_size != 0 ) {
@@ -400,7 +442,9 @@ int AccessHandlerCallback(void *cls,
                 NSData *responseData=nil;
                 if  (! strcmp("PUT", method)) {
                     responseData = [[self delegate] put:urlstring data:putData parameters:parameterDict];
-                } else {
+                } else if  (! strcmp("PATCH", method)) {
+                    responseData = [[self delegate] patch:urlstring data:putData parameters:parameterDict];
+                } else{
                     
                     responseData = [[self delegate] propfind:urlstring data:putData parameters:headerDict];
                 }
@@ -419,12 +463,17 @@ int AccessHandlerCallback(void *cls,
 				return ret;            
 			}	//			fprintf(stderr, "did get responesData\n");
 		} else 	if ( !strcmp("POST", method) ) {
-//			NSLog(@"POST continuation upload size: %d",*upload_data_size);
+//			NSLog(@"POST continuation upload size: %d",(int)*upload_data_size);
 			id pool=[NSAutoreleasePool new];
 			MPWPOSTProcessor *processor=(MPWPOSTProcessor*)*con_cls;
 			if ( *upload_data_size != 0 ) {
-				MHD_post_process ([processor processor], upload_data,	
-								  *upload_data_size);
+//                fprintf(stderr, "will post_process with %p %p\n",processor,[processor processor]);
+                if ( [processor processor]) {
+                    MHD_post_process ([processor processor], upload_data,
+                                      *upload_data_size);
+                } else {
+                    [processor appendBytes:upload_data length:*upload_data_size toKey:@"data" filename:@"data" contentType:@"json"];
+                }
 				*upload_data_size = 0;
 				
 				return MHD_YES;
@@ -437,12 +486,14 @@ int AccessHandlerCallback(void *cls,
 				MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
 				[processor addParameters:parameterDict];
 				NSData *responseData = [[self delegate] post:urlstring parameters:processor];
-				//			fprintf(stderr, "did get responesData\n");
+//			fprintf(stderr, "did get responesData\n");
 				struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
-				
 				int ret = MHD_queue_response(connection,
 											 MHD_HTTP_OK,
 											 response);
+                MHD_add_response_header (response, "Content-Type", "application/json");
+
+//                fprintf(stderr, "queued response\n");
 				MHD_destroy_response(response);
 				*con_cls = [responseData retain];
 				
@@ -461,9 +512,10 @@ int AccessHandlerCallback(void *cls,
 -(BOOL)startHttpd
 {
 	int attempts=0;
-    int initialPort=[self port];
     while ( ![self httpd] && attempts < 50 ) {
-        [self setHttpd:MHD_start_daemon ( MHD_USE_SELECT_INTERNALLY ,
+        [self setHttpd:MHD_start_daemon (
+                                         MHD_USE_SELECT_INTERNALLY ,
+//                                         MHD_USE_THREAD_PER_CONNECTION,
                                      [self port],
                                      AcceptPolicyCallback ,
                                      self,
@@ -481,7 +533,7 @@ int AccessHandlerCallback(void *cls,
             attempts++;
         }
     }
-    NSLog(@"=== did start %p on port %d",[self httpd],[self port]);
+//    NSLog(@"=== did start %p on port %d",[self httpd],[self port]);
 	return [self httpd] != NULL;
 }
 
@@ -489,9 +541,9 @@ int AccessHandlerCallback(void *cls,
 -(void)stopHttpd
 {
 	if ( [self httpd] )  {
-        NSLog(@"stopping httpd: %p",[self httpd]);
+//        NSLog(@"stopping httpd: %p",[self httpd]);
 		MHD_stop_daemon ([self httpd]);
-        NSLog(@"=== did stop %p",[self httpd]);
+//        NSLog(@"=== did stop %p",[self httpd]);
 		[self setHttpd:NULL];
 	}
 }

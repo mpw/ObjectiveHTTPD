@@ -22,7 +22,10 @@
 +processor;
 -(void)appendBytes:(const void*)bytes length:(int)len toKey:(NSString*)key filename:(NSString*)filename contentType:(NSString*)contentType;
 
+-(void)addParameters:(NSDictionary*)additionalParameters;
 
+-(void*)processor;
+-(void)setProcessor:(void*)newProcessor;
 
 @end
 

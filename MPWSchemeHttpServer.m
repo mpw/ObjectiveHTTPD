@@ -12,6 +12,7 @@
 #import <ObjectiveSmalltalk/MPWScheme.h>
 #import <ObjectiveSmalltalk/MPWBinding.h>
 #import <ObjectiveSmalltalk/MPWMessagePortDescriptor.h>
+#import <ObjectiveSmalltalk/MPWResource.h>
 
 @implementation MPWSchemeHttpServer
 
@@ -63,6 +64,7 @@ idAccessor( _serializer, _setSerializer)
 
 -(NSData*)serializeValue:outputValue at:(MPWBinding*)aBinding
 {
+//    NSLog(@"serializeValue: %@ at:%@",[outputValue class],[aBinding path]);
     NSMutableData *serialized=nil;
 //    NSLog(@"web-serialize a %@ for %@: %@",[outputValue class],[aBinding path],outputValue);
     if ( [outputValue isKindOfClass:[NSArray class]] && [[outputValue lastObject] respondsToSelector:@selector(path)]) {
@@ -79,6 +81,9 @@ idAccessor( _serializer, _setSerializer)
         }
         [html appendFormat:@"</ul></body></html>"];
         outputValue=html;
+        serialized=[[MPWResource new] autorelease];
+        [serialized setRawData:[outputValue asData]];
+        [serialized setMIMEType:@"text/html"];
     }
     if ( !serialized) {
         serialized=[outputValue asData];
@@ -95,9 +100,10 @@ idAccessor( _serializer, _setSerializer)
 
 -(NSData*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
+    NSLog(@"get: %@ parameters: %@",uri,params);
     id binding=[self bindingForString:uri];
     id val1=nil;
-    if ( [binding hasChildren]) {
+    if ([binding isDirectory]) {
         val1=[binding children];
     } else {
         val1=[binding value];
@@ -258,15 +264,31 @@ idAccessor( _serializer, _setSerializer)
 }
 
 -(NSData*)put:(NSString *)uri data:putData parameters:(NSDictionary*)params
-{    id binding=[self bindingForString:uri];
-
+{
+    NSLog(@"put: %@ parameter: %@",uri,[putData stringValue]);
+    id binding=[self bindingForString:uri];
+    
     [binding bindValue:[self deserializeData:putData at:binding]];
+    return [uri asData];
+}
+
+-(NSData*)patch:(NSString *)uri data:putData parameters:(NSDictionary*)params
+{
+    NSLog(@"patch: %@ parameter: %@",uri,[putData stringValue]);
+    id binding=[self bindingForString:uri];
+    
     return [uri asData];
 }
 
 -(NSData*)post:(NSString*)uri parameters:(MPWPOSTProcessor*)postData
 {
-    return [[[self identifierForString:uri] postWithDictionary:[postData values]] asData];
+    NSLog(@"post: %@ parameter: %@",uri,[[[postData values] objectForKey:@"data"] stringValue]);
+    id binding=[self bindingForString:uri];
+
+    
+//    return [[binding postWithDictionary:[postData values]] asData];
+    NSString *responseString = @"{\"email\":\"kristijan+555@6wunderkinder.com\",\"id\":7422014,\"access_token\":\"167d01a29415271c974e3beeea7037db700590431cd862386495addcc4cb\",\"name\":\"Krisso\",\"pro\":true,\"created_at\":\"2014-01-06T10:41:47Z\"}";
+    return [responseString asData];
 }
 
 
