@@ -885,7 +885,7 @@ struct MHD_Daemon
   /**
    * Number of worker daemons
    */
-  unsigned int worker_pool_size;
+  unsigned long worker_pool_size;
 };
 
 

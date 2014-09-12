@@ -8,6 +8,13 @@
 
 #import "MPWFibServer.h"
 
+@interface NSObject(shutupthecompileragain)
+
+-fib;
+-asData;
+
+@end
+
 @implementation MPWFibServer
 
 -(NSData*)get:(NSString *)urlString parameters:(NSDictionary*)params

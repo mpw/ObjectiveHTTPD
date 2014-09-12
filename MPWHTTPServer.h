@@ -6,7 +6,7 @@
 //  Copyright 2010 Marcel Weiher. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <MPWFoundation/MPWFoundation.h>
 
 
 @interface MPWHTTPServer : NSObject {
@@ -18,9 +18,19 @@
 	NSData *_defaultResponse;
 	NSArray *types;
 	NSArray *netServices;
+    NSString *_defaultMimeType;
+    int threadPoolSize;
+
 }
 
 -(int)port;
 -(void)setPort:(int)newVar;
 -(BOOL)startHttpd;
+-(BOOL)start:(NSError**)errorP;
+-(void)stop;
+
+idAccessor_h( delegate, setDelegate )
+intAccessor_h( threadPoolSize, setThreadPoolSize )
+
+
 @end

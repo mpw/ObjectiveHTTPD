@@ -24,7 +24,7 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
 
 -(void)initializeAndClearCache
 {
-    [[self cache] setReadWrite:[MPWSiteMap scheme]];
+    [[self cache] setReadWrite:[NSClassFromString(@"MPWSiteMap") scheme]];
 }
 
 -(void)enableCaching

@@ -12,7 +12,7 @@
 int main( int argc, char *argv[] ) {
 	id pool=[NSAutoreleasePool new];
 	
-	id server=[[[MPWHTTPServer alloc] init] autorelease];
+	MPWHTTPServer* server=[[[MPWHTTPServer alloc] init] autorelease];
 	[server setPort:51001];
 	[server startHttpd];
 	fprintf(stderr, "Hello World!\n"); 

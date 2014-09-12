@@ -7,7 +7,7 @@
 //
 
 #import "MPWPOSTProcessor.h"
-#import <MPWFoundation/AccessorMacros.h>
+#import <MPWFoundation/MPWFoundation.h>
 
 @implementation MPWPOSTProcessor
 

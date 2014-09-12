@@ -23,7 +23,7 @@ objectAccessor( NSString ,email, setEmail )
 objectAccessor( NSString ,bonjourName, setBonjourName )
 objectAccessor( NSArray, types, setTypes )
 objectAccessor( NSArray, netServices, setNetServices )
-
+intAccessor( threadPoolSize, setThreadPoolSize )
 -(void)setType:(NSString *)newType
 {
 	[self setTypes:[NSArray arrayWithObject:newType]];
@@ -80,7 +80,7 @@ objectAccessor( NSArray, netServices, setNetServices )
 
 -(void)stopBonjour
 {
-	[[[self netServices] do] stop];
+	[(NSNetService*)[[self netServices] do] stop];
 	[self setNetServices:nil];
 	
 }
@@ -105,6 +105,7 @@ objectAccessor( NSArray, netServices, setNetServices )
 	self=[super init];
 	[self setPort:[self defaultPort]];
     [self setBonjourName:[self defaultBonjourName]];
+    [self setThreadPoolSize:20];
 	return self;
 }
 
@@ -233,26 +234,31 @@ static int iterate_post (void *cls,
     return [@"Not Found 404\n" asData]; 
 }
 
+objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
+
 -(NSString *)defaultMimetype
 {
-    if ( [[self delegate] respondsToSelector:@selector(defaultMimetype)]) {
+    if ( self != [self delegate] && [[self delegate] respondsToSelector:@selector(defaultMimetype)]) {
         return [[self delegate] defaultMimetype];
+    }
+    if ( _defaultMimeType) {
+        return _defaultMimeType;
     }
     return @"text/plain";
 }
 
 -(int)handleGetLikeSelector:(SEL)httpVerbSelector withURL:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
 {
-    //			fprintf(stderr, "in GET\n");
+    			fprintf(stderr, "in GET\n");
     //			fprintf(stderr, "will get NSPlatformCurrentThread\n");
     //			NSPlatformSetCurrentThread([[NSThread alloc] init]);
     //			NSPlatformCurrentThread();
     //			[NSObject new];
-    //			fprintf(stderr, "will create pool\n");
+    			fprintf(stderr, "will create pool\n");
     id pool=[NSAutoreleasePool new];
     //			fprintf(stderr, "GET url: '%s'\n",url);
     NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
-    //			fprintf(stderr, "did create urlstring\n");
+    			fprintf(stderr, "did create urlstring\n");
     NSMutableDictionary *parameterDict=nil;;
 #if 1
     NSMutableDictionary *headerDict=nil;
@@ -278,8 +284,9 @@ static int iterate_post (void *cls,
         responseData=[self errorPage:exception];
         responseCode=404;
     }
-    responseData=[responseData asData];
     NSString *mimetype=[self defaultMimetype];
+    NSLog(@"%@ has a mime type: %d",[responseData class],[responseData respondsToSelector:@selector(MIMEType)]);
+
     if ( [responseData respondsToSelector:@selector(MIMEType)]) {
         NSString *responseMime=[responseData MIMEType];
         NSLog(@"%@ has a mime type: %@",[responseData class],responseMime);
@@ -287,8 +294,9 @@ static int iterate_post (void *cls,
             mimetype=responseMime;
         }
     } else {
-        NSLog(@"response %@ does not have a mime type",[responseData class]);
+//        NSLog(@"response %@ does not have a mime type",[responseData class]);
     }
+    responseData=[responseData asData];
     char mimebuf[200];
     bzero(mimebuf, 200);
     [mimetype getBytes:mimebuf maxLength:190 usedLength:NULL encoding:NSASCIIStringEncoding options:0 range:NSMakeRange(0, [mimetype length]) remainingRange:NULL];
@@ -491,7 +499,7 @@ int AccessHandlerCallback(void *cls,
 				int ret = MHD_queue_response(connection,
 											 MHD_HTTP_OK,
 											 response);
-                MHD_add_response_header (response, "Content-Type", "application/json");
+                MHD_add_response_header (response, "Content-Type", "application/text");
 
 //                fprintf(stderr, "queued response\n");
 				MHD_destroy_response(response);
@@ -507,6 +515,7 @@ int AccessHandlerCallback(void *cls,
 
 	return NO;
 }
+
 
 
 -(BOOL)startHttpd
@@ -525,7 +534,7 @@ int AccessHandlerCallback(void *cls,
 									 RequestCompletedCallback,
 									 self,
 									 MHD_OPTION_THREAD_POOL_SIZE,
-									 20,
+									 [self threadPoolSize],
 									 MHD_OPTION_END
 									 )];
         if (![self httpd]) {

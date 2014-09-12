@@ -65,9 +65,10 @@ idAccessor( _serializer, _setSerializer)
 -(NSData*)serializeValue:outputValue at:(MPWBinding*)aBinding
 {
 //    NSLog(@"serializeValue: %@ at:%@",[outputValue class],[aBinding path]);
-    NSMutableData *serialized=nil;
+    MPWResource *serialized=nil;
 //    NSLog(@"web-serialize a %@ for %@: %@",[outputValue class],[aBinding path],outputValue);
     if ( [outputValue isKindOfClass:[NSArray class]] && [[outputValue lastObject] respondsToSelector:@selector(path)]) {
+        NSLog(@"directory listing");
         NSMutableString *html=[NSMutableString stringWithString:@"<html><head><title>listing</title></head><body><ul>\n"];
         for ( MPWBinding *child  in outputValue) {
             NSString *dirEntry=[[child path] lastPathComponent];
@@ -84,11 +85,9 @@ idAccessor( _serializer, _setSerializer)
         serialized=[[MPWResource new] autorelease];
         [serialized setRawData:[outputValue asData]];
         [serialized setMIMEType:@"text/html"];
+        NSLog(@"serialized: %@",[serialized class]);
     }
-    if ( !serialized) {
-        serialized=[outputValue asData];
-    }
-    return serialized;
+    return serialized ? serialized : [outputValue asData];
 }
 
 
@@ -149,7 +148,7 @@ idAccessor( _serializer, _setSerializer)
     </D:response>\n\
     </D:multistatus>\n";
 
-    
+#if 0
     NSString *responseDepth1=@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\
     <D:multistatus xmlns:D=\"DAV:\">\
     <D:response xmlns:lp1=\"DAV:\" xmlns:lp2=\"http://apache.org/dav/props/\">\
@@ -252,8 +251,9 @@ idAccessor( _serializer, _setSerializer)
     </D:propstat>\
     </D:response>\
     </D:multistatus>\n";
+#endif
     NSLog(@"propfind data: '%@'",[propFindData stringValue]);
-
+    
     return [responseDepth0 asData];
 }
 
@@ -275,7 +275,7 @@ idAccessor( _serializer, _setSerializer)
 -(NSData*)patch:(NSString *)uri data:putData parameters:(NSDictionary*)params
 {
     NSLog(@"patch: %@ parameter: %@",uri,[putData stringValue]);
-    id binding=[self bindingForString:uri];
+//    id binding=[self bindingForString:uri];
     
     return [uri asData];
 }
@@ -283,7 +283,7 @@ idAccessor( _serializer, _setSerializer)
 -(NSData*)post:(NSString*)uri parameters:(MPWPOSTProcessor*)postData
 {
     NSLog(@"post: %@ parameter: %@",uri,[[[postData values] objectForKey:@"data"] stringValue]);
-    id binding=[self bindingForString:uri];
+//    id binding=[self bindingForString:uri];
 
     
 //    return [[binding postWithDictionary:[postData values]] asData];

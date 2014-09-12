@@ -27,5 +27,6 @@
 -(void*)processor;
 -(void)setProcessor:(void*)newProcessor;
 
+-(NSMutableDictionary*)values;
 @end
 
