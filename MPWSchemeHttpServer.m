@@ -265,7 +265,7 @@ idAccessor( _serializer, _setSerializer)
 
 -(NSData*)put:(NSString *)uri data:putData parameters:(NSDictionary*)params
 {
-    NSLog(@"put: %@ parameter: %@",uri,[putData stringValue]);
+//    NSLog(@"put: %@ parameter: %@",uri,[putData stringValue]);
     id binding=[self bindingForString:uri];
     
     [binding bindValue:[self deserializeData:putData at:binding]];

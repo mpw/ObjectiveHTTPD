@@ -42,6 +42,7 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     if ( ![self server] ) {
         [self setServer:[[[MPWHTTPServer alloc] init] autorelease]];
     }
+    [[self server] setDefaultMimeType:@"text/html"];
     [self setRenderer:[MPWHTMLRenderScheme scheme]];
     [[self renderer] setSourceScheme:aTemplater];
     [[self sitemap] setRenderer:[self renderer]];

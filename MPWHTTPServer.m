@@ -63,7 +63,7 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 
 -(void)startBonjour
 {
-//    NSLog(@"starting bonjour");
+    NSLog(@"starting bonjour");
 	NSMutableArray *services=[NSMutableArray array];
 	for ( NSString *type in [self types] ) {
 		NSNetService *service;
@@ -74,7 +74,7 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 	
 	[[[self netServices] do] setDelegate:self];
 	[[[self netServices] do] publish];
-//    NSLog(@"did start bonjour:  %@",[self netServices]);
+    NSLog(@"did start bonjour:  %@",[self netServices]);
 	
 }
 
@@ -88,8 +88,10 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 
 -(BOOL)start:(NSError**)error
 {
+    NSLog(@"start:");
 	[self startHttpd];
 	[self startBonjour];
+    
 	return YES;
 }
 
@@ -256,7 +258,8 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
     //			[NSObject new];
     			fprintf(stderr, "will create pool\n");
     id pool=[NSAutoreleasePool new];
-    //			fprintf(stderr, "GET url: '%s'\n",url);
+    NSLog(@"isMainThread: %d",[[NSThread currentThread] isMainThread]);
+    			fprintf(stderr, "GET url: '%s'\n",url);
     NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
     			fprintf(stderr, "did create urlstring\n");
     NSMutableDictionary *parameterDict=nil;;

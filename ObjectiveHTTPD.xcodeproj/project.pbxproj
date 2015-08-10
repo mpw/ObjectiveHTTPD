@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F05542A1B14AD6D00A0B0B6 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
+		1F05542B1B14AD7400A0B0B6 /* MPWHtmlPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */; };
+		1F05542C1B14AD7B00A0B0B6 /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
 		1F0E36C212EBAD380008377F /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
 		1F0E36C312EBAD380008377F /* connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36AE12EBAD380008377F /* connection.h */; };
 		1F0E36C412EBAD380008377F /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
@@ -91,17 +94,14 @@
 		1F81BFD9196990470066DF43 /* MPWPlainCSSContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE2E69E0C862FBC00C94753 /* MPWPlainCSSContent.h */; };
 		1F81BFDA196990470066DF43 /* MPWPlainCSSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */; };
 		1F81BFDB196990470066DF43 /* WAHtmlRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */; };
-		1F81BFDC196990470066DF43 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
 		1F81BFDD196990470066DF43 /* MPWSiteMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD8B6EF0C3C935E00F4F8BB /* MPWSiteMap.h */; };
 		1F81BFDE196990470066DF43 /* MPWSiteMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */; };
 		1F81BFDF196990470066DF43 /* MPWHtmlPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */; };
-		1F81BFE0196990470066DF43 /* MPWHtmlPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */; };
 		1F81BFE1196990470066DF43 /* MPWPOSTProcessor.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E371C12EBB1100008377F /* MPWPOSTProcessor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F81BFE2196990470066DF43 /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
 		1F81BFE3196990470066DF43 /* MPWSchemeHttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F81BFE4196990470066DF43 /* MPWSchemeHttpServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F7B75A314606C5D002F38D1 /* MPWSchemeHttpServer.m */; };
 		1F81BFE7196990470066DF43 /* MPWHTMLRenderScheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FF4A34E147B0B84001FCCCD /* MPWHTMLRenderScheme.h */; };
-		1F81BFE8196990470066DF43 /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
 		1F81BFE9196990470066DF43 /* MPWSiteServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F201B6814E6B7F9007BEFDA /* MPWSiteServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F81BFEA196990470066DF43 /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
 		1F81BFEB196990860066DF43 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE79BB519695609009BA0A5 /* MPWFoundation.framework */; };
@@ -216,11 +216,9 @@
 		1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWFoundationLinux.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWFoundationLinux.framework"; sourceTree = "<group>"; };
 		1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MPWXmlKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/MPWXmlKit.framework"; sourceTree = "<group>"; };
 		1F7CFA5913E215F500FB926E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
-		1F81BFA319698FE40066DF43 /* ObjectiveHTTPD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjectiveHTTPD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F81BFA319698FE40066DF43 /* ObjectiveHTTPDTouch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjectiveHTTPDTouch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F81BFA619698FE50066DF43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1F81BFA719698FE50066DF43 /* ObjectiveHTTPDTouch.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ObjectiveHTTPDTouch.h; sourceTree = "<group>"; };
-		1F81BFB319698FE50066DF43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1F81BFB419698FE50066DF43 /* ObjectiveHTTPDTouchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ObjectiveHTTPDTouchTests.m; sourceTree = "<group>"; };
 		1F81BFED196991620066DF43 /* ObjectiveSmalltalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectiveSmalltalk.framework; path = ../../Build/Release/ObjectiveSmalltalk.framework; sourceTree = "<group>"; };
 		1F83B76515DCF22400D61261 /* ObjectiveSmalltalk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectiveSmalltalk.framework; path = "../../../Library/Developer/Xcode/DerivedData/metaproducts-frbgyznjeqtcxocedsnxdniqbnzz/Build/Products/Release/ObjectiveSmalltalk.framework"; sourceTree = "<group>"; };
 		1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAHtmlRenderer.h; sourceTree = "<group>"; };
@@ -246,7 +244,6 @@
 		1FF4A349147B0202001FCCCD /* MPWTemplater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWTemplater.m; sourceTree = "<group>"; };
 		1FF4A34E147B0B84001FCCCD /* MPWHTMLRenderScheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWHTMLRenderScheme.h; sourceTree = "<group>"; };
 		1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWHTMLRenderScheme.m; sourceTree = "<group>"; };
-		32DBCF5E0370ADEE00C91783 /* MPWSideweb_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSideweb_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* ObjectiveHTTPD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ObjectiveHTTPD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -312,7 +309,7 @@
 				1F0E36E412EBADC10008377F /* webside */,
 				1FDAA001136E076000481CA3 /* webside */,
 				1F6ECA7D1424D2AF002DD085 /* liblibObjectiveHTTPD.a */,
-				1F81BFA319698FE40066DF43 /* ObjectiveHTTPD.framework */,
+				1F81BFA319698FE40066DF43 /* ObjectiveHTTPDTouch.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -320,15 +317,12 @@
 		0867D691FE84028FC02AAC07 /* MPWSideweb */ = {
 			isa = PBXGroup;
 			children = (
-				1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */,
-				1F83B76515DCF22400D61261 /* ObjectiveSmalltalk.framework */,
 				1F0E36AC12EBAD380008377F /* microhttpd */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
 				1F81BFA419698FE50066DF43 /* ObjectiveHTTPDTouch */,
-				1F81BFB119698FE50066DF43 /* ObjectiveHTTPDTouchTests */,
 				1F6ECA7E1424D2AF002DD085 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 			);
@@ -338,10 +332,6 @@
 		0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */,
-				1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */,
-				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
-				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 			);
 			name = "External Frameworks and Libraries";
 			sourceTree = "<group>";
@@ -439,6 +429,12 @@
 		1F6ECA7E1424D2AF002DD085 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */,
+				1F83B76515DCF22400D61261 /* ObjectiveSmalltalk.framework */,
+				1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */,
+				1F7CFA5113E20EB000FB926E /* MPWXmlKit.framework */,
+				1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */,
+				1058C7B2FEA5585E11CA2CBB /* Other Frameworks */,
 				1F81BFED196991620066DF43 /* ObjectiveSmalltalk.framework */,
 				1FE79BB719695619009BA0A5 /* Foundation.framework */,
 				1FE79BB519695609009BA0A5 /* MPWFoundation.framework */,
@@ -468,27 +464,9 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		1F81BFB119698FE50066DF43 /* ObjectiveHTTPDTouchTests */ = {
-			isa = PBXGroup;
-			children = (
-				1F81BFB419698FE50066DF43 /* ObjectiveHTTPDTouchTests.m */,
-				1F81BFB219698FE50066DF43 /* Supporting Files */,
-			);
-			path = ObjectiveHTTPDTouchTests;
-			sourceTree = "<group>";
-		};
-		1F81BFB219698FE50066DF43 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				1F81BFB319698FE50066DF43 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				32DBCF5E0370ADEE00C91783 /* MPWSideweb_Prefix.pch */,
 				1FDA9FD8136E00F900481CA3 /* microhttp.m */,
 			);
 			name = "Other Sources";
@@ -620,7 +598,7 @@
 			);
 			name = ObjectiveHTTPDTouch;
 			productName = ObjectiveHTTPDTouch;
-			productReference = 1F81BFA319698FE40066DF43 /* ObjectiveHTTPD.framework */;
+			productReference = 1F81BFA319698FE40066DF43 /* ObjectiveHTTPDTouch.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		1FDA9FF6136E076000481CA3 /* webside Linux */ = {
@@ -772,10 +750,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F81BFC61969900F0066DF43 /* md5.c in Sources */,
-				1F81BFDC196990470066DF43 /* WAHtmlRenderer.m in Sources */,
 				1F81BFD4196990470066DF43 /* MPWFibServer.m in Sources */,
 				1F81BFCF1969900F0066DF43 /* reason_phrase.c in Sources */,
-				1F81BFE0196990470066DF43 /* MPWHtmlPage.m in Sources */,
 				1F81BFDA196990470066DF43 /* MPWPlainCSSContent.m in Sources */,
 				1F81BFC81969900F0066DF43 /* memorypool.c in Sources */,
 				1F81BFC21969900F0066DF43 /* daemon.c in Sources */,
@@ -784,12 +760,14 @@
 				1F81BFBE1969900F0066DF43 /* connection.c in Sources */,
 				1F81C0521969932D0066DF43 /* MPWTemplater.m in Sources */,
 				1F81BFE4196990470066DF43 /* MPWSchemeHttpServer.m in Sources */,
+				1F05542A1B14AD6D00A0B0B6 /* WAHtmlRenderer.m in Sources */,
 				1F81BFD8196990470066DF43 /* MPWPlainHtmlContent.m in Sources */,
+				1F05542B1B14AD7400A0B0B6 /* MPWHtmlPage.m in Sources */,
 				1F81BFC01969900F0066DF43 /* connection_https.c in Sources */,
-				1F81BFE8196990470066DF43 /* MPWHTMLRenderScheme.m in Sources */,
 				1F81BFC31969900F0066DF43 /* digestauth.c in Sources */,
 				1F81BFCE1969900F0066DF43 /* postprocessor.c in Sources */,
 				1F81BFEA196990470066DF43 /* MPWSiteServer.m in Sources */,
+				1F05542C1B14AD7B00A0B0B6 /* MPWHTMLRenderScheme.m in Sources */,
 				1F81BFDE196990470066DF43 /* MPWSiteMap.m in Sources */,
 				1F81BFC41969900F0066DF43 /* internal.c in Sources */,
 				1F81BFE2196990470066DF43 /* MPWPOSTProcessor.m in Sources */,
@@ -896,9 +874,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ObjectiveHTTPD_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@rpath/Frameworks";
 				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
 			};
@@ -922,9 +901,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ObjectiveHTTPD_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@rpath/Frameworks";
 				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 			};
 			name = Release;
@@ -1153,12 +1133,15 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				INFOPLIST_FILE = ObjectiveHTTPDTouch/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "@rpath/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				METAL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_NAME = ObjectiveHTTPD;
+				PRODUCT_NAME = ObjectiveHTTPDTouch;
+				PUBLIC_HEADERS_FOLDER_PATH = ObjectiveHTTPD;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1203,12 +1186,15 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				INFOPLIST_FILE = ObjectiveHTTPDTouch/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "@rpath/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = ObjectiveHTTPD;
+				PRODUCT_NAME = ObjectiveHTTPDTouch;
+				PUBLIC_HEADERS_FOLDER_PATH = ObjectiveHTTPD;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1254,12 +1240,15 @@
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
 				INFOPLIST_FILE = ObjectiveHTTPDTouch/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INSTALL_PATH = "@rpath/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
 				METAL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = ObjectiveHTTPD;
+				PRODUCT_NAME = ObjectiveHTTPDTouch;
+				PUBLIC_HEADERS_FOLDER_PATH = ObjectiveHTTPD;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1299,9 +1288,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ObjectiveHTTPD_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@rpath/Frameworks";
 				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
 				WRAPPER_EXTENSION = framework;
 				ZERO_LINK = YES;
 			};

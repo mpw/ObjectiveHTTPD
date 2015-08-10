@@ -29,6 +29,7 @@
 -(BOOL)start:(NSError**)errorP;
 -(void)stop;
 
+
 idAccessor_h( delegate, setDelegate )
 intAccessor_h( threadPoolSize, setThreadPoolSize )
 
