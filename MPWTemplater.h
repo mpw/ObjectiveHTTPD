@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 metaobject ltd. All rights reserved.
 //
 
-#import <ObjectiveSmalltalk/MPWFilterScheme.h>
+#import <MPWFoundation/MPWMappingStore.h>
 
-@interface MPWTemplater : MPWFilterScheme
+@interface MPWTemplater : MPWMappingStore
 {
     id  template;
 }

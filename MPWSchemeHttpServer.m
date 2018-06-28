@@ -102,7 +102,7 @@ idAccessor( _serializer, _setSerializer)
     NSLog(@"get: %@ parameters: %@",uri,params);
     id binding=[self bindingForString:uri];
     id val1=nil;
-    if ([binding isDirectory]) {
+    if ([binding hasChildren]) {
         val1=[binding children];
     } else {
         val1=[binding value];

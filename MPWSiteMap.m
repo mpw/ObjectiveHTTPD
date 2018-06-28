@@ -33,8 +33,7 @@
 {
 	id site=[[[self alloc] init] autorelease];
     MPWTemplater* templater=[[[MPWTemplater alloc] init] autorelease];
-    id template = [[[MPWHtmlPage alloc] init] autorelease];
-    NSLog(@"templater: %@ template: %@",templater,template);
+    MPWHtmlPage* template = [[[MPWHtmlPage alloc] init] autorelease];
     [templater setTemplate:template];
     [templater setSourceScheme:site];
     id renderer = [[[MPWHTMLRenderScheme alloc] init] autorelease];
@@ -42,26 +41,32 @@
     return renderer;
 }
 
-+(void)testPlainPage
++(void)testPlainPageIsSameBothTimes
 {
     id templater=[self _configuredSite];
-	id result = [[templater get:@"index.html"] stringValue];
+    NSLog(@"will get page");
+    id page = [templater get:@"index.html"];
+    NSLog(@"did get page: %@",page);
+    id result = [page stringValue];
+    NSLog(@"got result (page stringValue): %@",result);
 	IDEXPECT( result, @"<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></meta><title></title></head><body></body></html>", @"html for index.html");
-	result = [[templater get:@"index.html"] stringValue];
+
+    result = [[templater get:@"index.html"] stringValue];
 	IDEXPECT( result, @"<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></meta><title></title></head><body></body></html>", @"html for index.html second time");
 }
 
 +(void)testPlainPageWithTitle
 {
     id templater=[self _configuredSite];
+    [templater setTitle:@"My great title"];
 	id result = [[templater get:@"index.html"] stringValue];
-	IDEXPECT( result, @"<html><head><title></title>\n</head>\n<body></body>\n</html>\n", @"html for index.html");
+    IDEXPECT( result, @"<html><head><meta http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"></meta><title></title></head><body></body></html>", @"html for index.html");
 }
 
 
 +testSelectors {
 	return [NSArray arrayWithObjects:
-            @"testPlainPage",
+            @"testPlainPageIsSameBothTimes",
 		nil];
 }
 

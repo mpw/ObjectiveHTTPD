@@ -11,6 +11,7 @@
 #import <ObjectiveSmalltalk/MPWBinding.h>
 #import <MPWFoundation/MPWFoundation.h>
 #import <ObjectiveHTTPD/WAHtmlRenderer.h>
+#import "MPWHtmlPage.h"
 
 @implementation MPWTemplater
 
@@ -22,13 +23,15 @@ idAccessor( template, setTemplate )
 }
 
 
--valueForBinding:(MPWBinding*)aBinding
+
+-(id)objectForReference:(id)aReference
 {
-    id rawValue=[[self source] valueForBinding:aBinding];
-    id page=[self template];
-    [page setPath:aBinding];
+    id rawValue=[self.source objectForReference:aReference];
+    MPWHtmlPage *page = [self template];
     [page setContent:rawValue];
+    [page setPath:aReference];
     return page;
+    
 }
 
 -(void)dealloc
@@ -36,4 +39,12 @@ idAccessor( template, setTemplate )
     [template release];
     [super dealloc];
 }
+
++testSelectors
+{
+    return @[
+             ];
+    
+}
+
 @end

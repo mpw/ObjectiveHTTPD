@@ -18,11 +18,11 @@
 	return [WAHtmlRenderer stream];
 }
 
--valueForBinding:(MPWBinding*)aBinding
+-objectForReference:(MPWReference*)aReference
 {
     @synchronized(self) {
         id renderer = [self renderer];
-        [renderer writeObject:[[self source] valueForBinding:aBinding]];
+        [renderer writeObject:[[self source] objectForReference:aReference]];
         return [renderer result];
     }
 }
