@@ -99,7 +99,7 @@ idAccessor( _serializer, _setSerializer)
 
 -(NSData*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
-    NSLog(@"get: %@ parameters: %@",uri,params);
+//    NSLog(@"get: %@ parameters: %@",uri,params);
     id binding=[self bindingForString:uri];
     id val1=nil;
     if ([binding hasChildren]) {
@@ -119,7 +119,6 @@ idAccessor( _serializer, _setSerializer)
 
 -(NSData*)propfind:(NSString *)urlString data:(NSData*)propFindData parameters:(NSDictionary*)params
 {
-    
     NSString *responseDepth0=@"<?xml version=\"1.0\" encoding=\"utf-8\"?>\n\
     <D:multistatus xmlns:D=\"DAV:\">\n\
     <D:response xmlns:lp1=\"DAV:\" xmlns:lp2=\"http://apache.org/dav/props/\">\n\

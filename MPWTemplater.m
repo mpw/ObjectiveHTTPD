@@ -48,3 +48,11 @@ idAccessor( template, setTemplate )
 }
 
 @end
+
+@implementation NSData(value)
+
+-value { return [self propertyList]; }
+
+@end
+
+

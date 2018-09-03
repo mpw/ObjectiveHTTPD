@@ -24,7 +24,7 @@
 
 -(void)bold:textContent
 {
-	[target writeElementName:"b" attributes:nil contents:textContent];
+	[self.target writeElementName:"b" attributes:nil contents:textContent];
 }
 
 -(void)element:(char*)name attributes:attributes content:content selector:(SEL)selector
@@ -57,27 +57,27 @@
 
 -(void)anchor:textContent href:hrefUrl
 {
-    [target beginStartTag:"a"];
-    [target writeAttribute:@"href" value:hrefUrl];
-    [target endStartTag:"a" single:NO];
-    [target writeString:textContent];
-    [target writeCloseTag:"a"];
+    [self.target beginStartTag:"a"];
+    [self.target writeAttribute:@"href" value:hrefUrl];
+    [self.target endStartTag:"a" single:NO];
+    [self.target writeString:textContent];
+    [self.target writeCloseTag:"a"];
 //	[self element:"a" attributes:[NSString stringWithFormat:@"href='%@'",hrefUrl] content:textContent];
 }
 
 -(void)startTag:(char*)name attributes:attrs 
 {
-    [target writeStartTag:name attributes:attrs single:NO];
+    [self.target writeStartTag:name attributes:attrs single:NO];
 }
 
 -(void)startTag:(char*)name 
 {
-    [target writeStartTag:name attributes:nil single:NO];
+    [self.target writeStartTag:name attributes:nil single:NO];
 }
 
 -(void)closeTag:(char*)name 
 {
-    [target writeCloseTag:name];
+    [self.target writeCloseTag:name];
 }
 
 -result { return [self finalTarget];  }

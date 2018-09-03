@@ -251,17 +251,17 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
 
 -(int)handleGetLikeSelector:(SEL)httpVerbSelector withURL:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
 {
-    			fprintf(stderr, "in GET\n");
+//    			fprintf(stderr, "in GET\n");
     //			fprintf(stderr, "will get NSPlatformCurrentThread\n");
     //			NSPlatformSetCurrentThread([[NSThread alloc] init]);
     //			NSPlatformCurrentThread();
     //			[NSObject new];
-    			fprintf(stderr, "will create pool\n");
+//    			fprintf(stderr, "will create pool\n");
     id pool=[NSAutoreleasePool new];
-    NSLog(@"isMainThread: %d",[[NSThread currentThread] isMainThread]);
-    			fprintf(stderr, "GET url: '%s'\n",url);
+//    NSLog(@"isMainThread: %d",[[NSThread currentThread] isMainThread]);
+//    			fprintf(stderr, "GET url: '%s'\n",url);
     NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
-    			fprintf(stderr, "did create urlstring\n");
+//    			fprintf(stderr, "did create urlstring\n");
     NSMutableDictionary *parameterDict=nil;;
 #if 1
     NSMutableDictionary *headerDict=nil;
@@ -288,11 +288,11 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
         responseCode=404;
     }
     NSString *mimetype=[self defaultMimetype];
-    NSLog(@"%@ has a mime type: %d",[responseData class],[responseData respondsToSelector:@selector(MIMEType)]);
+//    NSLog(@"%@ has a mime type: %d",[responseData class],[responseData respondsToSelector:@selector(MIMEType)]);
 
     if ( [responseData respondsToSelector:@selector(MIMEType)]) {
         NSString *responseMime=[responseData MIMEType];
-        NSLog(@"%@ has a mime type: %@",[responseData class],responseMime);
+//        NSLog(@"%@ has a mime type: %@",[responseData class],responseMime);
         if ( responseMime ) {
             mimetype=responseMime;
         }
