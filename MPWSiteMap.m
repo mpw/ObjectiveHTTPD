@@ -41,6 +41,7 @@
     return renderer;
 }
 
+
 +(void)testPlainPageIsSameBothTimes
 {
     id templater=[self _configuredSite];

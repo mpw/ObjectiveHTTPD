@@ -9,8 +9,6 @@
 #import "MPWSchemeHttpServer.h"
 #import <ObjectiveHTTPD/MPWHTTPServer.h>
 #import <ObjectiveHTTPD/MPWPOSTProcessor.h>
-#import <ObjectiveSmalltalk/MPWScheme.h>
-#import <ObjectiveSmalltalk/MPWBinding.h>
 #import <ObjectiveSmalltalk/MPWMessagePortDescriptor.h>
 #import <ObjectiveSmalltalk/MPWResource.h>
 

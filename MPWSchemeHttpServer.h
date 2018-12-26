@@ -3,17 +3,17 @@
 //  
 //
 //  Created by Marcel Weiher on 10/24/11.
-//  Copyright (c) 2012 metaobject ltd. All rights reserved.
+//  Copyright (c) 2012 Marcel Weiher. All rights reserved.
 //
 
 #import <MPWFoundation/MPWFoundation.h>
 
-@class MPWHTTPServer,MPWScheme;
+@class MPWHTTPServer;
 
 
 @interface MPWSchemeHttpServer : NSObject {
     MPWHTTPServer *server;
-    MPWScheme *scheme;
+    id <MPWStorage> scheme;
     id  _serializer;
 }
 
