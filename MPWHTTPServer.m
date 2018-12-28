@@ -10,7 +10,7 @@
 #import <MPWFoundation/MPWFoundation.h>
 #import "MPWPOSTProcessor.h"
 
-#include "microhttpd.h"
+#include <microhttpd.h>
 
 
 @implementation MPWHTTPServer
@@ -61,8 +61,10 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 	return @"";
 }
 
+
 -(void)startBonjour
 {
+#ifndef GS_API_LATEST
     NSLog(@"starting bonjour");
 	NSMutableArray *services=[NSMutableArray array];
 	for ( NSString *type in [self types] ) {
@@ -75,14 +77,16 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 	[[[self netServices] do] setDelegate:self];
 	[[[self netServices] do] publish];
     NSLog(@"did start bonjour:  %@",[self netServices]);
-	
+#endif
 }
 
 -(void)stopBonjour
 {
+#ifndef GS_API_LATEST
 	[(NSNetService*)[[self netServices] do] stop];
 	[self setNetServices:nil];
-	
+#endif
+
 }
 
 

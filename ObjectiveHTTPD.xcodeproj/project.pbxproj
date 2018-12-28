@@ -7,30 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F04A54F21D6430200E19C3F /* libmicrohttpd.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F04A54E21D6430200E19C3F /* libmicrohttpd.a */; };
 		1F05542A1B14AD6D00A0B0B6 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
 		1F05542B1B14AD7400A0B0B6 /* MPWHtmlPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */; };
 		1F05542C1B14AD7B00A0B0B6 /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
-		1F0E36C212EBAD380008377F /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
-		1F0E36C312EBAD380008377F /* connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36AE12EBAD380008377F /* connection.h */; };
-		1F0E36C412EBAD380008377F /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
-		1F0E36C512EBAD380008377F /* connection_https.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B012EBAD380008377F /* connection_https.h */; };
-		1F0E36C612EBAD380008377F /* daemon.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B112EBAD380008377F /* daemon.c */; };
-		1F0E36C712EBAD380008377F /* digestauth.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B212EBAD380008377F /* digestauth.c */; };
-		1F0E36C812EBAD380008377F /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B312EBAD380008377F /* internal.c */; };
-		1F0E36C912EBAD380008377F /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B412EBAD380008377F /* internal.h */; };
-		1F0E36CA12EBAD380008377F /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B512EBAD380008377F /* md5.c */; };
-		1F0E36CB12EBAD380008377F /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B612EBAD380008377F /* md5.h */; };
-		1F0E36CC12EBAD380008377F /* memorypool.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B712EBAD380008377F /* memorypool.c */; };
-		1F0E36CD12EBAD380008377F /* memorypool.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B812EBAD380008377F /* memorypool.h */; };
-		1F0E36CE12EBAD380008377F /* MHD_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B912EBAD380008377F /* MHD_config.h */; };
-		1F0E36CF12EBAD380008377F /* microhttpd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BA12EBAD380008377F /* microhttpd.h */; };
-		1F0E36D012EBAD380008377F /* platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BB12EBAD380008377F /* platform.h */; };
-		1F0E36D112EBAD380008377F /* plibc.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BC12EBAD380008377F /* plibc.h */; };
-		1F0E36D212EBAD380008377F /* postprocessor.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BD12EBAD380008377F /* postprocessor.c */; };
-		1F0E36D312EBAD380008377F /* reason_phrase.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BE12EBAD380008377F /* reason_phrase.c */; };
-		1F0E36D412EBAD380008377F /* reason_phrase.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BF12EBAD380008377F /* reason_phrase.h */; };
-		1F0E36D512EBAD380008377F /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36C012EBAD380008377F /* response.c */; };
-		1F0E36D612EBAD380008377F /* response.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36C112EBAD380008377F /* response.h */; };
 		1F0E36D912EBAD470008377F /* MPWHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36D712EBAD470008377F /* MPWHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1F0E36DA12EBAD470008377F /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
 		1F0E36EC12EBADD40008377F /* ObjectiveHTTPD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* ObjectiveHTTPD.framework */; };
@@ -43,16 +23,6 @@
 		1F201B6D14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
 		1F201B6E14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
 		1F2A8DD01695A5AF003B12ED /* ObjectiveXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */; };
-		1F6ECA8B1424D2D1002DD085 /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
-		1F6ECA8C1424D2D1002DD085 /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
-		1F6ECA8D1424D2D1002DD085 /* daemon.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B112EBAD380008377F /* daemon.c */; };
-		1F6ECA8E1424D2D1002DD085 /* digestauth.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B212EBAD380008377F /* digestauth.c */; };
-		1F6ECA8F1424D2D1002DD085 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B312EBAD380008377F /* internal.c */; };
-		1F6ECA901424D2D1002DD085 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B512EBAD380008377F /* md5.c */; };
-		1F6ECA911424D2D1002DD085 /* memorypool.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B712EBAD380008377F /* memorypool.c */; };
-		1F6ECA921424D2D1002DD085 /* postprocessor.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BD12EBAD380008377F /* postprocessor.c */; };
-		1F6ECA931424D2D1002DD085 /* reason_phrase.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BE12EBAD380008377F /* reason_phrase.c */; };
-		1F6ECA941424D2D1002DD085 /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36C012EBAD380008377F /* response.c */; };
 		1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
 		1F6ECA961424D2FF002DD085 /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
 		1F7B75A414606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -62,29 +32,7 @@
 		1F7CFA5413E2117400FB926E /* MPWFoundationLinux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */; };
 		1F7CFA5613E2123200FB926E /* MPWXmlKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5513E2123200FB926E /* MPWXmlKit.framework */; };
 		1F7CFA5A13E215F500FB926E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F7CFA5913E215F500FB926E /* Foundation.framework */; };
-		1F7CFA5B13E21D9800FB926E /* microhttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA9FD8136E00F900481CA3 /* microhttp.m */; };
 		1F81BFA819698FE50066DF43 /* ObjectiveHTTPDTouch.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F81BFA719698FE50066DF43 /* ObjectiveHTTPDTouch.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1F81BFBE1969900F0066DF43 /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
-		1F81BFBF1969900F0066DF43 /* connection.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36AE12EBAD380008377F /* connection.h */; };
-		1F81BFC01969900F0066DF43 /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
-		1F81BFC11969900F0066DF43 /* connection_https.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B012EBAD380008377F /* connection_https.h */; };
-		1F81BFC21969900F0066DF43 /* daemon.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B112EBAD380008377F /* daemon.c */; };
-		1F81BFC31969900F0066DF43 /* digestauth.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B212EBAD380008377F /* digestauth.c */; };
-		1F81BFC41969900F0066DF43 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B312EBAD380008377F /* internal.c */; };
-		1F81BFC51969900F0066DF43 /* internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B412EBAD380008377F /* internal.h */; };
-		1F81BFC61969900F0066DF43 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B512EBAD380008377F /* md5.c */; };
-		1F81BFC71969900F0066DF43 /* md5.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B612EBAD380008377F /* md5.h */; };
-		1F81BFC81969900F0066DF43 /* memorypool.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B712EBAD380008377F /* memorypool.c */; };
-		1F81BFC91969900F0066DF43 /* memorypool.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B812EBAD380008377F /* memorypool.h */; };
-		1F81BFCA1969900F0066DF43 /* MHD_config.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36B912EBAD380008377F /* MHD_config.h */; };
-		1F81BFCB1969900F0066DF43 /* microhttpd.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BA12EBAD380008377F /* microhttpd.h */; };
-		1F81BFCC1969900F0066DF43 /* platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BB12EBAD380008377F /* platform.h */; };
-		1F81BFCD1969900F0066DF43 /* plibc.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BC12EBAD380008377F /* plibc.h */; };
-		1F81BFCE1969900F0066DF43 /* postprocessor.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BD12EBAD380008377F /* postprocessor.c */; };
-		1F81BFCF1969900F0066DF43 /* reason_phrase.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BE12EBAD380008377F /* reason_phrase.c */; };
-		1F81BFD01969900F0066DF43 /* reason_phrase.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36BF12EBAD380008377F /* reason_phrase.h */; };
-		1F81BFD11969900F0066DF43 /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36C012EBAD380008377F /* response.c */; };
-		1F81BFD21969900F0066DF43 /* response.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36C112EBAD380008377F /* response.h */; };
 		1F81BFD3196990470066DF43 /* MPWFibServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA2EBD51861A8530091E840 /* MPWFibServer.h */; };
 		1F81BFD4196990470066DF43 /* MPWFibServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2EBD61861A8530091E840 /* MPWFibServer.m */; };
 		1F81BFD5196990470066DF43 /* MPWHTTPServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F0E36D712EBAD470008377F /* MPWHTTPServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -125,23 +73,12 @@
 		1FD8B6F20C3C935E00F4F8BB /* MPWSiteMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */; };
 		1FD8B7340C3CAB1B00F4F8BB /* MPWHtmlPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FD8B7350C3CAB1B00F4F8BB /* MPWHtmlPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */; };
-		1FDA9FD9136E00F900481CA3 /* microhttp.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FDA9FD8136E00F900481CA3 /* microhttp.m */; };
 		1FDA9FFA136E076000481CA3 /* WebConnectDemoServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371812EBB0160008377F /* WebConnectDemoServer.m */; };
 		1FDAA009136E079100481CA3 /* WAHtmlRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F905A520C2E07F700E63F65 /* WAHtmlRenderer.m */; };
 		1FDAA00A136E079100481CA3 /* MPWSiteMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */; };
 		1FDAA00B136E079100481CA3 /* MPWHtmlPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */; };
 		1FDAA00D136E079100481CA3 /* MPWPlainHtmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */; };
 		1FDAA00E136E079100481CA3 /* MPWPlainCSSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */; };
-		1FDAA00F136E079100481CA3 /* connection.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AD12EBAD380008377F /* connection.c */; };
-		1FDAA010136E079100481CA3 /* connection_https.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36AF12EBAD380008377F /* connection_https.c */; };
-		1FDAA011136E079100481CA3 /* daemon.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B112EBAD380008377F /* daemon.c */; };
-		1FDAA012136E079100481CA3 /* digestauth.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B212EBAD380008377F /* digestauth.c */; };
-		1FDAA013136E079100481CA3 /* internal.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B312EBAD380008377F /* internal.c */; };
-		1FDAA014136E079100481CA3 /* md5.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B512EBAD380008377F /* md5.c */; };
-		1FDAA015136E079100481CA3 /* memorypool.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36B712EBAD380008377F /* memorypool.c */; };
-		1FDAA016136E079100481CA3 /* postprocessor.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BD12EBAD380008377F /* postprocessor.c */; };
-		1FDAA017136E079100481CA3 /* reason_phrase.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36BE12EBAD380008377F /* reason_phrase.c */; };
-		1FDAA018136E079100481CA3 /* response.c in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36C012EBAD380008377F /* response.c */; };
 		1FDAA019136E079100481CA3 /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
 		1FDAA01A136E079100481CA3 /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
 		1FE2E6A00C862FBC00C94753 /* MPWPlainHtmlContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FE2E69C0C862FBC00C94753 /* MPWPlainHtmlContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -178,27 +115,7 @@
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		1F04A54121D4223C00E19C3F /* base.make */ = {isa = PBXFileReference; lastKnownFileType = text; path = base.make; sourceTree = "<group>"; };
 		1F04A54221D4223C00E19C3F /* GNUmakefile */ = {isa = PBXFileReference; lastKnownFileType = text; path = GNUmakefile; sourceTree = "<group>"; };
-		1F0E36AD12EBAD380008377F /* connection.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = connection.c; sourceTree = "<group>"; };
-		1F0E36AE12EBAD380008377F /* connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection.h; sourceTree = "<group>"; };
-		1F0E36AF12EBAD380008377F /* connection_https.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = connection_https.c; sourceTree = "<group>"; };
-		1F0E36B012EBAD380008377F /* connection_https.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = connection_https.h; sourceTree = "<group>"; };
-		1F0E36B112EBAD380008377F /* daemon.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = daemon.c; sourceTree = "<group>"; };
-		1F0E36B212EBAD380008377F /* digestauth.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = digestauth.c; sourceTree = "<group>"; };
-		1F0E36B312EBAD380008377F /* internal.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = internal.c; sourceTree = "<group>"; };
-		1F0E36B412EBAD380008377F /* internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = internal.h; sourceTree = "<group>"; };
-		1F0E36B512EBAD380008377F /* md5.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = md5.c; sourceTree = "<group>"; };
-		1F0E36B612EBAD380008377F /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
-		1F0E36B712EBAD380008377F /* memorypool.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = memorypool.c; sourceTree = "<group>"; };
-		1F0E36B812EBAD380008377F /* memorypool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = memorypool.h; sourceTree = "<group>"; };
-		1F0E36B912EBAD380008377F /* MHD_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHD_config.h; sourceTree = "<group>"; };
-		1F0E36BA12EBAD380008377F /* microhttpd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = microhttpd.h; sourceTree = "<group>"; };
-		1F0E36BB12EBAD380008377F /* platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = platform.h; sourceTree = "<group>"; };
-		1F0E36BC12EBAD380008377F /* plibc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plibc.h; sourceTree = "<group>"; };
-		1F0E36BD12EBAD380008377F /* postprocessor.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = postprocessor.c; sourceTree = "<group>"; };
-		1F0E36BE12EBAD380008377F /* reason_phrase.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = reason_phrase.c; sourceTree = "<group>"; };
-		1F0E36BF12EBAD380008377F /* reason_phrase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = reason_phrase.h; sourceTree = "<group>"; };
-		1F0E36C012EBAD380008377F /* response.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = response.c; sourceTree = "<group>"; };
-		1F0E36C112EBAD380008377F /* response.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = response.h; sourceTree = "<group>"; };
+		1F04A54E21D6430200E19C3F /* libmicrohttpd.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmicrohttpd.a; path = ../../../../../usr/local/Cellar/libmicrohttpd/0.9.62/lib/libmicrohttpd.a; sourceTree = "<group>"; };
 		1F0E36D712EBAD470008377F /* MPWHTTPServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWHTTPServer.h; sourceTree = "<group>"; };
 		1F0E36D812EBAD470008377F /* MPWHTTPServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWHTTPServer.m; sourceTree = "<group>"; };
 		1F0E36E412EBADC10008377F /* webside */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = webside; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -233,7 +150,6 @@
 		1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteMap.m; sourceTree = "<group>"; };
 		1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWHtmlPage.h; sourceTree = "<group>"; };
 		1FD8B7330C3CAB1B00F4F8BB /* MPWHtmlPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWHtmlPage.m; sourceTree = "<group>"; };
-		1FDA9FD8136E00F900481CA3 /* microhttp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = microhttp.m; sourceTree = "<group>"; };
 		1FDAA001136E076000481CA3 /* webside */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = webside; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FE2E69C0C862FBC00C94753 /* MPWPlainHtmlContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWPlainHtmlContent.h; sourceTree = "<group>"; };
 		1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWPlainHtmlContent.m; sourceTree = "<group>"; };
@@ -294,6 +210,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1F04A54F21D6430200E19C3F /* libmicrohttpd.a in Frameworks */,
 				1F2A8DD01695A5AF003B12ED /* ObjectiveXML.framework in Frameworks */,
 				1F83B76615DCF22400D61261 /* ObjectiveSmalltalk.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
@@ -413,27 +330,6 @@
 		1F0E36AC12EBAD380008377F /* microhttpd */ = {
 			isa = PBXGroup;
 			children = (
-				1F0E36AD12EBAD380008377F /* connection.c */,
-				1F0E36AE12EBAD380008377F /* connection.h */,
-				1F0E36AF12EBAD380008377F /* connection_https.c */,
-				1F0E36B012EBAD380008377F /* connection_https.h */,
-				1F0E36B112EBAD380008377F /* daemon.c */,
-				1F0E36B212EBAD380008377F /* digestauth.c */,
-				1F0E36B312EBAD380008377F /* internal.c */,
-				1F0E36B412EBAD380008377F /* internal.h */,
-				1F0E36B512EBAD380008377F /* md5.c */,
-				1F0E36B612EBAD380008377F /* md5.h */,
-				1F0E36B712EBAD380008377F /* memorypool.c */,
-				1F0E36B812EBAD380008377F /* memorypool.h */,
-				1F0E36B912EBAD380008377F /* MHD_config.h */,
-				1F0E36BA12EBAD380008377F /* microhttpd.h */,
-				1F0E36BB12EBAD380008377F /* platform.h */,
-				1F0E36BC12EBAD380008377F /* plibc.h */,
-				1F0E36BD12EBAD380008377F /* postprocessor.c */,
-				1F0E36BE12EBAD380008377F /* reason_phrase.c */,
-				1F0E36BF12EBAD380008377F /* reason_phrase.h */,
-				1F0E36C012EBAD380008377F /* response.c */,
-				1F0E36C112EBAD380008377F /* response.h */,
 			);
 			path = microhttpd;
 			sourceTree = "<group>";
@@ -441,6 +337,7 @@
 		1F6ECA7E1424D2AF002DD085 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1F04A54E21D6430200E19C3F /* libmicrohttpd.a */,
 				1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */,
 				1F83B76515DCF22400D61261 /* ObjectiveSmalltalk.framework */,
 				1F7CFA5313E2117400FB926E /* MPWFoundationLinux.framework */,
@@ -479,7 +376,6 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				1FDA9FD8136E00F900481CA3 /* microhttp.m */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -502,12 +398,8 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F81BFCB1969900F0066DF43 /* microhttpd.h in Headers */,
-				1F81BFBF1969900F0066DF43 /* connection.h in Headers */,
-				1F81BFCA1969900F0066DF43 /* MHD_config.h in Headers */,
 				1F81BFE1196990470066DF43 /* MPWPOSTProcessor.h in Headers */,
 				1F81BFD5196990470066DF43 /* MPWHTTPServer.h in Headers */,
-				1F81BFC71969900F0066DF43 /* md5.h in Headers */,
 				1F81BFD7196990470066DF43 /* MPWPlainHtmlContent.h in Headers */,
 				1F81BFE9196990470066DF43 /* MPWSiteServer.h in Headers */,
 				1F81BFDF196990470066DF43 /* MPWHtmlPage.h in Headers */,
@@ -515,16 +407,9 @@
 				1F81BFDB196990470066DF43 /* WAHtmlRenderer.h in Headers */,
 				1F81BFD3196990470066DF43 /* MPWFibServer.h in Headers */,
 				1F81BFD9196990470066DF43 /* MPWPlainCSSContent.h in Headers */,
-				1F81BFD01969900F0066DF43 /* reason_phrase.h in Headers */,
-				1F81BFC51969900F0066DF43 /* internal.h in Headers */,
-				1F81BFCD1969900F0066DF43 /* plibc.h in Headers */,
-				1F81BFC91969900F0066DF43 /* memorypool.h in Headers */,
 				1F81BFE3196990470066DF43 /* MPWSchemeHttpServer.h in Headers */,
 				1F81BFE7196990470066DF43 /* MPWHTMLRenderScheme.h in Headers */,
-				1F81BFCC1969900F0066DF43 /* platform.h in Headers */,
-				1F81BFC11969900F0066DF43 /* connection_https.h in Headers */,
 				1F81BFA819698FE50066DF43 /* ObjectiveHTTPDTouch.h in Headers */,
-				1F81BFD21969900F0066DF43 /* response.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,17 +423,6 @@
 				1FD8B7340C3CAB1B00F4F8BB /* MPWHtmlPage.h in Headers */,
 				1FE2E6A00C862FBC00C94753 /* MPWPlainHtmlContent.h in Headers */,
 				1FE2E6A20C862FBC00C94753 /* MPWPlainCSSContent.h in Headers */,
-				1F0E36C312EBAD380008377F /* connection.h in Headers */,
-				1F0E36C512EBAD380008377F /* connection_https.h in Headers */,
-				1F0E36C912EBAD380008377F /* internal.h in Headers */,
-				1F0E36CB12EBAD380008377F /* md5.h in Headers */,
-				1F0E36CD12EBAD380008377F /* memorypool.h in Headers */,
-				1F0E36CE12EBAD380008377F /* MHD_config.h in Headers */,
-				1F0E36CF12EBAD380008377F /* microhttpd.h in Headers */,
-				1F0E36D012EBAD380008377F /* platform.h in Headers */,
-				1F0E36D112EBAD380008377F /* plibc.h in Headers */,
-				1F0E36D412EBAD380008377F /* reason_phrase.h in Headers */,
-				1F0E36D612EBAD380008377F /* response.h in Headers */,
 				1F0E36D912EBAD470008377F /* MPWHTTPServer.h in Headers */,
 				1F0E371E12EBB1100008377F /* MPWPOSTProcessor.h in Headers */,
 				1F7B75A414606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */,
@@ -734,16 +608,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F6ECA8B1424D2D1002DD085 /* connection.c in Sources */,
-				1F6ECA8C1424D2D1002DD085 /* connection_https.c in Sources */,
-				1F6ECA8D1424D2D1002DD085 /* daemon.c in Sources */,
-				1F6ECA8E1424D2D1002DD085 /* digestauth.c in Sources */,
-				1F6ECA8F1424D2D1002DD085 /* internal.c in Sources */,
-				1F6ECA901424D2D1002DD085 /* md5.c in Sources */,
-				1F6ECA911424D2D1002DD085 /* memorypool.c in Sources */,
-				1F6ECA921424D2D1002DD085 /* postprocessor.c in Sources */,
-				1F6ECA931424D2D1002DD085 /* reason_phrase.c in Sources */,
-				1F6ECA941424D2D1002DD085 /* response.c in Sources */,
 				1F6ECA961424D2FF002DD085 /* MPWPOSTProcessor.m in Sources */,
 				1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */,
 				1F7B75A714606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */,
@@ -762,27 +626,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F81BFC61969900F0066DF43 /* md5.c in Sources */,
 				1F81BFD4196990470066DF43 /* MPWFibServer.m in Sources */,
-				1F81BFCF1969900F0066DF43 /* reason_phrase.c in Sources */,
 				1F81BFDA196990470066DF43 /* MPWPlainCSSContent.m in Sources */,
-				1F81BFC81969900F0066DF43 /* memorypool.c in Sources */,
-				1F81BFC21969900F0066DF43 /* daemon.c in Sources */,
 				1F81BFD6196990470066DF43 /* MPWHTTPServer.m in Sources */,
-				1F81BFD11969900F0066DF43 /* response.c in Sources */,
-				1F81BFBE1969900F0066DF43 /* connection.c in Sources */,
 				1F81C0521969932D0066DF43 /* MPWTemplater.m in Sources */,
 				1F81BFE4196990470066DF43 /* MPWSchemeHttpServer.m in Sources */,
 				1F05542A1B14AD6D00A0B0B6 /* WAHtmlRenderer.m in Sources */,
 				1F81BFD8196990470066DF43 /* MPWPlainHtmlContent.m in Sources */,
 				1F05542B1B14AD7400A0B0B6 /* MPWHtmlPage.m in Sources */,
-				1F81BFC01969900F0066DF43 /* connection_https.c in Sources */,
-				1F81BFC31969900F0066DF43 /* digestauth.c in Sources */,
-				1F81BFCE1969900F0066DF43 /* postprocessor.c in Sources */,
 				1F81BFEA196990470066DF43 /* MPWSiteServer.m in Sources */,
 				1F05542C1B14AD7B00A0B0B6 /* MPWHTMLRenderScheme.m in Sources */,
 				1F81BFDE196990470066DF43 /* MPWSiteMap.m in Sources */,
-				1F81BFC41969900F0066DF43 /* internal.c in Sources */,
 				1F81BFE2196990470066DF43 /* MPWPOSTProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -796,18 +650,7 @@
 				1FDAA00B136E079100481CA3 /* MPWHtmlPage.m in Sources */,
 				1FDAA00D136E079100481CA3 /* MPWPlainHtmlContent.m in Sources */,
 				1FDAA00E136E079100481CA3 /* MPWPlainCSSContent.m in Sources */,
-				1FDAA00F136E079100481CA3 /* connection.c in Sources */,
-				1FDAA010136E079100481CA3 /* connection_https.c in Sources */,
-				1FDAA011136E079100481CA3 /* daemon.c in Sources */,
-				1FDAA012136E079100481CA3 /* digestauth.c in Sources */,
-				1FDAA013136E079100481CA3 /* internal.c in Sources */,
-				1FDAA014136E079100481CA3 /* md5.c in Sources */,
-				1FDAA015136E079100481CA3 /* memorypool.c in Sources */,
-				1FDAA016136E079100481CA3 /* postprocessor.c in Sources */,
-				1FDAA017136E079100481CA3 /* reason_phrase.c in Sources */,
-				1FDAA018136E079100481CA3 /* response.c in Sources */,
 				1FDAA019136E079100481CA3 /* MPWHTTPServer.m in Sources */,
-				1F7CFA5B13E21D9800FB926E /* microhttp.m in Sources */,
 				1FDAA01A136E079100481CA3 /* MPWPOSTProcessor.m in Sources */,
 				1FDA9FFA136E076000481CA3 /* WebConnectDemoServer.m in Sources */,
 				1F201B6D14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */,
@@ -823,20 +666,9 @@
 				1FD8B7350C3CAB1B00F4F8BB /* MPWHtmlPage.m in Sources */,
 				1FE2E6A10C862FBC00C94753 /* MPWPlainHtmlContent.m in Sources */,
 				1FE2E6A30C862FBC00C94753 /* MPWPlainCSSContent.m in Sources */,
-				1F0E36C212EBAD380008377F /* connection.c in Sources */,
-				1F0E36C412EBAD380008377F /* connection_https.c in Sources */,
-				1F0E36C612EBAD380008377F /* daemon.c in Sources */,
-				1F0E36C712EBAD380008377F /* digestauth.c in Sources */,
-				1F0E36C812EBAD380008377F /* internal.c in Sources */,
-				1F0E36CA12EBAD380008377F /* md5.c in Sources */,
-				1F0E36CC12EBAD380008377F /* memorypool.c in Sources */,
-				1F0E36D212EBAD380008377F /* postprocessor.c in Sources */,
 				1FA2EBD81861A8530091E840 /* MPWFibServer.m in Sources */,
-				1F0E36D312EBAD380008377F /* reason_phrase.c in Sources */,
-				1F0E36D512EBAD380008377F /* response.c in Sources */,
 				1F0E36DA12EBAD470008377F /* MPWHTTPServer.m in Sources */,
 				1F0E371F12EBB1100008377F /* MPWPOSTProcessor.m in Sources */,
-				1FDA9FD9136E00F900481CA3 /* microhttp.m in Sources */,
 				1F7B75A614606C5D002F38D1 /* MPWSchemeHttpServer.m in Sources */,
 				1FF4A34C147B0202001FCCCD /* MPWTemplater.m in Sources */,
 				1FF4A352147B0B85001FCCCD /* MPWHTMLRenderScheme.m in Sources */,
@@ -886,8 +718,13 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ObjectiveHTTPD_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libmicrohttpd/0.9.62/lib,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.metaobject.objetivehttpd;
 				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
@@ -915,8 +752,13 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ObjectiveHTTPD_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libmicrohttpd/0.9.62/lib,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.metaobject.objetivehttpd;
 				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
@@ -1385,8 +1227,13 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = ObjectiveHTTPD_Prefix.pch;
+				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/Cellar/libmicrohttpd/0.9.62/lib,
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.metaobject.objetivehttpd;
 				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;

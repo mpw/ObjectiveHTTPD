@@ -48,12 +48,6 @@ idAccessor( _serializer, _setSerializer)
 }
 
 
--(void)setScheme:(id)newVar
-{
-    [self _setScheme:newVar];
-//    [[self scheme] setSource:newVar];
-}
-
 
 -(MPWBinding*)bindingForString:(NSString*)uriString
 {
@@ -79,7 +73,7 @@ idAccessor( _serializer, _setSerializer)
         serialized=[[MPWResource new] autorelease];
         [serialized setRawData:[outputValue asData]];
         [serialized setMIMEType:@"text/html"];
-        NSLog(@"serialized: %@",[serialized class]);
+//        NSLog(@"serialized: %@",[serialized class]);
     }
     return serialized ? serialized : [outputValue asData];
 }
@@ -93,15 +87,17 @@ idAccessor( _serializer, _setSerializer)
 
 -(NSData*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
-//    NSLog(@"get: %@ parameters: %@",uri,params);
+    NSLog(@"get: %@ parameters: %@",uri,params);
     id binding=[self bindingForString:uri];
+    NSLog(@"binding: %@",binding);
     id val1=nil;
-    if ([binding hasChildren]) {
+    if (NO && [binding hasChildren]) {      // FIXME
         val1=[binding children];
     } else {
         val1=[binding value];
     }
     NSData* serialized=[[self serializer] serializeValue:val1 at:binding];
+    NSLog(@"value: %@ serialized: %@",val1,serialized);
     return serialized;
 }
 

@@ -29,7 +29,7 @@ ObjectiveHTTPD_HEADER_FILES_INSTALL_DIR = /ObjectiveHTTPD
 libObjectiveHTTPD_OBJC_FILES = \
     MPWHTTPServer.m \
     MPWSchemeHttpServer.m \
-
+    MPWPOSTProcessor.m \
 
 
 libObjectiveHTTPD_C_FILES = \
