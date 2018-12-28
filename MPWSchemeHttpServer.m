@@ -70,12 +70,8 @@ idAccessor( _serializer, _setSerializer)
         NSMutableString *html=[NSMutableString stringWithString:@"<html><head><title>listing</title></head><body><ul>\n"];
         for ( MPWBinding *child  in outputValue) {
             NSString *dirEntry=[[child path] lastPathComponent];
-            NSString *encodedString = (NSString *)CFURLCreateStringByAddingPercentEscapes(
-                                                                                          NULL,
-                                                                                          (CFStringRef)dirEntry,
-                                                                                          NULL,
-                                                                                          (CFStringRef)@"!*'();:@&=+$,/?%#[]",
-                                                                                          kCFStringEncodingUTF8 );
+            NSString *encodedString = [dirEntry stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!*'();:@&=+$,/?%#[]"]];
+
             [html appendFormat:@"<li><a href='%@%s'>%@</a></li>\n",encodedString,[child hasChildren] ? "/" :"",dirEntry];
         }
         [html appendFormat:@"</ul></body></html>"];
