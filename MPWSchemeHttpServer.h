@@ -9,15 +9,17 @@
 #import <MPWFoundation/MPWFoundation.h>
 
 @class MPWHTTPServer;
+@protocol Scheme;
 
 
 @interface MPWSchemeHttpServer : NSObject {
     MPWHTTPServer *server;
-    id <MPWStorage> scheme;
     id  _serializer;
 }
 
 idAccessor_h( serializer, setSerializer)
+
+@property (nonatomic, strong) id <Scheme> scheme;
 
 // methods for instance variable 'server'
 - (MPWHTTPServer*) server;

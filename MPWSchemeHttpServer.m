@@ -11,11 +11,11 @@
 #import <ObjectiveHTTPD/MPWPOSTProcessor.h>
 #import <ObjectiveSmalltalk/MPWMessagePortDescriptor.h>
 #import <ObjectiveSmalltalk/MPWResource.h>
+#import <ObjectiveSmalltalk/MPWScheme.h>
 
 @implementation MPWSchemeHttpServer
 
 objectAccessor(MPWHTTPServer, server, setServer )
-objectAccessor(MPWScheme, scheme, _setScheme)
 idAccessor( _serializer, _setSerializer)
 
 -init {
@@ -292,7 +292,7 @@ idAccessor( _serializer, _setSerializer)
 
 -(void)dealloc
 {
-    [scheme release];
+    [_scheme release];
     [server release];
     [_serializer release];
     [super dealloc];
@@ -318,7 +318,7 @@ idAccessor( _serializer, _setSerializer)
 
 -defaultInputPort
 {
-    return [[[MPWMessagePortDescriptor alloc] initWithTarget:self key:@"scheme" protocol:@protocol(Scheme) sends:YES] autorelease];
+    return [[[MPWMessagePortDescriptor alloc] initWithTarget:self key:@"scheme" protocol:@protocol(MPWStorage) sends:YES] autorelease];
 }
 
 

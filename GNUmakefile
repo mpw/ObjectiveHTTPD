@@ -39,10 +39,10 @@ libObjectiveHTTPD_C_FILES = \
 
 LIBRARIES_DEPEND_UPON +=  -lMPWFoundation -lgnustep-base
 
-LDFLAGS += -L /home/gnustep/Build/MPWFoundation/obj
+LDFLAGS += -L /home/gnustep/Build/MPWFoundation/obj -L /home/gnustep/Build/ObjectiveSmalltalk/obj
 
 
-libObjectiveHTTPD_INCLUDE_DIRS += -I.headers -I. -I../MPWFoundation/.headers/
+libObjectiveHTTPD_INCLUDE_DIRS += -I.headers -I. -I../MPWFoundation/.headers/  -I../ObjectiveSmalltalk/.headers/
 
 -include GNUmakefile.preamble
 include $(GNUSTEP_MAKEFILES)/library.make
