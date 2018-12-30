@@ -307,7 +307,11 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
     char mimebuf[200];
     bzero(mimebuf, 200);
     [mimetype getBytes:mimebuf maxLength:190 usedLength:NULL encoding:NSASCIIStringEncoding options:0 range:NSMakeRange(0, [mimetype length]) remainingRange:NULL];
-    struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
+//    struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
+
+    struct MHD_Response* response= MHD_create_response_from_buffer ([responseData length],
+                                     ( void*)[responseData bytes],
+                                                                    MHD_RESPMEM_PERSISTENT);
 
     MHD_add_response_header (response, "Connection", "Keep-Alive");
 //    MHD_add_response_header (response, "Keep-Alive", "timeout=3, max=100");

@@ -60,7 +60,7 @@ idAccessor( _serializer, _setSerializer)
     MPWResource *serialized=nil;
 //    NSLog(@"web-serialize a %@ for %@: %@",[outputValue class],[aBinding path],outputValue);
     if ( [outputValue isKindOfClass:[NSArray class]] && [[outputValue lastObject] respondsToSelector:@selector(path)]) {
-        NSLog(@"directory listing");
+//        NSLog(@"directory listing");
         NSMutableString *html=[NSMutableString stringWithString:@"<html><head><title>listing</title></head><body><ul>\n"];
         for ( MPWBinding *child  in outputValue) {
             NSString *dirEntry=[[child path] lastPathComponent];
@@ -87,9 +87,9 @@ idAccessor( _serializer, _setSerializer)
 
 -(NSData*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
-    NSLog(@"get: %@ parameters: %@",uri,params);
+//    NSLog(@"get: %@ parameters: %@",uri,params);
     id binding=[self bindingForString:uri];
-    NSLog(@"binding: %@",binding);
+//    NSLog(@"binding: %@",binding);
     id val1=nil;
     if (NO && [binding hasChildren]) {      // FIXME
         val1=[binding children];
@@ -97,7 +97,7 @@ idAccessor( _serializer, _setSerializer)
         val1=[binding value];
     }
     NSData* serialized=[[self serializer] serializeValue:val1 at:binding];
-    NSLog(@"value: %@ serialized: %@",val1,serialized);
+//    NSLog(@"value: %@ serialized: %@",val1,serialized);
     return serialized;
 }
 
