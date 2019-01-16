@@ -31,5 +31,10 @@ objectAccessor_h(MPWStCompiler, interpreter , setInterpreter )
 objectAccessor_h(MethodServer, methodServer , setMethodServer)
 objectAccessor_h(MPWHTMLRenderScheme, renderer , setRenderer)
 
+@property (nonatomic, strong) NSMutableDictionary *methodDict;
+
+-(void)loadMethods;
+-(NSDictionary*)siteDict;
+
 
 @end

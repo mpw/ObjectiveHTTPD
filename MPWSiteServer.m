@@ -34,6 +34,7 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
 
 -(void)disableCaching
 {
+    NSLog(@"cached disabled");
     [[self server] setDelegate:[self renderer]];
 }
 
@@ -71,19 +72,31 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [self createServer:[self templater]];
 }
 
+-(void)loadMethods
+{
+    [[self interpreter] defineMethodsInExternalDict:self.methodDict];
+}
+
+-(NSDictionary*)storedSiteDict
+{
+#if TARGET_OS_IPHONE
+    NSDictionary* dict=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"website" ofType:@"classdict"]];
+#else
+    NSString* methodString = [[[self sitemap] frameworkResource:@"website" category:@"classdict"] stringValue];
+    NSDictionary *dict=[methodString propertyList];
+#endif
+    return dict;
+}
+
 -initWithSite:(MPWSiteMap*) aSite
 {
 	self = [super init];
     [self setSitemap:aSite];
     [self setInterpreter:[[[MPWStCompiler alloc] init] autorelease]];
-#if TARGET_OS_IPHONE    
-    NSDictionary* dict=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"website" ofType:@"classdict"]];
-#else
-    NSString* methodString = [[aSite frameworkResource:@"website" category:@"classdict"] stringValue];
-    NSDictionary *dict=[methodString propertyList];
-#endif
-    [[self interpreter] defineMethodsInExternalDict:[dict objectForKey:@"methodDict"]];
-    
+    NSDictionary *dict=[self storedSiteDict];
+    self.methodDict = [[[dict objectForKey:@"methodDict"] mutableCopy] autorelease];
+
+    [self loadMethods];
     
     [[self interpreter] bindValue:aSite toVariableNamed:@"site"];
     [[self interpreter] bindValue:[MPWByteStream Stdout] toVariableNamed:@"stdout"];
@@ -113,9 +126,18 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
 	return self;
 }
 
+-(NSDictionary*)siteDict
+{
+    NSDictionary *methods = [[[self interpreter] methodStore] externalScriptDict];
+    NSMutableDictionary *totalDict = [[[self storedSiteDict] mutableCopy] autorelease];
+    totalDict[@"methodDict"]=methods;
+    return totalDict;
+}
+
+
 -(void)didDefineMethods:server
 {
-    NSLog(@"======= didDefineMethods, now setup site again");
+//    NSLog(@"======= didDefineMethods, now setup site again");
     [self setupSite];
     [self initializeAndClearCache];
 }
