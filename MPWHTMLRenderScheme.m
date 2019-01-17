@@ -15,15 +15,26 @@
 
 -renderer
 {
-	return [WAHtmlRenderer stream];
+    // FIXME: the retain here shouldn't be necessary, but without it,
+    //        this crashes under GNUstep
+	return [[WAHtmlRenderer stream] retain];
 }
 
 -objectForReference:(MPWReference*)aReference
 {
     @synchronized(self) {
-        id renderer = [self renderer];
-        [renderer writeObject:[[self source] objectForReference:aReference]];
-        return [renderer result];
+        id result=nil;
+        @autoreleasepool {
+            WAHtmlRenderer* renderer = [self renderer];
+            @autoreleasepool {
+                [renderer writeObject:[[self source] objectForReference:aReference]];
+            }
+            result = [renderer result];
+            [result retain];
+//            NSLog(@"will pop -[%@ objectForReference: %@",self,aReference);
+        }
+//        NSLog(@"did pop -[%@ objectForReference: %@ -> %@",self,aReference,result);
+        return [result autorelease];
     }
 }
 

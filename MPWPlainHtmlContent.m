@@ -39,8 +39,8 @@ scalarAccessor(id, source, setSource )
 
 -contentData
 {
-	if ( !_contentData ) {
-        NSLog(@"%p/%@ has to reload contentData: %@",self,[self class],resourceName);
+	if ( !_contentData && resourceName ) {
+//        NSLog(@"%p/%@ has to reload contentData: %@",self,[self class],resourceName);
 		[self setContentData:[self loadContentData]];
 	}
 	return _contentData;
@@ -54,6 +54,7 @@ scalarAccessor(id, source, setSource )
 -initWithResourceNamed:(NSString*)newResourceName
 {
 	self = [super init];
+//    NSLog(@"-[%@:%p initWithResourceNamed: %@]",[self class],self,newResourceName);
 	[self setResourceName:newResourceName];
 	return self;
 }

@@ -325,7 +325,7 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
                                  response);
     MHD_destroy_response(response);
     *con_cls = [responseData retain];
-    [pool drain];
+//    [pool drain];
     return ret;
 }
 
