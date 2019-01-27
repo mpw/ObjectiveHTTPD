@@ -53,6 +53,7 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [cache setCacheReads:YES];
     [self enableCaching];
 //    [self disableCaching];
+//    NSLog(@"site-def: %@",[cache graphViz]);
     return [self server];
 }
 

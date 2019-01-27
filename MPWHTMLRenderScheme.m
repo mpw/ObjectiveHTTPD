@@ -31,9 +31,9 @@
             }
             result = [renderer result];
             [result retain];
-//            NSLog(@"will pop -[%@ objectForReference: %@",self,aReference);
+            //            NSLog(@"will pop -[%@ objectForReference: %@",self,aReference);
         }
-//        NSLog(@"did pop -[%@ objectForReference: %@ -> %@",self,aReference,result);
+        //        NSLog(@"did pop -[%@ objectForReference: %@ -> %@",self,aReference,result);
         return [result autorelease];
     }
 }
