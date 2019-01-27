@@ -267,7 +267,7 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
     NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
 //    			fprintf(stderr, "did create urlstring\n");
     NSMutableDictionary *parameterDict=nil;;
-#if 1
+#if 0
     NSMutableDictionary *headerDict=nil;
     parameterDict=[NSMutableDictionary dictionary];
     headerDict=[NSMutableDictionary dictionary];
@@ -325,7 +325,7 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
                                  response);
     MHD_destroy_response(response);
     *con_cls = [responseData retain];
-//    [pool drain];
+    [pool drain];
     return ret;
 }
 
@@ -407,33 +407,43 @@ int AccessHandlerCallback(void *cls,
 	if ( *con_cls == NULL ) {
 //        fprintf(stderr, "initial access handler callback: %s: url: '%s'\n",method,url);
 		// first time
+        @autoreleasepool {
 #if 0
-		static int requests=0;
-		if ( ++requests % 5000 ==0 ) {
-			NSLog(@"request: %d",requests);
-		}
+            static int requests=0;
+            if ( ++requests % 5000 ==0 ) {
+                NSLog(@"request: %d",requests);
+            }
 #endif
-		if ( !strcmp("GET", method) ||  !strcmp("OPTIONS", method)  ) {
-            //			fprintf(stderr, "GET url: '%s'\n",url);
-			*con_cls = self;
-		} else 	if ( !strcmp("PUT", method)  ||  !strcmp("PROPFIND", method) ||  !strcmp("PATCH", method) ) {
-            NSMutableData* putData=[[NSMutableData alloc] init];
-			*con_cls = putData;
-		} else 	if ( !strcmp("POST", method) ) {
-			id pool=[NSAutoreleasePool new];
-//			fprintf(stderr, "POST url: '%s'\n",url);
-			MPWPOSTProcessor* processor=[MPWPOSTProcessor processor];
-			*con_cls = processor;
-            void *post_processor =(void*) MHD_create_post_processor (connection, 8192 ,
-                                                                     iterate_post, (void*) processor);
-//            fprintf(stderr, "create post_processor %p\n",post_processor);
-			[processor setProcessor:post_processor];
-			[processor retain];
-			[pool release];
-            
-		} else {
-            NSLog(@"unhandled HTTP Verb: %s",method);
+            if ( !strcmp("GET", method) ||  !strcmp("OPTIONS", method)  ) {
+                //            fprintf(stderr, "GET url: '%s'\n",url);
+                *con_cls = self;
+            } else     if ( !strcmp("PUT", method)  ||  !strcmp("PROPFIND", method) ||  !strcmp("PATCH", method) ) {
+                NSMutableData* putData=[[NSMutableData alloc] init];
+                *con_cls = putData;
+            } else     if ( !strcmp("POST", method) ) {
+                id pool=[NSAutoreleasePool new];
+                //            fprintf(stderr, "POST url: '%s'\n",url);
+                MPWPOSTProcessor* processor=[MPWPOSTProcessor processor];
+                *con_cls = processor;
+                void *post_processor =(void*) MHD_create_post_processor (connection, 8192 ,
+                                                                         iterate_post, (void*) processor);
+                //            fprintf(stderr, "create post_processor %p\n",post_processor);
+                [processor setProcessor:post_processor];
+                [processor retain];
+                [pool release];
+
+            } else {
+                @autoreleasepool {
+                    static int unhandledCount=0;
+                    if ( unhandledCount++ % 1000 == 0 ) {
+                        NSLog(@"unhandled HTTP Verb: %s url: %s count %d",method,url, unhandledCount);
+                    }
+                    return MHD_NO;
+
+                }
+            }
         }
+
 		return MHD_YES;
 	} else {
 //        fprintf(stderr, "continuing access handler callback: %s: url: '%s'\n",method,url);
