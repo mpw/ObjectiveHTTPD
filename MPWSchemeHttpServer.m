@@ -324,11 +324,21 @@ idAccessor( _serializer, _setSerializer)
 
 @implementation MPWSchemeHttpServer(testing)
 
-+(void)testBasicGETAccess
++(void)testBasicGETAccessOfValues
 {
     MPWSiteMap *site=[MPWSiteMap store];
     MPWSchemeHttpServer *server=[[MPWSchemeHttpServer new] autorelease];
     server.scheme=site;
+    site[[site referenceForPath:@"hello"]]=@"world";
+    IDEXPECT( [[server get:@"hello"] stringValue], @"world", @"server get");
+}
+
++(void)testBasicGETAccessOfDirectories
+{
+    MPWSiteMap *site=[MPWSiteMap store];
+    MPWSchemeHttpServer *server=[[MPWSchemeHttpServer new] autorelease];
+    server.scheme=site;
+    site[[site referenceForPath:@"hello"]]=@"world";
     IDEXPECT( [[server get:@"hello"] stringValue], @"world", @"server get");
 }
 
@@ -336,8 +346,8 @@ idAccessor( _serializer, _setSerializer)
 +testSelectors
 {
     return @[
-             @"testBasicGETAccess",
-
+             @"testBasicGETAccessOfValues",
+             @"testBasicGETAccessOfDirectories",
              ];
 }
 
