@@ -219,8 +219,8 @@ static int iterate_post (void *cls,
 						 const char *transfer_encoding,
 						 const char *bytes, uint64_t off, size_t size) {
 
-    NSLog(@"iterate_post: key %s filename: %s content_type: %s transfer_encoding: %s len: %d content: %.*s",
-          key,filename,content_type,transfer_encoding,(int)size,(int)size,bytes);
+//    NSLog(@"iterate_post: key %s filename: %s content_type: %s transfer_encoding: %s len: %d content: %.*s",
+//          key,filename,content_type,transfer_encoding,(int)size,(int)size,bytes);
 	MPWPOSTProcessor *processor=(MPWPOSTProcessor*)cls ;
 	NSString *fileNameString = filename ? [NSString stringWithCString:filename encoding:NSISOLatin1StringEncoding] : nil;
 	NSString *keyString = key ? [NSString stringWithCString:key encoding:NSISOLatin1StringEncoding] : nil;
@@ -271,11 +271,11 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
     NSMutableDictionary *headerDict=nil;
     parameterDict=[NSMutableDictionary dictionary];
     headerDict=[NSMutableDictionary dictionary];
-    MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
+//    MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
     MHD_get_connection_values (connection, MHD_HEADER_KIND,  addKeyValuesToDictionary,( void *)headerDict);
-#endif
-//    NSLog(@"parameter dict: %@",parameterDict);
+    //    NSLog(@"parameter dict: %@",parameterDict);
 //    NSLog(@"header dict: %@",headerDict);
+#endif
     NSData *responseData = nil;
     int responseCode=0;
     @try {
@@ -289,7 +289,7 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
     @catch (NSException *exception) {
         NSLog(@"exception: %@",exception);
         responseData=[self errorPage:exception];
-        responseCode=404;
+        responseCode=500;
     }
     NSString *mimetype=[self defaultMimetype];
 //    NSLog(@"%@ has a mime type: %d",[responseData class],[responseData respondsToSelector:@selector(MIMEType)]);
@@ -431,7 +431,6 @@ int AccessHandlerCallback(void *cls,
                 [processor setProcessor:post_processor];
                 [processor retain];
                 [pool release];
-
             } else {
                 @autoreleasepool {
                     static int unhandledCount=0;
@@ -493,44 +492,45 @@ int AccessHandlerCallback(void *cls,
 			}	//			fprintf(stderr, "did get responesData\n");
 		} else 	if ( !strcmp("POST", method) ) {
 //			NSLog(@"POST continuation upload size: %d",(int)*upload_data_size);
-			id pool=[NSAutoreleasePool new];
-			MPWPOSTProcessor *processor=(MPWPOSTProcessor*)*con_cls;
-			if ( *upload_data_size != 0 ) {
-//                fprintf(stderr, "will post_process with %p %p\n",processor,[processor processor]);
-                if ( [processor processor]) {
-                    MHD_post_process ([processor processor], upload_data,
-                                      *upload_data_size);
+            @autoreleasepool {
+                MPWPOSTProcessor *processor=(MPWPOSTProcessor*)*con_cls;
+                if ( *upload_data_size != 0 ) {
+                    //                fprintf(stderr, "will post_process with %p %p\n",processor,[processor processor]);
+                    if ( [processor processor]) {
+                        MHD_post_process ([processor processor], upload_data,
+                                          *upload_data_size);
+                    } else {
+                        [processor appendBytes:upload_data length:*upload_data_size toKey:@"data" filename:@"data" contentType:@"json"];
+                    }
+                    *upload_data_size = 0;
+
+                    return MHD_YES;
                 } else {
-                    [processor appendBytes:upload_data length:*upload_data_size toKey:@"data" filename:@"data" contentType:@"json"];
+                    NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
+                    //            fprintf(stderr, "did create urlstring\n");
+                    //                MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
+
+                    NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
+                    MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
+                    [processor addParameters:parameterDict];
+                    NSData *responseData = [[self delegate] post:urlstring parameters:processor];
+                    //            fprintf(stderr, "did get responesData\n");
+                    [processor release];
+                    struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
+                    int ret = MHD_queue_response(connection,
+                                                 MHD_HTTP_OK,
+                                                 response);
+                    MHD_add_response_header (response, "Content-Type", "application/text");
+
+                    //                fprintf(stderr, "queued response\n");
+                    MHD_destroy_response(response);
+                    *con_cls = [responseData retain];
+
+                    return ret;
+
                 }
-				*upload_data_size = 0;
-				
-				return MHD_YES;
-			} else {	
-				NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
-				//			fprintf(stderr, "did create urlstring\n");
-//				MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
-
-				NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
-				MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
-				[processor addParameters:parameterDict];
-				NSData *responseData = [[self delegate] post:urlstring parameters:processor];
-//			fprintf(stderr, "did get responesData\n");
-				struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
-				int ret = MHD_queue_response(connection,
-											 MHD_HTTP_OK,
-											 response);
-                MHD_add_response_header (response, "Content-Type", "application/text");
-
-//                fprintf(stderr, "queued response\n");
-				MHD_destroy_response(response);
-				*con_cls = [responseData retain];
-				
-				[pool drain];
-				return ret;
-			
-			}
-			return NO;
+                return NO;
+            }
 		}
 	}
 

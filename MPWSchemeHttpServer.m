@@ -81,7 +81,7 @@ idAccessor( _serializer, _setSerializer)
 
 -(NSData*)get:(NSString*)uri
 {
-    return [uri asData];
+    return [self get:uri parameters:nil];
 }
 
 
@@ -91,10 +91,12 @@ idAccessor( _serializer, _setSerializer)
     id binding=[self bindingForString:uri];
 //    NSLog(@"binding: %@",binding);
     id val1=nil;
-    if (NO && [binding hasChildren]) {      // FIXME
+    if ( [binding hasChildren]) {      // FIXME
         val1=[binding children];
+        NSLog(@"%@ had children: %@",binding,val1);
     } else {
         val1=[binding value];
+        NSLog(@"%@ did not have children: %@",binding,val1);
     }
     NSData* serialized=[[self serializer] serializeValue:val1 at:binding];
 //    NSLog(@"value: %@ serialized: %@",val1,serialized);
@@ -314,5 +316,29 @@ idAccessor( _serializer, _setSerializer)
 }
 
 
+
+@end
+
+#import "MPWSiteMap.h"
+
+
+@implementation MPWSchemeHttpServer(testing)
+
++(void)testBasicGETAccess
+{
+    MPWSiteMap *site=[MPWSiteMap store];
+    MPWSchemeHttpServer *server=[[MPWSchemeHttpServer new] autorelease];
+    server.scheme=site;
+    IDEXPECT( [[server get:@"hello"] stringValue], @"world", @"server get");
+}
+
+
++testSelectors
+{
+    return @[
+             @"testBasicGETAccess",
+
+             ];
+}
 
 @end

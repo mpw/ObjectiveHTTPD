@@ -70,10 +70,28 @@ scalarAccessor( id, lastKey, setLastKey )
 	[super dealloc];
 }
 
--(NSString*)description
+-(NSString*)debugDescription
 {
     return [NSString stringWithFormat:@"<%@:%p:  value: %@ filenames: %@ contentTypes: %@",
             [self class],self,values,filenames,contentTypes ];
+}
+
+-(NSString*)description
+{
+    NSMutableString *description=[NSMutableString string];
+    if ( values.count) {
+        [description appendString:@"values: "];
+        for ( NSString *key in values.allKeys) {
+            [description appendFormat:@" %@=%@",key,[values[key] stringValue]];
+        }
+    }
+    if ( filenames.count) {
+        [description appendString:@" filenames: "];
+        for ( NSString *key in filenames.allKeys) {
+            [description appendFormat:@" %@=%@",key,[filenames[key] stringValue]];
+        }
+    }
+    return description;
 }
 
 @end

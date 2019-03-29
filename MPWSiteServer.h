@@ -36,5 +36,7 @@ objectAccessor_h(MPWHTMLRenderScheme, renderer , setRenderer)
 -(void)loadMethods;
 -(NSDictionary*)siteDict;
 
+-(void)disableCaching;
+
 
 @end
