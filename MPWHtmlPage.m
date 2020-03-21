@@ -22,20 +22,20 @@ idAccessor( path , setPath )
 	return self;
 }
 
--(void)renderHeaderOn:aRenderer
+-(void)renderHeaderOn:(WAHtmlRenderer*)aRenderer
 {
     [aRenderer element:"meta" attributes:@"http-equiv=\"content-type\" content=\"text/html; charset=UTF-8\"" content:@""];
 	[aRenderer element:"title" content:[self title]];
 }
 
--(void)renderBodyOn:aRenderer
+-(void)renderBodyOn:(WAHtmlRenderer*)aRenderer
 {
 	if ( [self content] ) {
 		[aRenderer element:"div" attributes:@" name='mainContent'"  content:[self content]];
 	}
 }
 
--(void)renderHtmlOn:renderer
+-(void)renderHtmlOn:(WAHtmlRenderer*)renderer
 {
 	[renderer element:"head" content:self selector:@selector(renderHeaderOn:)];
 	[renderer element:"body" content:self selector:@selector(renderBodyOn:)];

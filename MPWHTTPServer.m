@@ -65,7 +65,7 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 -(void)startBonjour
 {
 #ifndef GS_API_LATEST
-    NSLog(@"starting bonjour");
+//    NSLog(@"starting bonjour");
 	NSMutableArray *services=[NSMutableArray array];
 	for ( NSString *type in [self types] ) {
 		NSNetService *service;
@@ -76,7 +76,7 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 	
 	[[[self netServices] do] setDelegate:self];
 	[[[self netServices] do] publish];
-    NSLog(@"did start bonjour:  %@",[self netServices]);
+//    NSLog(@"did start bonjour:  %@",[self netServices]);
 #endif
 }
 
@@ -92,7 +92,7 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 
 -(BOOL)start:(NSError**)error
 {
-    NSLog(@"start:");
+//    NSLog(@"start:");
 	[self startHttpd];
 	[self startBonjour];
     
@@ -202,13 +202,23 @@ objectAccessor( NSData,_defaultResponse, setDefaultResponse )
 	[(id)*con_cls release];
 }
 
-static int  addKeyValuesToDictionary(void *cls,
-						 enum MHD_ValueKind kind,
-						 const char *key, const char *value)
+static int  addLowerCaseKeyValuesToDictionary(void *cls,
+                                     enum MHD_ValueKind kind,
+                                     const char *key, const char *value)
 {
-	[(NSMutableDictionary*)cls setObject:[NSString stringWithCString:value encoding:NSISOLatin1StringEncoding]
-								  forKey:[NSString stringWithCString:key encoding:NSISOLatin1StringEncoding]];
-	return MHD_YES;
+    [(NSMutableDictionary*)cls setObject:[NSString stringWithCString:value encoding:NSISOLatin1StringEncoding]
+                                  forKey:[[NSString stringWithCString:key encoding:NSISOLatin1StringEncoding] lowercaseString]];
+    return MHD_YES;
+}
+
+
+static int  addKeyValuesToDictionary(void *cls,
+                                     enum MHD_ValueKind kind,
+                                     const char *key, const char *value)
+{
+    [(NSMutableDictionary*)cls setObject:[NSString stringWithCString:value encoding:NSISOLatin1StringEncoding]
+                                  forKey:[NSString stringWithCString:key encoding:NSISOLatin1StringEncoding]];
+    return MHD_YES;
 }
 
 static int iterate_post (void *cls,
@@ -255,8 +265,8 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
 
 -(int)handleGetLikeSelector:(SEL)httpVerbSelector withURL:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
 {
-//    			fprintf(stderr, "in GET\n");
-    //			fprintf(stderr, "will get NSPlatformCurrentThread\n");
+//    fprintf(stderr, "in GET\n");
+//    fprintf(stderr, "will get NSPlatformCurrentThread\n");
     //			NSPlatformSetCurrentThread([[NSThread alloc] init]);
     //			NSPlatformCurrentThread();
     //			[NSObject new];
@@ -267,14 +277,15 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
     NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
 //    			fprintf(stderr, "did create urlstring\n");
     NSMutableDictionary *parameterDict=nil;;
-#if 0
+#if 1
     NSMutableDictionary *headerDict=nil;
     parameterDict=[NSMutableDictionary dictionary];
     headerDict=[NSMutableDictionary dictionary];
 //    MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
-    MHD_get_connection_values (connection, MHD_HEADER_KIND,  addKeyValuesToDictionary,( void *)headerDict);
-    //    NSLog(@"parameter dict: %@",parameterDict);
-//    NSLog(@"header dict: %@",headerDict);
+    MHD_get_connection_values (connection, MHD_HEADER_KIND,  addLowerCaseKeyValuesToDictionary,( void *)headerDict);
+//    NSLog(@"parameter dict: %@",headerDict);
+//    fprintf(stderr,"host: %s\n",[headerDict[@"host"] UTF8String]);
+//    NSLog(@"host: %@",headerDict[@"host"]);
 #endif
     NSData *responseData = nil;
     int responseCode=0;
@@ -358,8 +369,8 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
     NSMutableDictionary *headerDict=[NSMutableDictionary dictionary];
     MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
     MHD_get_connection_values (connection, MHD_HEADER_KIND,  addKeyValuesToDictionary,( void *)headerDict);
-    NSLog(@"parameter dict: %@",parameterDict);
-    NSLog(@"header dict: %@",headerDict);
+//    NSLog(@"parameter dict: %@",parameterDict);
+//    NSLog(@"header dict: %@",headerDict);
     NSData *responseData = nil;
     int responseCode=0;
     @try {

@@ -84,6 +84,11 @@ idAccessor( _serializer, _setSerializer)
     return [self get:uri parameters:nil];
 }
 
+-(void)graphViz:(MPWByteStream *)aStream
+{
+    [aStream printFormat:@"\"HTTP-Server\\nPort: %d\" -> %@ [label=store]\n",[[self server] port],[self.scheme graphVizName]];
+    [self.scheme graphViz:aStream];
+}
 
 -(NSData*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
@@ -93,10 +98,10 @@ idAccessor( _serializer, _setSerializer)
     id val1=nil;
     if ( [binding hasChildren]) {      // FIXME
         val1=[binding children];
-        NSLog(@"%@ had children: %@",binding,val1);
+//        NSLog(@"%@ had children: %@",binding,val1);
     } else {
         val1=[binding value];
-        NSLog(@"%@ did not have children: %@",binding,val1);
+//        NSLog(@"%@ did not have children: %@",binding,val1);
     }
     NSData* serialized=[[self serializer] serializeValue:val1 at:binding];
 //    NSLog(@"value: %@ serialized: %@",val1,serialized);
@@ -310,7 +315,7 @@ idAccessor( _serializer, _setSerializer)
     [[self server] stop];
 }
 
--defaultInputPort
+-defaultOutputPort
 {
     return [[[MPWMessagePortDescriptor alloc] initWithTarget:self key:@"scheme" protocol:@protocol(MPWStorage) sends:YES] autorelease];
 }

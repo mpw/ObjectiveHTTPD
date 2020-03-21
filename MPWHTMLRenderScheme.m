@@ -20,14 +20,14 @@
 	return [[WAHtmlRenderer stream] retain];
 }
 
--objectForReference:(MPWReference*)aReference
+-at:(MPWReference*)aReference
 {
     @synchronized(self) {
         id result=nil;
         @autoreleasepool {
             WAHtmlRenderer* renderer = [self renderer];
             @autoreleasepool {
-                [renderer writeObject:[[self source] objectForReference:aReference]];
+                [renderer writeObject:[[self source] at:aReference]];
             }
             result = [renderer result];
             [result retain];

@@ -7,7 +7,7 @@
 //
 
 #import "WAHtmlRenderer.h"
-#import <ObjectiveXML/MPWXmlGeneratorStream.h>
+#import <MPWFoundation/MPWXmlGeneratorStream.h>
 
 
 @implementation WAHtmlRenderer

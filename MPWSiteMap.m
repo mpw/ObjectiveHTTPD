@@ -44,7 +44,7 @@
 
 +(void)testPlainPageIsSameBothTimes
 {
-    id templater=[self _configuredSite];
+    MPWAbstractStore *templater=[self _configuredSite];
     NSLog(@"will get page");
     id page = [templater get:@"index.html"];
     NSLog(@"did get page: %@",page);

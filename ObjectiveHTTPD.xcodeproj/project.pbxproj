@@ -22,7 +22,6 @@
 		1F201B6C14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
 		1F201B6D14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
 		1F201B6E14E6B7F9007BEFDA /* MPWSiteServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F201B6914E6B7F9007BEFDA /* MPWSiteServer.m */; };
-		1F2A8DD01695A5AF003B12ED /* ObjectiveXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */; };
 		1F6ECA951424D2DE002DD085 /* MPWHTTPServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E36D812EBAD470008377F /* MPWHTTPServer.m */; };
 		1F6ECA961424D2FF002DD085 /* MPWPOSTProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0E371D12EBB1100008377F /* MPWPOSTProcessor.m */; };
 		1F7B75A414606C5D002F38D1 /* MPWSchemeHttpServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F7B75A214606C5D002F38D1 /* MPWSchemeHttpServer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -55,7 +54,6 @@
 		1F81BFEB196990860066DF43 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE79BB519695609009BA0A5 /* MPWFoundation.framework */; };
 		1F81BFEC1969908C0066DF43 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1FE79BB719695619009BA0A5 /* Foundation.framework */; };
 		1F81BFEE196991620066DF43 /* ObjectiveSmalltalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F81BFED196991620066DF43 /* ObjectiveSmalltalk.framework */; };
-		1F81C051196993110066DF43 /* ObjectiveXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F2A8DCF1695A5AF003B12ED /* ObjectiveXML.framework */; };
 		1F81C0521969932D0066DF43 /* MPWTemplater.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A349147B0202001FCCCD /* MPWTemplater.m */; };
 		1F83B76615DCF22400D61261 /* ObjectiveSmalltalk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F83B76515DCF22400D61261 /* ObjectiveSmalltalk.framework */; };
 		1F905A530C2E07F700E63F65 /* WAHtmlRenderer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F905A510C2E07F700E63F65 /* WAHtmlRenderer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -189,7 +187,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1F81C051196993110066DF43 /* ObjectiveXML.framework in Frameworks */,
 				1F81BFEE196991620066DF43 /* ObjectiveSmalltalk.framework in Frameworks */,
 				1F81BFEC1969908C0066DF43 /* Foundation.framework in Frameworks */,
 				1F81BFEB196990860066DF43 /* MPWFoundation.framework in Frameworks */,
@@ -211,7 +208,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1F04A54F21D6430200E19C3F /* libmicrohttpd.a in Frameworks */,
-				1F2A8DD01695A5AF003B12ED /* ObjectiveXML.framework in Frameworks */,
 				1F83B76615DCF22400D61261 /* ObjectiveSmalltalk.framework in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */,
@@ -521,7 +517,7 @@
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1000;
+				LastUpgradeCheck = 1110;
 				TargetAttributes = {
 					1F81BFA219698FE40066DF43 = {
 						CreatedOnToolsVersion = 6.0;

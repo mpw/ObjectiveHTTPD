@@ -24,9 +24,9 @@ idAccessor( template, setTemplate )
 
 
 
--(id)objectForReference:(id)aReference
+-(id)at:(id)aReference
 {
-    id rawValue=[self.source objectForReference:aReference];
+    id rawValue=[self.source at:aReference];
     MPWHtmlPage *page = [self template];
     [page setContent:rawValue];
     [page setPath:aReference];
