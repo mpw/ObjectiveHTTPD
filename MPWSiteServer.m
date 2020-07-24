@@ -9,6 +9,8 @@
 #import "MPWSiteServer.h"
 //#import <MethodServer/MethodServer.h>
 #import <ObjectiveSmalltalk/MPWCopyOnWriteScheme.h>
+#import <ObjectiveSmalltalk/MPWStCompiler.h>
+#import <ObjectiveSmalltalk/MPWMethodStore.h>
 #import "MPWHTMLRenderScheme.h"
 #import "MPWHTTPServer.h"
 
