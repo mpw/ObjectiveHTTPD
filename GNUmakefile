@@ -17,7 +17,7 @@ LIBRARY_NAME = libObjectiveHTTPD
 CC = clang
 
 
-OBJCFLAGS += -Wno-import -fobjc-runtime=gnustep
+OBJCFLAGS += -Wno-import -fobjc-runtime=gnustep-2
 
 
 ObjectiveHTTPD_HEADER_FILES = \
@@ -50,7 +50,7 @@ LIBRARIES_DEPEND_UPON +=  -lMPWFoundation -lgnustep-base
 LDFLAGS += -L /home/gnustep/Build/obj 
 
 
-libObjectiveHTTPD_INCLUDE_DIRS += -I.headers -I. -I../MPWFoundation/.headers/  -I../ObjectiveXML/.headers/  -I../ObjectiveSmalltalk/.headers/
+libObjectiveHTTPD_INCLUDE_DIRS += -I.headers -I. -I../MPWFoundation/.headers/   -I../ObjectiveSmalltalk/.headers/
 
 -include GNUmakefile.preamble
 include $(GNUSTEP_MAKEFILES)/library.make
@@ -73,4 +73,4 @@ test    : libObjectiveHTTPD tester
 	LD_LIBRARY_PATH=/home/gnustep/GNUstep/Library/Libraries:/usr/local/lib:/home/gnustep/Build/obj/  ./TestObjectiveSmalltalk/testobjectivesmalltalk
 
 tester  :
-	clang -fobjc-runtime=gnustep-1.9 -I../MPWFoundation/.headers/ -I.headers -o testobjectivehttpd testobjectivehttpd.m -L/home/gnustep/Build/obj -lObjectiveHTTPD -lMPWFoundation -lgnustep-base -L/usr/local/lib/ -lobjc
+	clang -fobjc-runtime=gnustep-2 -I../MPWFoundation/.headers/ -I.headers -o testobjectivehttpd testobjectivehttpd.m -L/home/gnustep/Build/obj -lObjectiveHTTPD -lMPWFoundation -lgnustep-base -L/usr/local/lib/ -lobjc
