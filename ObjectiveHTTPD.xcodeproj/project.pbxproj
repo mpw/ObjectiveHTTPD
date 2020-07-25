@@ -61,6 +61,7 @@
 		1F905A5B0C2E091400E63F65 /* MPWFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F905A5A0C2E091400E63F65 /* MPWFoundation.framework */; };
 		1FA2EBD71861A8530091E840 /* MPWFibServer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1FA2EBD51861A8530091E840 /* MPWFibServer.h */; };
 		1FA2EBD81861A8530091E840 /* MPWFibServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FA2EBD61861A8530091E840 /* MPWFibServer.m */; };
+		1FBCA3CE24CB277A00655083 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 1FBCA3CD24CB277A00655083 /* README.md */; };
 		1FCE394E14C5D9BC003C2BA9 /* MPWHTMLRenderScheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FF4A34F147B0B85001FCCCD /* MPWHTMLRenderScheme.m */; };
 		1FCE394F14C5D9C4003C2BA9 /* MPWPlainHtmlContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69D0C862FBC00C94753 /* MPWPlainHtmlContent.m */; };
 		1FCE395014C5D9C8003C2BA9 /* MPWPlainCSSContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 1FE2E69F0C862FBC00C94753 /* MPWPlainCSSContent.m */; };
@@ -144,6 +145,7 @@
 		1F905AB50C2E0AD400E63F65 /* MPWXmlKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MPWXmlKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FA2EBD51861A8530091E840 /* MPWFibServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWFibServer.h; sourceTree = "<group>"; };
 		1FA2EBD61861A8530091E840 /* MPWFibServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWFibServer.m; sourceTree = "<group>"; };
+		1FBCA3CD24CB277A00655083 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		1FD8B6EF0C3C935E00F4F8BB /* MPWSiteMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWSiteMap.h; sourceTree = "<group>"; };
 		1FD8B6F00C3C935E00F4F8BB /* MPWSiteMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPWSiteMap.m; sourceTree = "<group>"; };
 		1FD8B7320C3CAB1B00F4F8BB /* MPWHtmlPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPWHtmlPage.h; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				1FBCA3CD24CB277A00655083 /* README.md */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FBCA3CE24CB277A00655083 /* README.md in Resources */,
 				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -691,6 +695,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -711,10 +716,7 @@
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/local/Cellar/libmicrohttpd/0.9.62/lib,
-				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
 				PRODUCT_BUNDLE_IDENTIFIER = com.metaobject.objetivehttpd;
 				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
@@ -728,6 +730,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -746,10 +749,7 @@
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/local/Cellar/libmicrohttpd/0.9.62/lib,
-				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
 				PRODUCT_BUNDLE_IDENTIFIER = com.metaobject.objetivehttpd;
 				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;
@@ -1202,6 +1202,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -1222,10 +1223,7 @@
 				HEADER_SEARCH_PATHS = /usr/local/include/;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/usr/local/Cellar/libmicrohttpd/0.9.62/lib,
-				);
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
 				PRODUCT_BUNDLE_IDENTIFIER = com.metaobject.objetivehttpd;
 				PRODUCT_NAME = ObjectiveHTTPD;
 				SDKROOT = macosx;

@@ -8,6 +8,7 @@
 
 #import "MPWHTMLRenderScheme.h"
 #import "WAHtmlRenderer.h"
+#import "MPWHtmlPage.h"
 
 @class MPWBinding;
 
@@ -23,18 +24,21 @@
 -at:(MPWReference*)aReference
 {
     @synchronized(self) {
-        id result=nil;
-        @autoreleasepool {
-            WAHtmlRenderer* renderer = [self renderer];
+        id result=[[self source] at:aReference];
+        if ( [result isKindOfClass:[MPWHtmlPage class]] ) {
             @autoreleasepool {
-                [renderer writeObject:[[self source] at:aReference]];
+                WAHtmlRenderer* renderer = [self renderer];
+                @autoreleasepool {
+                    [renderer writeObject:result];
+                }
+                result = [renderer result];
+                [result retain];
+                //            NSLog(@"will pop -[%@ objectForReference: %@",self,aReference);
             }
-            result = [renderer result];
-            [result retain];
-            //            NSLog(@"will pop -[%@ objectForReference: %@",self,aReference);
+            [result autorelease];
         }
         //        NSLog(@"did pop -[%@ objectForReference: %@ -> %@",self,aReference,result);
-        return [result autorelease];
+        return result;
     }
 }
 

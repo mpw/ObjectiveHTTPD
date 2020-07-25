@@ -54,7 +54,7 @@ idAccessor( _serializer, _setSerializer)
     return [[self scheme] bindingForName:uriString inContext:nil]; 
 }
 
--(NSData*)serializeValue:outputValue at:(MPWBinding*)aBinding
+-(MPWResource*)serializeValue:outputValue at:(MPWBinding*)aBinding
 {
 //    NSLog(@"serializeValue: %@ at:%@",[outputValue class],[aBinding path]);
     MPWResource *serialized=nil;
@@ -64,7 +64,7 @@ idAccessor( _serializer, _setSerializer)
         NSMutableString *html=[NSMutableString stringWithString:@"<html><head><title>listing</title></head><body><ul>\n"];
         for ( MPWBinding *child  in outputValue) {
             NSString *dirEntry=[[child path] lastPathComponent];
-            NSString *encodedString = [dirEntry stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet characterSetWithCharactersInString:@"!*'();:@&=+$,/?%#[]"]];
+            NSString *encodedString = [dirEntry stringByAddingPercentEncodingWithAllowedCharacters:[[NSCharacterSet characterSetWithCharactersInString:@" !*'();:@&=+$,/?%#[]"] invertedSet]];
 
             [html appendFormat:@"<li><a href='%@%s'>%@</a></li>\n",encodedString,[child hasChildren] ? "/" :"",dirEntry];
         }
@@ -74,8 +74,15 @@ idAccessor( _serializer, _setSerializer)
         [serialized setRawData:[outputValue asData]];
         [serialized setMIMEType:@"text/html"];
 //        NSLog(@"serialized: %@",[serialized class]);
+    } else if ( [outputValue isKindOfClass:[MPWResource class]]) {
+        serialized=outputValue;
+    } else {
+        outputValue=[outputValue asData];
+        serialized=[[[MPWResource alloc] init] autorelease];
+        serialized.rawData=outputValue;
+        serialized.MIMEType=@"text/html";
     }
-    return serialized ? serialized : [outputValue asData];
+    return serialized;
 }
 
 
@@ -90,7 +97,7 @@ idAccessor( _serializer, _setSerializer)
     [self.scheme graphViz:aStream];
 }
 
--(NSData*)get:(NSString*)uri parameters:(NSDictionary*)params
+-(MPWResource*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
 //    NSLog(@"get: %@ parameters: %@",uri,params);
     id binding=[self bindingForString:uri];
@@ -103,7 +110,7 @@ idAccessor( _serializer, _setSerializer)
         val1=[binding value];
 //        NSLog(@"%@ did not have children: %@",binding,val1);
     }
-    NSData* serialized=[[self serializer] serializeValue:val1 at:binding];
+    MPWResource* serialized=[[self serializer] serializeValue:val1 at:binding];
 //    NSLog(@"value: %@ serialized: %@",val1,serialized);
     return serialized;
 }

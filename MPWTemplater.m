@@ -12,6 +12,7 @@
 #import <MPWFoundation/MPWFoundation.h>
 #import <ObjectiveHTTPD/WAHtmlRenderer.h>
 #import "MPWHtmlPage.h"
+#import "MPWPlainHtmlContent.h"
 
 @implementation MPWTemplater
 
@@ -27,10 +28,15 @@ idAccessor( template, setTemplate )
 -(id)at:(id)aReference
 {
     id rawValue=[self.source at:aReference];
-    MPWHtmlPage *page = [self template];
-    [page setContent:rawValue];
-    [page setPath:aReference];
-    return page;
+//    NSLog(@"rawValue class: %@",[rawValue class]);
+    if ( !rawValue || [rawValue isKindOfClass:[MPWPlainHtmlContent class]]) {
+        MPWHtmlPage *page = [self template];
+        [page setContent:rawValue];
+        [page setPath:aReference];
+        return page;
+    } else {
+        return rawValue;
+    }
     
 }
 
