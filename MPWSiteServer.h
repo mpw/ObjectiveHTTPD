@@ -38,5 +38,12 @@ objectAccessor_h(MPWHTMLRenderScheme, renderer , setRenderer)
 
 -(void)disableCaching;
 
+-(instancetype)initWithSite:(MPWSiteMap*) aSite siteDict:(NSDictionary*)dict interpreter:(MPWStCompiler*)interpreter;
+-(instancetype)initWithSite:(MPWSiteMap*) aSite;
 
+
+@end
+
+@interface MPWSiteServer(external)
+-(void)setupSite;
 @end

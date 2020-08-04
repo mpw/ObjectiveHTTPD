@@ -273,7 +273,7 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
 //    			fprintf(stderr, "will create pool\n");
     id pool=[NSAutoreleasePool new];
 //    NSLog(@"isMainThread: %d",[[NSThread currentThread] isMainThread]);
-//    			fprintf(stderr, "GET url: '%s'\n",url);
+    			fprintf(stderr, "GET url: '%s'\n",url);
     NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
 //    			fprintf(stderr, "did create urlstring\n");
     NSMutableDictionary *parameterDict=nil;;

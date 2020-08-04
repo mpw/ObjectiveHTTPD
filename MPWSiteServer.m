@@ -80,23 +80,26 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [[self interpreter] defineMethodsInExternalDict:self.methodDict];
 }
 
--(NSDictionary*)storedSiteDict
+-(NSDictionary*)siteDictForSiteMap:(MPWSiteMap*)sitemap
 {
 #if TARGET_OS_IPHONE
     NSDictionary* dict=[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"website" ofType:@"classdict"]];
 #else
-    NSString* methodString = [[[self sitemap] frameworkResource:@"website" category:@"classdict"] stringValue];
+    NSString* methodString = [[sitemap frameworkResource:@"website" category:@"classdict"] stringValue];
     NSDictionary *dict=[methodString propertyList];
 #endif
     return dict;
 }
+-(NSDictionary*)storedSiteDict
+{
+    return [self siteDictForSiteMap:[self sitemap]];
+}
 
--initWithSite:(MPWSiteMap*) aSite
+-(instancetype)initWithSite:(MPWSiteMap*) aSite siteDict:(NSDictionary*)dict interpreter:(MPWStCompiler*)interpreter
 {
 	self = [super init];
     [self setSitemap:aSite];
-    [self setInterpreter:[[[MPWStCompiler alloc] init] autorelease]];
-    NSDictionary *dict=[self storedSiteDict];
+    [self setInterpreter:interpreter];
     self.methodDict = [[[dict objectForKey:@"methodDict"] mutableCopy] autorelease];
 
     [self loadMethods];
@@ -125,8 +128,14 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [self setupInterpreter];
     NSLog(@"did setup interpreter");
     
-    [self setupSite];
 	return self;
+}
+
+-(instancetype)initWithSite:(MPWSiteMap*) aSite
+{
+    self = [self initWithSite: aSite siteDict:[self siteDictForSiteMap:aSite] interpreter:[MPWStCompiler compiler]];
+    [self setupSite];
+    return self;
 }
 
 -(NSDictionary*)siteDict
