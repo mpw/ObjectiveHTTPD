@@ -20,6 +20,7 @@
 -(void)element:(char*)name content:content selector:(SEL)selector;
 -(void)element:(char*)name attributes:attrs content:content;
 -(void)element:(char*)name attributes:attrs  content:content selector:(SEL)selector;
+-(void)anchor:textContent href:hrefUrl;
 
 @end
 

@@ -29,7 +29,7 @@
 -(BOOL)start:(NSError**)errorP;
 -(void)stop;
 -(void)setType:(NSString*)newType;
--(void)setBonourName:(NSString*)newType;
+-(void)setBonjourName:(NSString*)newType;
 
 
 idAccessor_h( delegate, setDelegate )

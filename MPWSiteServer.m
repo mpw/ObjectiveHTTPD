@@ -105,29 +105,19 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [self loadMethods];
     
     [[self interpreter] bindValue:aSite toVariableNamed:@"site"];
-    [[self interpreter] bindValue:[MPWByteStream Stdout] toVariableNamed:@"stdout"];
-    
-   
-    
-//    NSLog(@"aSite rootLevelNames: %@",[aSite rootLevelNames]);
-//    NSLog(@"aSite nameToTargetMap: %@",[aSite nameToTargetMap]);
-    
-//    NSLog(@"methods: %@",dict);
-    //    NSDictionary *dict=[NSPropertyListSerialization propertyListFromData:methodData mutabilityOption:0 format:nil errorDescription:nil];
-    
+
+
     [[self interpreter] bindValue:self toVariableNamed:@"siteServer"];
     [[self interpreter] bindValue:[self server] toVariableNamed:@"server"];
 
-    [self createMethodServer];
-    
-    NSString *uid=[dict objectForKey:@"uniqueID"];
-    if ( uid ) {
-        [[self methodServer] setUniqueID:uid];
-    }
-   NSLog(@"will setup interpreter");
+//    [self createMethodServer];
+//
+//    NSString *uid=[dict objectForKey:@"uniqueID"];
+//    if ( uid ) {
+//        [[self methodServer] setUniqueID:uid];
+//    }
     [self setupInterpreter];
-    NSLog(@"did setup interpreter");
-    
+
 	return self;
 }
 
