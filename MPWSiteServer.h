@@ -8,7 +8,7 @@
 
 #import <MPWFoundation/MPWFoundation.h>
 
-@class MPWHTTPServer,MPWSiteMap,MPWTemplater,MPWCopyOnWriteScheme,MethodServer;
+@class MPWHTTPServer,MPWSiteMap,MPWTemplater,MethodServer;
 
 @class MPWStCompiler,MPWHTMLRenderScheme;
 
@@ -18,7 +18,7 @@
     MPWSiteMap              *sitemap;
     MPWTemplater            *templater;
     MPWHTMLRenderScheme     *renderer;
-    MPWCopyOnWriteScheme    *cache;
+    MPWWriteThroughCache    *cache;
     MPWStCompiler           *interpreter;
     MethodServer            *methodServer;
 }
@@ -26,7 +26,7 @@
 objectAccessor_h(MPWHTTPServer, server, setServer)
 objectAccessor_h(MPWSiteMap, sitemap, setSitemap)
 objectAccessor_h(MPWTemplater, templater, setTemplater )
-objectAccessor_h(MPWCopyOnWriteScheme, cache , setCache )
+objectAccessor_h(MPWWriteThroughCache, cache , setCache )
 objectAccessor_h(MPWStCompiler, interpreter , setInterpreter )
 objectAccessor_h(MethodServer, methodServer , setMethodServer)
 objectAccessor_h(MPWHTMLRenderScheme, renderer , setRenderer)

@@ -8,7 +8,6 @@
 
 #import "MPWSiteServer.h"
 //#import <MethodServer/MethodServer.h>
-#import <ObjectiveSmalltalk/MPWCopyOnWriteScheme.h>
 #import <ObjectiveSmalltalk/MPWStCompiler.h>
 #import <ObjectiveSmalltalk/MPWMethodStore.h>
 #import "MPWHTMLRenderScheme.h"
@@ -19,14 +18,14 @@
 objectAccessor(MPWHTTPServer, server, setServer)
 objectAccessor(MPWSiteMap, sitemap, setSitemap)
 objectAccessor(MPWTemplater, templater, setTemplater )
-objectAccessor(MPWCopyOnWriteScheme, cache , setCache )
+objectAccessor(MPWWriteThroughCache, cache , setCache )
 objectAccessor(MPWStCompiler, interpreter , setInterpreter )
 objectAccessor(MethodServer, methodServer , setMethodServer)
 objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
 
 -(void)initializeAndClearCache
 {
-    [[self cache] setReadWrite:[NSClassFromString(@"MPWSiteMap") scheme]];
+//    [[self cache] setReadWrite:[NSClassFromString(@"MPWSiteMap") scheme]];
 }
 
 -(void)enableCaching
@@ -49,10 +48,9 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     [self setRenderer:[MPWHTMLRenderScheme scheme]];
     [[self renderer] setSourceScheme:aTemplater];
     [[self sitemap] setRenderer:[self renderer]];
-    [self setCache:[MPWCopyOnWriteScheme scheme]];
-    [cache setSource:[self renderer]];
+    [self setCache:[MPWWriteThroughCache storeWithSource:[self renderer]]];
     [self initializeAndClearCache];
-    [cache setCacheReads:YES];
+//    [cache setCacheReads:YES];
     [self enableCaching];
 //    [self disableCaching];
 //    NSLog(@"site-def: %@",[cache graphViz]);
