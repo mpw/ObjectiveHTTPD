@@ -8,7 +8,7 @@
 
 #import "MPWSiteServer.h"
 //#import <MethodServer/MethodServer.h>
-#import <ObjectiveSmalltalk/MPWStCompiler.h>
+#import <ObjectiveSmalltalk/STCompiler.h>
 #import <ObjectiveSmalltalk/MPWMethodStore.h>
 #import "MPWHTMLRenderScheme.h"
 #import "MPWHTTPServer.h"
@@ -19,7 +19,7 @@ objectAccessor(MPWHTTPServer, server, setServer)
 objectAccessor(MPWSiteMap, sitemap, setSitemap)
 objectAccessor(MPWTemplater, templater, setTemplater )
 objectAccessor(MPWWriteThroughCache, cache , setCache )
-objectAccessor(MPWStCompiler, interpreter , setInterpreter )
+objectAccessor(STCompiler, interpreter , setInterpreter )
 objectAccessor(MethodServer, methodServer , setMethodServer)
 objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
 
@@ -93,7 +93,7 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
     return [self siteDictForSiteMap:[self sitemap]];
 }
 
--(instancetype)initWithSite:(MPWSiteMap*) aSite siteDict:(NSDictionary*)dict interpreter:(MPWStCompiler*)interpreter
+-(instancetype)initWithSite:(MPWSiteMap*) aSite siteDict:(NSDictionary*)dict interpreter:(STCompiler*)interpreter
 {
 	self = [super init];
     [self setSitemap:aSite];
@@ -121,7 +121,7 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
 
 -(instancetype)initWithSite:(MPWSiteMap*) aSite
 {
-    self = [self initWithSite: aSite siteDict:[self siteDictForSiteMap:aSite] interpreter:[MPWStCompiler compiler]];
+    self = [self initWithSite: aSite siteDict:[self siteDictForSiteMap:aSite] interpreter:[STCompiler compiler]];
     [self setupSite];
     return self;
 }

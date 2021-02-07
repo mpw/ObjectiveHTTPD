@@ -10,7 +10,7 @@
 
 @class MPWHTTPServer,MPWSiteMap,MPWTemplater,MethodServer;
 
-@class MPWStCompiler,MPWHTMLRenderScheme;
+@class STCompiler,MPWHTMLRenderScheme;
 
 @interface MPWSiteServer : NSObject
 {
@@ -19,7 +19,7 @@
     MPWTemplater            *templater;
     MPWHTMLRenderScheme     *renderer;
     MPWWriteThroughCache    *cache;
-    MPWStCompiler           *interpreter;
+    STCompiler           *interpreter;
     MethodServer            *methodServer;
 }
 
@@ -27,7 +27,7 @@ objectAccessor_h(MPWHTTPServer, server, setServer)
 objectAccessor_h(MPWSiteMap, sitemap, setSitemap)
 objectAccessor_h(MPWTemplater, templater, setTemplater )
 objectAccessor_h(MPWWriteThroughCache, cache , setCache )
-objectAccessor_h(MPWStCompiler, interpreter , setInterpreter )
+objectAccessor_h(STCompiler, interpreter , setInterpreter )
 objectAccessor_h(MethodServer, methodServer , setMethodServer)
 objectAccessor_h(MPWHTMLRenderScheme, renderer , setRenderer)
 
@@ -38,7 +38,7 @@ objectAccessor_h(MPWHTMLRenderScheme, renderer , setRenderer)
 
 -(void)disableCaching;
 
--(instancetype)initWithSite:(MPWSiteMap*) aSite siteDict:(NSDictionary*)dict interpreter:(MPWStCompiler*)interpreter;
+-(instancetype)initWithSite:(MPWSiteMap*) aSite siteDict:(NSDictionary*)dict interpreter:(STCompiler*)interpreter;
 -(instancetype)initWithSite:(MPWSiteMap*) aSite;
 
 
