@@ -9,7 +9,7 @@
 #import "MPWSchemeHttpServer.h"
 #import <ObjectiveHTTPD/MPWHTTPServer.h>
 #import <ObjectiveHTTPD/MPWPOSTProcessor.h>
-#import <ObjectiveSmalltalk/MPWMessagePortDescriptor.h>
+#import <ObjectiveSmalltalk/STMessagePortDescriptor.h>
 #import <ObjectiveSmalltalk/MPWResource.h>
 #import <ObjectiveSmalltalk/MPWScheme.h>
 
@@ -324,7 +324,7 @@ idAccessor( _serializer, _setSerializer)
 
 -defaultOutputPort
 {
-    return [[[MPWMessagePortDescriptor alloc] initWithTarget:self key:@"scheme" protocol:@protocol(MPWStorage) sends:YES] autorelease];
+    return [[[STMessagePortDescriptor alloc] initWithTarget:self key:@"scheme" protocol:@protocol(MPWStorage) sends:YES] autorelease];
 }
 
 
