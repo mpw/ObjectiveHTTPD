@@ -18,7 +18,7 @@
 objectAccessor(MPWHTTPServer, server, setServer )
 idAccessor( _serializer, _setSerializer)
 
--init {
+-(instancetype)init {
     self=[super init];
     [self setServer:[[[MPWHTTPServer alloc] init] autorelease]];
     [[self server] setDelegate:self];
@@ -26,12 +26,20 @@ idAccessor( _serializer, _setSerializer)
 }
 
 
-+serverOnPort:(int)aPort
++(instancetype)serverOnPort:(int)aPort
 {
     MPWSchemeHttpServer *server=[[[self alloc] init] autorelease];
     [[server server] setPort:aPort];
     return server;
 }
+
++(instancetype)serveOnPort:(int)aPort
+{
+    MPWSchemeHttpServer *server=[self serverOnPort:aPort];
+    [server start:nil];
+    return server;
+}
+
 
 -serializer
 {
@@ -80,7 +88,13 @@ idAccessor( _serializer, _setSerializer)
         outputValue=[outputValue asData];
         serialized=[[[MPWResource alloc] init] autorelease];
         serialized.rawData=outputValue;
-        serialized.MIMEType=@"text/html";
+        NSString *path=[aBinding path];
+        NSString *extension = [path pathExtension];
+        if ( [extension isEqual:@"png"]) {
+            serialized.MIMEType=@"image/png";
+        } else {
+            serialized.MIMEType=@"text/html";
+        }
     }
     return serialized;
 }
@@ -362,5 +376,48 @@ idAccessor( _serializer, _setSerializer)
              @"testBasicGETAccessOfDirectories",
              ];
 }
+
+@end
+
+@implementation MPWAbstractStore(httpServing)
+
+-(MPWSchemeHttpServer*)serveOnPort:(int)aPort
+{
+    MPWSchemeHttpServer *server=[MPWSchemeHttpServer serverOnPort:aPort];
+    [server setScheme:self];
+    [server start:nil];
+    return server;
+}
+
++(MPWSchemeHttpServer*)serveOnPort:(int)aPort
+{
+    return [[self store] serveOnPort:aPort];
+}
+
+
+@end
+
+@interface MPWStripLeadingSlashStore : MPWMappingStore{ } @end
+@implementation MPWStripLeadingSlashStore
+
+-(id<MPWReferencing>)mapReference:(id<MPWReferencing>)aReference
+{
+    NSString *path=[aReference path];
+    if ( [path hasPrefix:@"/"]) {
+        path=[path substringFromIndex:1];
+    }
+    return path;
+}
+
+@end
+
+@implementation MPWDictStore(httpServing)
+
+-(MPWSchemeHttpServer*)serveOnPort:(int)aPort
+{
+    MPWStripLeadingSlashStore *s=[MPWStripLeadingSlashStore storeWithSource:self];
+    return [s serveOnPort:aPort];
+}
+
 
 @end
