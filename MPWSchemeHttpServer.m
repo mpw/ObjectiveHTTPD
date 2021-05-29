@@ -10,7 +10,7 @@
 #import <ObjectiveHTTPD/MPWHTTPServer.h>
 #import <ObjectiveHTTPD/MPWPOSTProcessor.h>
 #import <ObjectiveSmalltalk/STMessagePortDescriptor.h>
-#import <ObjectiveSmalltalk/MPWResource.h>
+#import <MPWFoundation/MPWResource.h>
 #import <ObjectiveSmalltalk/MPWScheme.h>
 
 @implementation MPWSchemeHttpServer
