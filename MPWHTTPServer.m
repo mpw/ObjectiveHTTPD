@@ -293,7 +293,13 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
         @autoreleasepool {
             responseData=[[[self delegate]  performSelector:httpVerbSelector withObject:urlstring withObject:parameterDict] retain];
             //       responseData=[[self delegate] get:urlstring parameters:parameterDict];
-            responseCode=MHD_HTTP_OK;
+//            NSLog(@"responseData: '%@' %p / %@",responseData,responseData,[responseData class]);
+            if ( responseData) {
+                responseCode=MHD_HTTP_OK;
+            } else {
+                responseCode = 404;
+                responseData = [[@"404 Not Found" asData] retain];
+            }
         }
         [responseData autorelease];
    }
@@ -379,7 +385,7 @@ objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
         responseCode=MHD_HTTP_OK;
     }
     @catch (NSException *exception) {
-        NSLog(@"exception: %@",exception);
+//        NSLog(@"exception: %@",exception);
         responseData=[self errorPage:exception];
         responseCode=404;
     }

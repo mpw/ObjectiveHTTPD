@@ -7,8 +7,7 @@
 //
 
 #import "MPWTemplater.h"
-#import <ObjectiveSmalltalk/MPWScheme.h>
-#import <ObjectiveSmalltalk/MPWBinding.h>
+#import <ObjectiveSmalltalk/ObjectiveSmalltalk.h>
 #import <MPWFoundation/MPWFoundation.h>
 #import <ObjectiveHTTPD/WAHtmlRenderer.h>
 #import "MPWHtmlPage.h"

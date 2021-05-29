@@ -84,6 +84,8 @@ idAccessor( _serializer, _setSerializer)
 //        NSLog(@"serialized: %@",[serialized class]);
     } else if ( [outputValue isKindOfClass:[MPWResource class]]) {
         serialized=outputValue;
+    } else if ( outputValue == nil) {
+        serialized = nil;
     } else {
         outputValue=[outputValue asData];
         serialized=[[[MPWResource alloc] init] autorelease];
@@ -122,7 +124,7 @@ idAccessor( _serializer, _setSerializer)
 //        NSLog(@"%@ had children: %@",binding,val1);
     } else {
         val1=[binding value];
-//        NSLog(@"%@ did not have children: %@",binding,val1);
+//        NSLog(@"%@ did not have children: %@ %p",binding,val1,val1);
     }
     MPWResource* serialized=[[self serializer] serializeValue:val1 at:binding];
 //    NSLog(@"value: %@ serialized: %@",val1,serialized);
@@ -319,6 +321,16 @@ idAccessor( _serializer, _setSerializer)
 }
 
 
+-(void)setPort:(int)newPort
+{
+    [[self server] setPort:newPort];
+}
+
+-(int)port
+{
+    return [[self server] port];
+}
+
 -(void)setupWebServer
 {
     [[self server] setPort:51000];
@@ -329,6 +341,11 @@ idAccessor( _serializer, _setSerializer)
 -(void)start:(NSError**)error
 {
     [[self server] start:error];
+}
+
+-(void)start
+{
+    [self start:nil];
 }
 
 -(void)stop
