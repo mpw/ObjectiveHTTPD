@@ -124,7 +124,7 @@ idAccessor( _serializer, _setSerializer)
 //        NSLog(@"%@ had children: %@",binding,val1);
     } else {
         val1=[binding value];
-//        NSLog(@"%@ did not have children: %@ %p",binding,val1,val1);
+//        NSLog(@"%@ did not have children: %@ %p %@",binding,val1,val1,[val1 class]);
     }
     MPWResource* serialized=[[self serializer] serializeValue:val1 at:binding];
 //    NSLog(@"value: %@ serialized: %@",val1,serialized);
@@ -285,9 +285,9 @@ idAccessor( _serializer, _setSerializer)
 -(NSData*)put:(NSString *)uri data:putData parameters:(NSDictionary*)params
 {
 //    NSLog(@"put: %@ parameter: %@",uri,[putData stringValue]);
-    id binding=[self bindingForString:uri];
+    MPWBinding* binding=[self bindingForString:uri];
     
-    [binding bindValue:[self deserializeData:putData at:binding]];
+    [binding setValue:[self deserializeData:putData at:binding]];
     return [uri asData];
 }
 
