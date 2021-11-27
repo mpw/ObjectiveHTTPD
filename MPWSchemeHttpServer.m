@@ -116,7 +116,7 @@ idAccessor( _serializer, _setSerializer)
 -(MPWResource*)get:(NSString*)uri parameters:(NSDictionary*)params
 {
 //    NSLog(@"get: %@ parameters: %@",uri,params);
-    id binding=[self bindingForString:uri];
+    MPWBinding* binding=[self bindingForString:uri];
 //    NSLog(@"binding: %@",binding);
     id val1=nil;
     if ( [binding hasChildren]) {      // FIXME
