@@ -11,8 +11,8 @@
 
 @implementation MPWPlainHtmlContent
 
-objectAccessor( NSData, _contentData, setContentData )
-objectAccessor( NSString, resourceName, setResourceName )
+objectAccessor(NSData*, _contentData, setContentData )
+objectAccessor(NSString*, resourceName, setResourceName )
 scalarAccessor(id, source, setSource )
 
 -contentType

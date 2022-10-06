@@ -15,13 +15,13 @@
 
 @implementation MPWSiteServer
 
-objectAccessor(MPWHTTPServer, server, setServer)
-objectAccessor(MPWSiteMap, sitemap, setSitemap)
-objectAccessor(MPWTemplater, templater, setTemplater )
-objectAccessor(MPWWriteThroughCache, cache , setCache )
-objectAccessor(STCompiler, interpreter , setInterpreter )
-objectAccessor(MethodServer, methodServer , setMethodServer)
-objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
+objectAccessor(MPWHTTPServer*, server, setServer)
+objectAccessor(MPWSiteMap*, sitemap, setSitemap)
+objectAccessor(MPWTemplater*, templater, setTemplater )
+objectAccessor(MPWWriteThroughCache*, cache , setCache )
+objectAccessor(STCompiler*, interpreter , setInterpreter )
+objectAccessor(MethodServer*, methodServer , setMethodServer)
+objectAccessor(MPWHTMLRenderScheme*, renderer , setRenderer)
 
 -(void)initializeAndClearCache
 {
@@ -114,7 +114,11 @@ objectAccessor(MPWHTMLRenderScheme, renderer , setRenderer)
 //    if ( uid ) {
 //        [[self methodServer] setUniqueID:uid];
 //    }
+    NSLog(@"will set up interpreter: %@ schemes: %@",[self interpreter],[[self interpreter] schemes]);
+    [[[self interpreter] schemes]  setSchemeHandler:[[self sitemap] sitemap] forSchemeName:@"dynamic"];
+
     [self setupInterpreter];
+    NSLog(@"did set up interpreter: %@ schemes: %@",[self interpreter],[[self interpreter] schemes]);
 
 	return self;
 }

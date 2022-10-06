@@ -19,10 +19,10 @@
 scalarAccessor(   struct MHD_Daemon *, _httpd, setHttpd )
 intAccessor( port, setPort )
 idAccessor( _delegate, setDelegate )
-objectAccessor( NSString ,email, setEmail )
-objectAccessor( NSString ,bonjourName, setBonjourName )
-objectAccessor( NSArray, types, setTypes )
-objectAccessor( NSArray, netServices, setNetServices )
+objectAccessor(NSString*,email, setEmail )
+objectAccessor(NSString*,bonjourName, setBonjourName )
+objectAccessor(NSArray*, types, setTypes )
+objectAccessor(NSArray*, netServices, setNetServices )
 intAccessor( threadPoolSize, setThreadPoolSize )
 -(void)setType:(NSString *)newType
 {
@@ -143,7 +143,7 @@ int  AcceptPolicyCallback(void *cls,
 	return [self get:urlString parameters:nil];
 }
 
-objectAccessor( NSData,_defaultResponse, setDefaultResponse )
+objectAccessor(NSData*,_defaultResponse, setDefaultResponse )
 
 -(NSData*)defaultResponse
 {
@@ -250,7 +250,7 @@ static int iterate_post (void *cls,
     return [@"Not Found 404\n" asData]; 
 }
 
-objectAccessor(NSString, _defaultMimeType, setDefaultMimeType)
+objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
 
 -(NSString *)defaultMimetype
 {

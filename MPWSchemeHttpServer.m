@@ -15,7 +15,7 @@
 
 @implementation MPWSchemeHttpServer
 
-objectAccessor(MPWHTTPServer, server, setServer )
+objectAccessor(MPWHTTPServer*, server, setServer )
 idAccessor( _serializer, _setSerializer)
 
 -(instancetype)init {

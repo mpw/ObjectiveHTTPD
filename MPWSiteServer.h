@@ -23,13 +23,13 @@
     MethodServer            *methodServer;
 }
 
-objectAccessor_h(MPWHTTPServer, server, setServer)
-objectAccessor_h(MPWSiteMap, sitemap, setSitemap)
-objectAccessor_h(MPWTemplater, templater, setTemplater )
-objectAccessor_h(MPWWriteThroughCache, cache , setCache )
-objectAccessor_h(STCompiler, interpreter , setInterpreter )
-objectAccessor_h(MethodServer, methodServer , setMethodServer)
-objectAccessor_h(MPWHTMLRenderScheme, renderer , setRenderer)
+objectAccessor_h(MPWHTTPServer*, server, setServer)
+objectAccessor_h(MPWSiteMap*, sitemap, setSitemap)
+objectAccessor_h(MPWTemplater*, templater, setTemplater )
+objectAccessor_h(MPWWriteThroughCache*, cache , setCache )
+objectAccessor_h(STCompiler*, interpreter , setInterpreter )
+objectAccessor_h(MethodServer*, methodServer , setMethodServer)
+objectAccessor_h(MPWHTMLRenderScheme*, renderer , setRenderer)
 
 @property (nonatomic, strong) NSMutableDictionary *methodDict;
 
