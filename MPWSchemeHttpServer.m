@@ -25,10 +25,15 @@ idAccessor( _serializer, _setSerializer)
     return self;
 }
 
++(instancetype)server
+{
+    return [[[self alloc] init] autorelease];
+}
+
 
 +(instancetype)serverOnPort:(int)aPort
 {
-    MPWSchemeHttpServer *server=[[[self alloc] init] autorelease];
+    MPWSchemeHttpServer *server=[self server];
     [[server server] setPort:aPort];
     return server;
 }
@@ -359,6 +364,11 @@ idAccessor( _serializer, _setSerializer)
 }
 
 
+-(int)runWithStdin:(id <StreamSource>)source Stdout:(MPWByteStream*)target
+{
+    return [(id)[self server] runWithStdin:source Stdout:target];
+}
+
 
 @end
 
@@ -411,6 +421,15 @@ idAccessor( _serializer, _setSerializer)
     return [[self store] serveOnPort:aPort];
 }
 
+-(int)runWithStdin:(id <StreamSource>)source Stdout:(MPWByteStream*)target
+{
+    NSLog(@"%@ runWithStdin..",[self class]);
+    MPWSchemeHttpServer *server=[MPWSchemeHttpServer server];
+    [server setScheme:self];
+    return [server runWithStdin:source Stdout:target];
+}
+
+
 
 @end
 
@@ -426,6 +445,8 @@ idAccessor( _serializer, _setSerializer)
     return path;
 }
 
+
+
 @end
 
 @implementation MPWDictStore(httpServing)
@@ -435,6 +456,8 @@ idAccessor( _serializer, _setSerializer)
     MPWStripLeadingSlashStore *s=[MPWStripLeadingSlashStore storeWithSource:self];
     return [s serveOnPort:aPort];
 }
+
+
 
 
 @end

@@ -103,12 +103,15 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 
 -(int)defaultPort
 {
-	return 51001;
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults registerDefaults:@{ @"port": @(51001)}];
+	return (int)[defaults integerForKey:@"port"];
 }
 
 -init
 {
 	self=[super init];
+    
 	[self setPort:[self defaultPort]];
     [self setBonjourName:[self defaultBonjourName]];
     [self setThreadPoolSize:20];
@@ -582,6 +585,12 @@ int AccessHandlerCallback(void *cls,
     }
 //    NSLog(@"=== did start %p on port %d",[self httpd],[self port]);
 	return [self httpd] != NULL;
+}
+
+-(int)runWithStdin:(id <StreamSource>)source Stdout:(MPWByteStream*)target
+{
+    [self startHttpd];
+    [[NSRunLoop currentRunLoop] run];
 }
 
 
