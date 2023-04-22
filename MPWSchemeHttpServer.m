@@ -421,6 +421,11 @@ idAccessor( _serializer, _setSerializer)
     return [[self store] serveOnPort:aPort];
 }
 
+-(MPWSchemeHttpServer*)serveOn:(NSNumber*)aPort
+{
+    return [self serveOnPort:aPort.intValue];
+}
+
 -(int)runWithStdin:(id <StreamSource>)source Stdout:(MPWByteStream*)target
 {
     NSLog(@"%@ runWithStdin..",[self class]);
@@ -456,6 +461,7 @@ idAccessor( _serializer, _setSerializer)
     MPWStripLeadingSlashStore *s=[MPWStripLeadingSlashStore storeWithSource:self];
     return [s serveOnPort:aPort];
 }
+
 
 
 

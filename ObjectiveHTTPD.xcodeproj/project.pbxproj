@@ -717,6 +717,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.metaobject.objetivehttpd;
 				PRODUCT_NAME = ObjectiveHTTPD;
@@ -751,6 +752,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.metaobject.objetivehttpd;
 				PRODUCT_NAME = ObjectiveHTTPD;
@@ -1232,6 +1234,7 @@
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "@rpath";
 				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.metaobject.objetivehttpd;
 				PRODUCT_NAME = ObjectiveHTTPD;

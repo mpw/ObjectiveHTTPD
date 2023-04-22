@@ -90,9 +90,9 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 }
 
 
+
 -(BOOL)start:(NSError**)error
 {
-//    NSLog(@"start:");
 	[self startHttpd];
 	[self startBonjour];
     
@@ -105,7 +105,7 @@ intAccessor( threadPoolSize, setThreadPoolSize )
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults registerDefaults:@{ @"port": @(51001)}];
-	return (int)[defaults integerForKey:@"port"];
+    return (int)[defaults integerForKey:@"port"] ?: 51001;      // if we can't find the preference, ok since 0 is not an ok port
 }
 
 -init

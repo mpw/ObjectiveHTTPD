@@ -17,8 +17,6 @@ LIBRARY_NAME = libObjectiveHTTPD
 CC = clang
 
 
-OBJCFLAGS += -Wno-import -fobjc-runtime=gnustep-2
-
 
 ObjectiveHTTPD_HEADER_FILES = \
 
