@@ -34,6 +34,6 @@
 
 idAccessor_h( delegate, setDelegate )
 intAccessor_h( threadPoolSize, setThreadPoolSize )
-
+@property (nonatomic,assign) int socket;
 
 @end

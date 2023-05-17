@@ -557,6 +557,18 @@ int AccessHandlerCallback(void *cls,
 	return NO;
 }
 
+-(void)setUnixDomainSocketPath:(NSString*)path
+{
+    const char *cpath = [path UTF8String];
+    struct sockaddr_un address;
+    address.sun_family = AF_UNIX;
+    strcpy(address.sun_path, cpath);
+    int fd = socket(AF_UNIX, SOCK_STREAM, 0);
+    if ( bind(fd, (struct sockaddr*)(&address), sizeof(address)) == 0) {
+        listen(fd, 100);
+        self.socket = fd;
+    }
+}
 
 
 -(BOOL)startHttpd
@@ -564,9 +576,8 @@ int AccessHandlerCallback(void *cls,
 	int attempts=0;
     while ( ![self httpd] && attempts < 50 ) {
         [self setHttpd:MHD_start_daemon (
-                                         MHD_USE_SELECT_INTERNALLY ,
-//                                         MHD_USE_THREAD_PER_CONNECTION,
-                                     [self port],
+                                         MHD_USE_INTERNAL_POLLING_THREAD,
+                                         [self port],
                                      AcceptPolicyCallback ,
                                      self,
                                      AccessHandlerCallback ,
@@ -576,8 +587,11 @@ int AccessHandlerCallback(void *cls,
 									 self,
 									 MHD_OPTION_THREAD_POOL_SIZE,
 									 [self threadPoolSize],
-									 MHD_OPTION_END
+                                         (self.socket ? MHD_OPTION_LISTEN_SOCKET :  MHD_OPTION_END ),
+                                         self.socket ,
+                                         MHD_OPTION_END
 									 )];
+        
         if (![self httpd]) {
             [self setPort:[self port]+1];
             attempts++;
