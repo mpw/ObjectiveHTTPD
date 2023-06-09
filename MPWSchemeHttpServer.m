@@ -99,6 +99,8 @@ idAccessor( _serializer, _setSerializer)
         NSString *extension = [path pathExtension];
         if ( [extension isEqual:@"png"]) {
             serialized.MIMEType=@"image/png";
+        } else if ( [extension isEqual:@"css"]) {
+            serialized.MIMEType=@"text/css";
         } else {
             serialized.MIMEType=@"text/html";
         }

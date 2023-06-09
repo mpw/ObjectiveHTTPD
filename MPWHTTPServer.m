@@ -11,7 +11,11 @@
 #import "MPWPOSTProcessor.h"
 
 #include <microhttpd.h>
-
+#include <sys/types.h>
+#include <sys/socket.h>
+#ifdef GS_API_LATEST
+#include <linux/un.h>
+#endif
 
 @implementation MPWHTTPServer
 
@@ -567,6 +571,8 @@ int AccessHandlerCallback(void *cls,
     if ( bind(fd, (struct sockaddr*)(&address), sizeof(address)) == 0) {
         listen(fd, 100);
         self.socket = fd;
+    } else {
+        perror("bind failed");
     }
 }
 
@@ -575,6 +581,11 @@ int AccessHandlerCallback(void *cls,
 {
 	int attempts=0;
     while ( ![self httpd] && attempts < 50 ) {
+        if ( self.socket ) {
+            NSLog(@"will listen on Unix socket, fd: %d",self.socket);
+        } else {
+            NSLog(@"will listen on port: %d",self.port);
+        }
         [self setHttpd:MHD_start_daemon (
                                          MHD_USE_INTERNAL_POLLING_THREAD,
                                          [self port],
