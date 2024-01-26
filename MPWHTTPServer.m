@@ -272,7 +272,7 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
 
 -(int)handleGetLikeSelector:(SEL)httpVerbSelector withURL:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
 {
-//    fprintf(stderr, "in GET\n");
+//    fprintf(stderr, "in GET URL '%s'\n",url);
 //    fprintf(stderr, "will get NSPlatformCurrentThread\n");
     //			NSPlatformSetCurrentThread([[NSThread alloc] init]);
     //			NSPlatformCurrentThread();
@@ -312,6 +312,7 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
    }
     @catch (NSException *exception) {
         NSLog(@"exception: %@",exception);
+        NSLog(@"stack: %@",[exception callStackSymbols]);
         responseData=[self errorPage:exception];
         responseCode=500;
     }
@@ -581,11 +582,11 @@ int AccessHandlerCallback(void *cls,
 {
 	int attempts=0;
     while ( ![self httpd] && attempts < 50 ) {
-        if ( self.socket ) {
-            NSLog(@"will listen on Unix socket, fd: %d",self.socket);
-        } else {
-            NSLog(@"will listen on port: %d",self.port);
-        }
+//        if ( self.socket ) {
+//            NSLog(@"will listen on Unix socket, fd: %d",self.socket);
+//        } else {
+//            NSLog(@"will listen on port: %d",self.port);
+//        }
         [self setHttpd:MHD_start_daemon (
                                          MHD_USE_INTERNAL_POLLING_THREAD,
                                          [self port],

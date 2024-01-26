@@ -418,6 +418,13 @@ idAccessor( _serializer, _setSerializer)
     return server;
 }
 
+-(void)waitOnPort:(int)aPort
+{
+    [self serveOnPort:aPort];
+    [[NSRunLoop currentRunLoop] run];
+}
+
+
 +(MPWSchemeHttpServer*)serveOnPort:(int)aPort
 {
     return [[self store] serveOnPort:aPort];
@@ -463,9 +470,5 @@ idAccessor( _serializer, _setSerializer)
     MPWStripLeadingSlashStore *s=[MPWStripLeadingSlashStore storeWithSource:self];
     return [s serveOnPort:aPort];
 }
-
-
-
-
 
 @end
