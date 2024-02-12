@@ -545,7 +545,7 @@ int AccessHandlerCallback(void *cls,
                     int ret = MHD_queue_response(connection,
                                                  MHD_HTTP_OK,
                                                  response);
-                    MHD_add_response_header (response, "Content-Type", "application/text");
+                    MHD_add_response_header (response, "Content-Type", "text/html");
 
                     //                fprintf(stderr, "queued response\n");
                     MHD_destroy_response(response);

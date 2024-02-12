@@ -68,9 +68,11 @@ objectAccessor(MPWHTMLRenderScheme*, renderer , setRenderer)
 
 -(void)setupSite
 {
-    [[self sitemap] setupSite];
-    [self setTemplater:[[self sitemap] createTemplater]];
-    [self createServer:[self templater]];
+    if ( [[self sitemap] respondsToSelector:@selector(setupSite)]) {
+        [[self sitemap] setupSite];
+        [self setTemplater:[[self sitemap] createTemplater]];
+        [self createServer:[self templater]];
+    }
 }
 
 -(void)loadMethods
@@ -114,7 +116,9 @@ objectAccessor(MPWHTMLRenderScheme*, renderer , setRenderer)
 //    if ( uid ) {
 //        [[self methodServer] setUniqueID:uid];
 //    }
-    [[[self interpreter] schemes]  setSchemeHandler:[[self sitemap] sitemap] forSchemeName:@"dynamic"];
+    if ( [[self sitemap] respondsToSelector:@selector(sitemap)]) {
+        [[[self interpreter] schemes]  setSchemeHandler:[[self sitemap] sitemap] forSchemeName:@"dynamic"];
+    }
 
 //    [self setupInterpreter];
 
