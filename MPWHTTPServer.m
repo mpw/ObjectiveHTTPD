@@ -287,17 +287,38 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
         //                        NSLog(@"utf8location: %p",utf8location);
         //                        NSLog(@"utf8location: '%s'",utf8location);
         status = 302;
-        response= MHD_create_response_from_data(0, "", NO, NO);
+        response= MHD_create_response_from_buffer(0, "", MHD_RESPMEM_PERSISTENT);
         //                        NSLog(@"did create response: %p",response);
         MHD_add_response_header (response, "Location", utf8location);
         //                        NSLog(@"did add redirect: %p",response);
     } else {
         NSData *responseData = (NSData*)responseObject;
-        response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
+        responseData=[responseData asData];
+        response=  MHD_create_response_from_buffer ([responseData length],
+                                                    ( void*)[responseData bytes],
+                                                    MHD_RESPMEM_PERSISTENT);
         
     }
     //            fprintf(stderr, "did get responesData\n");
-    MHD_add_response_header (response, "Content-Type", "text/html");
+    NSString *mimetype=[self defaultMimetype];
+    //    NSLog(@"%@ has a mime type: %d",[responseData class],[responseData respondsToSelector:@selector(MIMEType)]);
+    
+    if ( [responseObject respondsToSelector:@selector(MIMEType)]) {
+        NSString *responseMime=[responseObject MIMEType];
+        //        NSLog(@"%@ has a mime type: %@",[responseData class],responseMime);
+        if ( responseMime ) {
+            mimetype=responseMime;
+        }
+    } else {
+        //        NSLog(@"response %@ does not have a mime type",[responseData class]);
+    }
+    char mimebuf[200];
+    bzero(mimebuf, 200);
+    [mimetype getBytes:mimebuf maxLength:190 usedLength:NULL encoding:NSASCIIStringEncoding options:0 range:NSMakeRange(0, [mimetype length]) remainingRange:NULL];
+    MHD_add_response_header (response, "Connection", "Keep-Alive");
+    //    MHD_add_response_header (response, "Keep-Alive", "timeout=3, max=100");
+    //    MHD_add_response_header (response, "Expires", "Tue, 1 Jan 2013 08:12:31 GMT");
+    MHD_add_response_header (response, "Content-Type", mimebuf);
     int ret = MHD_queue_response(connection,
                                  status,
                                  response);
@@ -339,6 +360,7 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
             responseData=[[[self delegate]  performSelector:httpVerbSelector withObject:urlstring withObject:parameterDict] retain];
             //       responseData=[[self delegate] get:urlstring parameters:parameterDict];
 //            NSLog(@"responseData: '%@' %p / %@",responseData,responseData,[responseData class]);
+            
             if ( responseData) {
                 responseCode=MHD_HTTP_OK;
             } else {
@@ -536,7 +558,6 @@ int AccessHandlerCallback(void *cls,
                 } else if  (! strcmp("PATCH", method)) {
                     responseData = [[self delegate] patch:urlstring data:putData parameters:parameterDict];
                 } else{
-                    
                     responseData = [[self delegate] propfind:urlstring data:putData parameters:headerDict];
                 }
                 
@@ -569,7 +590,6 @@ int AccessHandlerCallback(void *cls,
 
                     return MHD_YES;
                 } else {
-                    int status = MHD_HTTP_OK;
                     NSString *urlstring=[NSString stringWithCString:url encoding:NSISOLatin1StringEncoding];
                     //            fprintf(stderr, "did create urlstring\n");
                     //                MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
