@@ -270,14 +270,18 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
     return @"text/plain";
 }
 
--(int)queueResponseForConnection:(struct MHD_Connection*)connection withResponse:(id)responseObject
+-(int)queueResponseForConnection:(struct MHD_Connection*)connection withResponse:(id)responseObject defaultCode:(int)responseCode
 {
-    int status = MHD_HTTP_OK;
+    int status = responseCode;
     struct MHD_Response* response=NULL;
     //                    NSLog(@"will check responseData: %p",responseData);
     //                    NSLog(@"will check responseData: %@",[responseData className]);
     //                    NSLog(@"will check responseData: %@",responseData);
     
+    if (!responseObject || [responseObject isNil]) {
+        status = 404;
+        responseObject = [[@"404 Not Found" asData] retain];
+    }
     if ( [responseObject isKindOfClass:[MPWBinding class]] || [responseObject isKindOfClass:[MPWReference class]]) {
         //                        NSLog(@"got a redirect");
         //                        NSLog(@"got a redirect: %@",responseData);
@@ -293,7 +297,7 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
         //                        NSLog(@"did add redirect: %p",response);
     } else {
         NSData *responseData = (NSData*)responseObject;
-        responseData=[responseData asData];
+        responseData=[[responseData asData] retain];
         response=  MHD_create_response_from_buffer ([responseData length],
                                                     ( void*)[responseData bytes],
                                                     MHD_RESPMEM_PERSISTENT);
@@ -329,6 +333,11 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
 
 }
 
+-(int)queueResponseForConnection:(struct MHD_Connection*)connection withResponse:(id)responseObject
+{
+    [self queueResponseForConnection:connection withResponse:responseObject defaultCode:MHD_HTTP_OK];
+}
+
 -(int)handleGetLikeSelector:(SEL)httpVerbSelector withURL:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
 {
 //    fprintf(stderr, "in GET URL '%s'\n",url);
@@ -354,19 +363,13 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
 //    NSLog(@"host: %@",headerDict[@"host"]);
 #endif
     NSData *responseData = nil;
-    int responseCode=0;
+    int responseCode=MHD_HTTP_OK;
     @try {
         @autoreleasepool {
             responseData=[[[self delegate]  performSelector:httpVerbSelector withObject:urlstring withObject:parameterDict] retain];
             //       responseData=[[self delegate] get:urlstring parameters:parameterDict];
 //            NSLog(@"responseData: '%@' %p / %@",responseData,responseData,[responseData class]);
             
-            if ( responseData) {
-                responseCode=MHD_HTTP_OK;
-            } else {
-                responseCode = 404;
-                responseData = [[@"404 Not Found" asData] retain];
-            }
         }
         [responseData autorelease];
    }
@@ -376,39 +379,7 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
         responseData=[self errorPage:exception];
         responseCode=500;
     }
-    NSString *mimetype=[self defaultMimetype];
-//    NSLog(@"%@ has a mime type: %d",[responseData class],[responseData respondsToSelector:@selector(MIMEType)]);
-
-    if ( [responseData respondsToSelector:@selector(MIMEType)]) {
-        NSString *responseMime=[responseData MIMEType];
-//        NSLog(@"%@ has a mime type: %@",[responseData class],responseMime);
-        if ( responseMime ) {
-            mimetype=responseMime;
-        }
-    } else {
-//        NSLog(@"response %@ does not have a mime type",[responseData class]);
-    }
-    responseData=[responseData asData];
-    char mimebuf[200];
-    bzero(mimebuf, 200);
-    [mimetype getBytes:mimebuf maxLength:190 usedLength:NULL encoding:NSASCIIStringEncoding options:0 range:NSMakeRange(0, [mimetype length]) remainingRange:NULL];
-//    struct MHD_Response* response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
-
-    struct MHD_Response* response= MHD_create_response_from_buffer ([responseData length],
-                                     ( void*)[responseData bytes],
-                                                                    MHD_RESPMEM_PERSISTENT);
-
-    MHD_add_response_header (response, "Connection", "Keep-Alive");
-//    MHD_add_response_header (response, "Keep-Alive", "timeout=3, max=100");
-//    MHD_add_response_header (response, "Expires", "Tue, 1 Jan 2013 08:12:31 GMT");
-    MHD_add_response_header (response, "Content-Type", mimebuf);
-//    MHD_add_response_header (response, "DAV", "1,2");
-//    MHD_add_response_header (response, "Allow", "OPTIONS,GET,HEAD,POST,DELETE,TRACE,PROPFIND,PROPPATCH,COPY,MOVE,LOCK,UNLOCK");
-
-    int ret = MHD_queue_response(connection,
-                                 responseCode,
-                                 response);
-    MHD_destroy_response(response);
+    int ret=[self queueResponseForConnection:connection withResponse:responseData defaultCode:responseCode];
     *con_cls = [responseData retain];
     [pool drain];
     return ret;
