@@ -270,6 +270,44 @@ objectAccessor(NSString*, _defaultMimeType, setDefaultMimeType)
     return @"text/plain";
 }
 
+-(int)queueResponseForConnection:(struct MHD_Connection*)connection withResponse:(id)responseObject
+{
+    int status = MHD_HTTP_OK;
+    struct MHD_Response* response=NULL;
+    //                    NSLog(@"will check responseData: %p",responseData);
+    //                    NSLog(@"will check responseData: %@",[responseData className]);
+    //                    NSLog(@"will check responseData: %@",responseData);
+    
+    if ( [responseObject isKindOfClass:[MPWBinding class]] || [responseObject isKindOfClass:[MPWReference class]]) {
+        //                        NSLog(@"got a redirect");
+        //                        NSLog(@"got a redirect: %@",responseData);
+        id <MPWReferencing> ref=(id <MPWReferencing>)responseObject;
+        NSString *location=[ref path];
+        const char *utf8location=[location UTF8String];
+        //                        NSLog(@"utf8location: %p",utf8location);
+        //                        NSLog(@"utf8location: '%s'",utf8location);
+        status = 302;
+        response= MHD_create_response_from_data(0, "", NO, NO);
+        //                        NSLog(@"did create response: %p",response);
+        MHD_add_response_header (response, "Location", utf8location);
+        //                        NSLog(@"did add redirect: %p",response);
+    } else {
+        NSData *responseData = (NSData*)responseObject;
+        response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
+        
+    }
+    //            fprintf(stderr, "did get responesData\n");
+    MHD_add_response_header (response, "Content-Type", "text/html");
+    int ret = MHD_queue_response(connection,
+                                 status,
+                                 response);
+    
+    //                fprintf(stderr, "queued response\n");
+    MHD_destroy_response(response);
+    return ret;
+
+}
+
 -(int)handleGetLikeSelector:(SEL)httpVerbSelector withURL:(const char*)url onConnection:(struct MHD_Connection*)connection context:(void**)con_cls
 {
 //    fprintf(stderr, "in GET URL '%s'\n",url);
@@ -539,45 +577,11 @@ int AccessHandlerCallback(void *cls,
                     NSMutableDictionary *parameterDict=[NSMutableDictionary dictionary];
                     MHD_get_connection_values (connection, MHD_GET_ARGUMENT_KIND,  addKeyValuesToDictionary,( void *)parameterDict);
                     [processor addParameters:parameterDict];
-                    fprintf(stderr,"will get response for POST\n");
-                    NSData *responseData = [[self delegate] post:urlstring parameters:processor];
-                    fprintf(stderr,"got responseData: %p\n",responseData);
-                    struct MHD_Response* response=NULL;
-                    NSLog(@"will check responseData: %p",responseData);
-                    NSLog(@"will check responseData: %@",[responseData className]);
-                    NSLog(@"will check responseData: %@",responseData);
-
-                    if ( [responseData isKindOfClass:[MPWBinding class]] || [responseData isKindOfClass:[MPWReference class]]) {
-                        NSLog(@"got a redirect");
-                        NSLog(@"got a redirect: %@",responseData);
-                        id <MPWReferencing> ref=(id <MPWReferencing>)responseData;
-                        NSString *location=[ref path];
-                        NSLog(@"location: %p",location);
-                        NSLog(@"location: %@",location);
-                        const char *utf8location=[location UTF8String];
-                        NSLog(@"utf8location: %p",utf8location);
-                        NSLog(@"utf8location: '%s'",utf8location);
-                        status = 302;
-                        response= MHD_create_response_from_data(0, "", NO, NO);
-                        NSLog(@"did create response: %p",response);
-                        MHD_add_response_header (response, "Location", utf8location);
-                        NSLog(@"did add redirect: %p",response);
-                    } else {
-                        response= MHD_create_response_from_data([responseData length], ( void*)[responseData bytes], NO, NO);
-
-                    }
-                    //            fprintf(stderr, "did get responesData\n");
+                    id responseObject = [[self delegate] post:urlstring parameters:processor];
                     [processor release];
-                    int ret = MHD_queue_response(connection,
-                                                 status,
-                                                 response);
-                    MHD_add_response_header (response, "Content-Type", "text/html");
+                    *con_cls = [responseObject retain];
+                    return [self queueResponseForConnection:connection withResponse:responseObject];
 
-                    //                fprintf(stderr, "queued response\n");
-                    MHD_destroy_response(response);
-                    *con_cls = [responseData retain];
-
-                    return ret;
 
                 }
                 return NO;
